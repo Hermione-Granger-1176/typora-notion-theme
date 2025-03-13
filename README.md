@@ -1,4 +1,4 @@
-![logo](img/logo.jpeg)
+![alt text](img/logo.png)
 
 > Designed and tested on macOS. Not fully tested, but should work for Windows/Linux.
 
