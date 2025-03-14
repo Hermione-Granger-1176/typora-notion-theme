@@ -1,6 +1,6 @@
 ![logo](img/logo.png)
 
-> Designed and tested on macOS. Not fully tested, but should work for Windows/Linux.
+> Designed and tested on macOS. Not fully tested, but should work for Windows/Linux.But this theme does not include styles for Windows “unibody” style
 
 # Introduce
 
@@ -11,11 +11,11 @@
 
 # Preview
 
-![image1](img/image1.jpeg)
+![image1](img/preview1.png)
 
-![image2](img/image2.jpeg)
+![image2](img/preview2.png)
 
-![image3](img/image3.jpeg)
+![image3](img/preview3.png)
 
 # Installation
 
