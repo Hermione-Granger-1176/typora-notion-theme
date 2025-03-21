@@ -2,9 +2,10 @@
 
 > Designed and tested on macOS. Not fully tested, but should work for Windows/Linux.But this theme does not include styles for Windows “unibody” style
 
+This is a custom theme for the Markdown editor [Typora](https://typora.io/).
+
 My custom Typora theme is now featured on the official site! 🎉  
 Check it out here: [Typora Themes](https://theme.typora.io/)
-
 
 # Introduce
 
