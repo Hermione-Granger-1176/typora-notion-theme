@@ -27,7 +27,7 @@ Installing this theme is easy—just move the CSS file into Typora's theme direc
 
 ### Steps to Install
 
-1. Download the CSS file (`notion-style-light.css` or `notion-style-dark.css`) from [this link](https://github.com/s1m4ne/typora-theme-notion-style).
+1. Download the CSS file (`notion-style-light.css` or `notion-style-dark.css`) from this GitHub repository.
 
 2. Open Typora and go to **`Settings` → `Appearance` → `Open Theme Folder`**.
 
