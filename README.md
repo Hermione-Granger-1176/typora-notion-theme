@@ -1,5 +1,7 @@
 ![logo](img/logo.png)
 
+![visits](https://img.shields.io/badge/dynamic/json?label=visits&query=value&url=https%3A%2F%2Fapi.countapi.xyz%2Fhit%2Fs1m4ne123%2notionstyle)
+
 > Designed and tested on macOS. Not fully tested, but should work for Windows/Linux.But this theme does not include styles for Windows “unibody” style
 
 This is a custom theme for the Markdown editor [Typora](https://typora.io/).
