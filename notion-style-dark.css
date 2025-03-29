@@ -134,16 +134,23 @@ h6 {
   font-size: var(--h3-fontsize);
   color: var(--text-color);
 }
+
 /* table */
 table {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: auto !important;
+  max-width: fit-content !important;
 }
 
 /* table cell */
 td,
 th {
-  min-width: 12rem;
+  min-width: 0.5rem;
+  max-width: 20rem;
+  width: auto;
+  word-wrap: break-word;
+  white-space: normal;
   border: 0.0625px solid var(--border-color);
   padding: 0.5rem 1rem;
 }
