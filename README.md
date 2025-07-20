@@ -7,6 +7,8 @@ This is a custom theme for the Markdown editor [Typora](https://typora.io/).
 My custom Typora theme is now featured on the official site! 🎉  
 Check it out here: [Typora Themes](https://theme.typora.io/)
 
+Feedback is always welcome! If you encounter any issues or have a suggestion, please don't hesitate to create an issue.
+
 # Introduce
 
 - **Notion-like design** for a clean and minimal look.
