@@ -24,7 +24,7 @@
   --link-color: #73716d;
   --side-bar-bg-color: #fafafa;
   --active-file-bg-color: #ededef;
-  --body-font: sans-serif;
+  --search-highlight-bg: #e9bc36;
   --border-radius: 0.125rem; /* 2px */
   --border-radius-lg: 0.25rem; /* 4px */
   --document-padding-x: 10ch;
@@ -36,9 +36,16 @@
   --line-height: 1.4;
   --main-content-max-width: 100ch;
   --monospace-font-size: 85%;
-  --monospace-font: "SFMono-Regular", monospace;
   --monospace-line-height: normal;
   --vertical-padding: 40px;
+
+  /* Fonts */
+  --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+    "Noto Sans SC", "Microsoft JhengHei", "Noto Sans TC", "Meiryo", "Yu Gothic",
+    "Noto Sans JP", "Malgun Gothic", "Noto Sans KR", sans-serif;
+
+  --monospace-font: "Sarasa Mono SC", "Source Han Mono", "Space Mono",
+    "Inconsolata", monospace;
 
   /* Code */
   --code-bg-color: #ededeb;
@@ -145,7 +152,7 @@ table {
 td,
 th {
   min-width: 0.5rem;
-  max-width: 20rem;
+  max-width: 35rem;
   width: auto;
   word-wrap: break-word;
   white-space: normal;
@@ -266,6 +273,37 @@ hr {
 
 p {
   margin: 1rem 0;
+}
+
+/* search */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.md-search-hit,
+.md-search-select {
+  display: inline-block !important;
+  border-radius: 0.5rem !important;
+  padding: 0.05rem 0.1rem !important;
+}
+
+.md-search-hit {
+  color: var(--text-color) !important;
+}
+
+.md-search-select {
+  background: var(--search-highlight-bg) !important;
+  color: var(--text-color) !important;
+  transform-origin: center center !important;
+  animation: pulse 0.3s ease-in-out !important;
 }
 
 /*
@@ -844,7 +882,7 @@ li > .outline-item-active {
   }
 
   body {
-    max-width: 600px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 0;
   }
