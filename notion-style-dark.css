@@ -1,71 +1,182 @@
 /*
- * Copyright (C) 2024-2025 cayxc
- * Modified by s1m4ne in 2025
+ * =================================================================
+ * NOTION-STYLE TYPORA THEME - DARK MODE
+ * =================================================================
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * A professional, Notion-inspired dark theme for Typora
+ *
+ * Copyright (C) 2025 Aditya Kumar Darak
+ * Based on original work by cayxc
+ * Modified and enhanced in 2025
+ *
+ * Licensed under the Apache License, Version 2.0
  * You may obtain a copy of the License at:
- *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * =================================================================
+ * TABLE OF CONTENTS
+ * =================================================================
+ *
+ * 1.  CSS VARIABLES ................................... Line 80
+ *     - Color System (base, interactive, hierarchy)
+ *     - Typography (fonts, sizes, spacing)
+ *     - Spacing & Layout
+ *     - Component Styles (code, todos)
+ *     - Performance & Animation
+ *
+ * 2.  BASE & RESET .................................... Line 180
+ *     - HTML & Body defaults
+ *     - Paragraph spacing
+ *     - Content container (#write)
+ *     - Media elements (images)
+ *
+ * 3.  BLOCK ELEMENTS .................................. Line 260
+ *     - YAML Frontmatter
+ *     - Headings (H1-H6 color hierarchy)
+ *     - Tables (rounded corners, zebra striping)
+ *     - Lists (UL, OL, Task Lists with animations)
+ *     - Blockquotes (with quote marks)
+ *     - Horizontal Rules (gradient)
+ *     - Math Blocks
+ *
+ * 4.  CODE & SYNTAX ................................... Line 660
+ *     - Search UI
+ *     - Code fences (no scrollbars)
+ *     - Syntax highlighting (all languages)
+ *     - Code tooltips & autocomplete
+ *
+ * 5.  INLINE ELEMENTS ................................. Line 980
+ *     - Inline code
+ *     - Links (enhanced states)
+ *     - Callouts/Info boxes
+ *     - Text selection & highlights
+ *
+ * 6.  SIDEBAR & NAVIGATION ............................ Line 1070
+ *     - Sidebar styling
+ *     - File tree
+ *     - Outline/TOC
+ *
+ * 7.  TYPORA-SPECIFIC ................................. Line 1370
+ *     - File library
+ *     - File tree hierarchy
+ *
+ * 8.  UTILITIES & HELPERS ............................. Line 1630
+ *     - Print Styles (PDF optimized)
+ *     - Workflow boxes
+ *     - List markers
+ *     - Strikethrough
+ *     - Footnotes (enhanced)
+ *
+ * =================================================================
  */
 
+
+/* =================================================================
+   1. CSS VARIABLES & CONFIGURATION
+   ================================================================= */
+
 :root {
+  /* === COLOR SYSTEM === */
+  /* Base colors */
+  --bg-color: #191919;
+  --text-color: #d4d4d4;
   --accent-color: #9ca6a8;
   --accented-background-color: #c1cacc;
-  --bg-color: #191919;
+
+  /* Border & dividers */
   --border-color: #3d3d3d;
-  --text-color: #d4d4d4;
+
+  /* Interactive colors */
   --link-color: #9c9c9c;
+  --selection-bg: #FFEEA0;
+  --selection-color: #000000;
+  --highlight-bg: #FFEEA0;
+  --search-highlight-bg: #e9bc36;
+
+  /* Heading hierarchy colors */
+  --h1-color: #f7f6f3;      /* Brightest - most prominent */
+  --h2-color: #e8e7e4;      /* Slightly dimmer */
+  --h3-color: #d4d4d4;      /* Standard text brightness */
+  --h4-color: #c0c0c0;      /* Muted */
+  --h5-color: #b0b0b0;      /* More muted */
+  --h6-color: #a0a0a0;      /* Most subtle */
+
+  /* Sidebar colors */
   --side-bar-bg-color: #202020;
   --side-bar-border-color: #2b2b2b;
   --active-file-bg-color: #2c2c2c;
-  --search-highlight-bg: #e9bc36;
-  --border-radius: 0.125rem; /* 2px */
-  --border-radius-lg: 0.25rem; /* 4px */
-  --document-padding-x: 10ch;
 
-  --font-size: 16px;
-  --h1-fontsize: 1.875rem;
-  --h2-fontsize: 1.5rem;
-  --h3-fontsize: 1.25rem;
-  --line-height: 1.4;
-  --main-content-max-width: 100ch;
-  --monospace-font-size: 85%;
-  --monospace-line-height: normal;
-  --vertical-padding: 40px;
-  --mermaid-theme: dark;
-
-  /* Fonts */
+  /* === TYPOGRAPHY === */
+  /* Font families */
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
     "Noto Sans SC", "Microsoft JhengHei", "Noto Sans TC", "Meiryo", "Yu Gothic",
     "Noto Sans JP", "Malgun Gothic", "Noto Sans KR", sans-serif;
-
   --monospace-font: "Sarasa Mono SC", "Source Han Mono", "Space Mono",
     "Inconsolata", monospace;
 
-  /* Code */
+  /* Font sizes */
+  --font-size: 16px;
+  --h1-fontsize: 1.875rem;  /* 30px */
+  --h2-fontsize: 1.5rem;    /* 24px */
+  --h3-fontsize: 1.25rem;   /* 20px */
+  --h4-fontsize: 1.125rem;  /* 18px */
+  --h5-fontsize: 1rem;      /* 16px */
+  --h6-fontsize: 1rem;      /* 16px */
+  --monospace-font-size: 85%;
+
+  /* Line heights & spacing */
+  --line-height: 1.6;
+  --monospace-line-height: normal;
+  --paragraph-spacing: 1.2rem;
+
+  /* === SPACING & LAYOUT === */
+  --document-padding-x: 10ch;
+  --vertical-padding: 40px;
+  --main-content-max-width: 90%;
+  --border-radius: 0.125rem;        /* 2px */
+  --border-radius-lg: 0.25rem;      /* 4px */
+
+  /* === COMPONENT STYLES === */
+  /* Code - inline */
   --code-bg-color: #292927;
   --code-color: #eb5757;
   --code-border-radius: 5px;
 
-  /* Code Block */
+  /* Code blocks */
   --code-block-bg-color: #202020;
   --code-tooltip-border-color: #373737;
+  --code-border-color: rgba(255, 255, 255, 0.12);
+  --code-border-hover-color: rgba(255, 255, 255, 0.2);
+  --code-selection-bg: #FFEEA0;
+  --code-selection-color: #000000;
 
-  /* TODO */
+  /* Todo checkboxes */
   --todo-bg-color: #2483e2;
   --todo-check-color: #ffffff;
 
-  /* File Tree */
-  /* Changing this font size will automatically adjust the size of the entire file tree */
+  /* File tree */
   --file-tree-font-size: 12px;
+
+  /* === EFFECTS & THEMING === */
+  --mermaid-theme: dark;
+
+  /* === PERFORMANCE === */
+  /* GPU acceleration for animations */
+  --gpu-acceleration: translateZ(0);
+
+  /* === ANIMATION & TIMING === */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.2s;
+  --transition-slow: 0.3s;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
 }
+
+
+/* =================================================================
+   2. BASE & RESET
+   ================================================================= */
 
 html {
   font-size: var(--font-size);
@@ -77,111 +188,268 @@ body {
   color: var(--text-color);
   font-family: var(--body-font);
   line-height: var(--line-height);
+  /* Performance: reduce repaints */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
+/* -----------------------------------------------------------------
+   Paragraph Spacing
+   ----------------------------------------------------------------- */
+
+/* Paragraph spacing - Notion style */
+p {
+  margin: var(--paragraph-spacing) 0;
+  line-height: var(--line-height);
+}
+
+/* First paragraph after heading - reduce top margin */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.5rem;
+}
+
+/* -----------------------------------------------------------------
+   Content Container
+   ----------------------------------------------------------------- */
+
 #write {
   padding-left: var(--document-padding-x);
   padding-right: var(--document-padding-x);
   max-width: var(--main-content-max-width);
   box-sizing: border-box;
+  /* Performance: contain layout changes */
+  contain: layout style;
 }
 
-/* Selection */
-::selection {
-  background-color: #24364e;
+/* -----------------------------------------------------------------
+   Media Elements
+   ----------------------------------------------------------------- */
+
+#write img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  max-width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  /* Performance: GPU acceleration */
+  will-change: transform;
+  transform: var(--gpu-acceleration);
 }
 
-img {
-  border-radius: 10px;
+#write img:hover {
+  transform: scale(1.02) var(--gpu-acceleration);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+              0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/*
-   * ---------------------
-   * Block Elements
-   * ---------------------
-*/
-/* yaml */
+/* Image captions */
+#write .md-image > .md-meta {
+  color: rgba(212, 212, 212, 0.7);
+  font-size: 0.875rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+
+/* =================================================================
+   3. BLOCK ELEMENTS
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   YAML Frontmatter
+   ----------------------------------------------------------------- */
+
 pre.md-meta-block {
-  background: var(--code-bg-color);
-  color: var(--link-color);
-  padding: 8px;
-  border-radius: 5px;
+  background: rgb(32, 32, 32);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 12px;
+  border-radius: 3px;
   width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: none;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 85%;
+  line-height: 1.5;
 }
 
-/* headings */
+/* YAML syntax highlighting */
+pre.md-meta-block .md-meta-i {
+  color: #79c0ff;
+  font-weight: 500;
+}
+
+pre.md-meta-block .md-meta-value {
+  color: #7ee787;
+}
+
+/* -----------------------------------------------------------------
+   Headings - Color Hierarchy (H1-H6)
+   ----------------------------------------------------------------- */
+
 h1 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
   font-size: var(--h1-fontsize);
-  font-weight: bold;
-  color: var(--header-color);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--h1-color);
 }
 
-h1:not(:first-child) {
-  margin-top: 3rem;
+h1:first-child {
+  margin-top: 1rem;
 }
 
 h2 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
   font-size: var(--h2-fontsize);
-  font-weight: bold;
-  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--h2-color);
 }
 
 h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: var(--h3-fontsize);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--h3-color);
+}
+
+h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.8rem;
+  font-size: var(--h4-fontsize);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--h4-color);
+}
+
+h5 {
   margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: var(--h3-fontsize);
-  font-weight: bold;
-  color: var(--text-color);
+  margin-bottom: 0.6rem;
+  font-size: var(--h5-fontsize);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--h5-color);
 }
 
-h4,
-h5,
 h6 {
-  margin-top: 1rem;
-  margin-bottom: 0rem;
-  font-size: var(--h3-fontsize);
-  color: var(--text-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: var(--h6-fontsize);
+  font-weight: 500;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--h6-color);
 }
 
-/* table */
-table {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: auto !important;
-  max-width: fit-content !important;
+/* -----------------------------------------------------------------
+   Tables
+   ----------------------------------------------------------------- */
+
+#write table {
+  margin: 1.5rem 0;
+  width: auto;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* table cell */
 td,
 th {
-  min-width: 0.5rem;
+  min-width: 120px;
   max-width: 35rem;
   width: auto;
   word-wrap: break-word;
   white-space: normal;
-  border: 0.0625px solid var(--border-color);
-  padding: 0.5rem 1rem;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 16px;
+  font-size: 0.95rem;
 }
 
-h2 + table tr:first-child th,
-h2 + table tr:first-child td {
+/* Remove right border from last cell in each row */
+td:last-child,
+th:last-child {
+  border-right: none;
+}
+
+/* Remove bottom border from last row */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transition: background-color 0.15s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:nth-child(even):hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+h2+table tr:first-child th,
+h2+table tr:first-child td {
   border-top-width: 0;
 }
 
-/* lists */
-ul,
-ol {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+td[align="center"],
+th[align="center"] {
+  text-align: center;
 }
 
-ul li,
-ol li {
-  padding-left: 0 !important;
-  margin-left: 2rem !important;
+td[align="right"],
+th[align="right"] {
+  text-align: right;
+}
+
+/* -----------------------------------------------------------------
+   Lists (UL, OL, Task Lists)
+   ----------------------------------------------------------------- */
+
+#write ul,
+#write ol {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#write ul li,
+#write ol li {
+  padding-left: 0;
+  margin-left: 2rem;
 }
 
 ol ol {
@@ -198,78 +466,135 @@ li p {
   margin: 0;
 }
 
-/* TODO */
 #write .md-task-list-item > input {
-  -webkit-appearance: initial;
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-block;
-  text-align: center;
   vertical-align: middle;
   position: absolute;
-  border: 0.08rem solid var(--text-color);
-  margin-top: 0.2rem;
-  margin-left: -1.45rem;
-  height: 0.95rem;
-  width: 0.95rem;
-  transition: all 0.35s;
+  border: 2px solid rgba(212, 212, 212, 0.4);
+  margin: 0.2rem 0 0 -1.45rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#write .md-task-list-item > input:hover {
+  border-color: var(--todo-bg-color);
+  background-color: rgba(36, 131, 226, 0.1);
+  transform: scale(1.05) var(--gpu-acceleration);
 }
 
 #write .md-task-list-item > input:focus {
-  outline: none;
-  box-shadow: none;
+  outline: 2px solid var(--todo-bg-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(36, 131, 226, 0.1);
 }
 
 #write .md-task-list-item > input[checked] {
   background: var(--todo-bg-color);
-  border: 0.08rem solid var(--todo-bg-color);
+  border: 2px solid var(--todo-bg-color);
+  animation: checkboxPop 0.2s ease-out;
+}
+
+@keyframes checkboxPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #write .md-task-list-item > input[checked]::before {
   content: "";
   display: block;
-  width: 0.3rem;
-  height: 0.55rem;
+  width: 0.35rem;
+  height: 0.6rem;
   background: transparent;
-  border: 0.125rem solid var(--todo-check-color);
+  border: 2px solid var(--todo-check-color);
   border-top: none;
   border-left: none;
   position: absolute;
   box-sizing: border-box;
-  top: 45%;
+  top: 42%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(40deg);
-  -webkit-transform: translate(-50%, -50%) rotate(40deg);
-  -ms-transform: translate(-50%, -50%) rotate(40deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: checkmarkDraw 0.2s ease-out 0.1s both;
 }
 
-#write .md-task-list-item > input[checked] {
-  background: var(--todo-bg-color);
-  border: 0.0625rem solid var(--todo-bg-color);
+@keyframes checkmarkDraw {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  50% {
+    height: 0.6rem;
+    width: 0;
+  }
+  100% {
+    height: 0.6rem;
+    width: 0.35rem;
+  }
 }
 
 #write .md-task-list-item > input[checked] + label,
 #write .md-task-list-item.task-list-done {
-  color: vat(--link-color);
+  color: rgba(156, 156, 156, 0.7);
   text-decoration: line-through;
+  text-decoration-color: rgba(156, 156, 156, 0.5);
+  transition: all 0.2s ease;
 }
 
-.md-image > .md-meta {
+.md-image>.md-meta {
   border-radius: var(--border-radius);
   padding: 0.125rem 0rem 0rem 0.25rem;
   font-size: 0.9em;
   color: inherit;
 }
 
-/* blockquote */
-blockquote {
-  margin: 1rem 0;
-  padding-left: 2ch;
-  margin-left: 0.5ch;
+#write blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem 1rem 3rem;
   position: relative;
-  overflow: hidden;
-  border-left: 0.1875rem solid var(--text-color);
+  border-left: 3px solid var(--accent-color);
+  background-color: rgba(45, 45, 45, 0.4);
+  border-radius: 5px;
+  font-style: italic;
+  color: rgba(212, 212, 212, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* math block */
+#write blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 0.75rem;
+  top: 0.5rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--accent-color);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+#write blockquote p:first-child {
+  margin-top: 0;
+}
+
+#write blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* -----------------------------------------------------------------
+   Math Blocks
+   ----------------------------------------------------------------- */
+
 .md-math-block:hover .md-math-container,
 .md-math-block:hover .md-rawblock-tooltip,
 .md-htmlblock:hover .md-htmlblock-container,
@@ -291,26 +616,58 @@ blockquote {
   background: transparent;
 }
 
-/* hr */
-hr {
+/* -----------------------------------------------------------------
+   Horizontal Rules
+   ----------------------------------------------------------------- */
+
+#write hr {
   border: none;
-  border-bottom: 0.0625rem solid var(--border-color);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-color) 15%,
+    var(--accent-color) 50%,
+    var(--border-color) 85%,
+    transparent 100%
+  );
+  margin: 3rem 0;
+  position: relative;
+  overflow: visible;
 }
 
-p {
-  margin: 1rem 0;
+#write hr::before {
+  content: "• • •";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-color);
+  padding: 0 1rem;
+  color: var(--accent-color);
+  letter-spacing: 0.5em;
+  font-size: 0.75rem;
+  opacity: 0.6;
 }
 
-/* search */
+
+/* =================================================================
+   4. CODE & SYNTAX HIGHLIGHTING
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Search
+   ----------------------------------------------------------------- */
+
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
@@ -335,158 +692,331 @@ p {
 }
 
 /*
-   * ---------------------
-   * Code Fences
-   * ---------------------
+   * =========================================================
+   * CODE FENCES & SYNTAX HIGHLIGHTING
+   * =========================================================
+   * This section styles code blocks for all programming languages.
+   * Typora uses CodeMirror for syntax highlighting, which
+   * automatically detects and highlights Python, JavaScript,
+   * Java, SQL, HTML, CSS, and 100+ other languages.
+   * =========================================================
 */
+
 pre {
   --monospace: "Cascadia Code Variable", SFMono-Regular, Menlo, Consolas,
     "PT Mono", "Liberation Mono";
 }
 
+/* -----------------------------------------------------------------
+   Code Fence Styling
+   ----------------------------------------------------------------- */
+
 .md-fences {
-  font-size: 1rem;
+  position: relative;
+  margin: 1.25rem 0;
+  background: var(--code-block-bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: 6px;
+  overflow: visible;
+  padding: 0;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  /* Performance: contain repaints (not paint to avoid clipping) */
+  contain: layout style;
+  will-change: border-color, box-shadow;
 }
 
-.cm-s-inner {
-  background: var(--code-block-bg-color) !important;
-  border-radius: var(--code-border-radius) !important;
-  padding: 2.5em;
-  padding-left: 1.5em !important;
-  padding-right: 1.5em !important;
-  font-size: var(--monospace-font-size) !important;
+.md-fences:hover {
+  border-color: var(--code-border-hover-color);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.00);
 }
 
-.cm-s-inner .CodeMirror-gutters {
-  width: 0 !important;
-  opacity: 0 !important;
+#write .cm-s-inner {
+  background: transparent;
+  border-radius: 0;
+  padding: 20px 24px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-family: var(--monospace-font);
+  border: none;
+}
+
+#write .md-fences pre,
+#write .md-fences code {
+  font-family: var(--monospace-font);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  background: transparent;
+}
+
+#write .md-fences pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#write .md-fences code {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+#write .cm-s-inner .CodeMirror-gutters {
+  width: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
-.cm-s-inner .CodeMirror-cursor {
-  border-left: 1.5px solid white !important;
+#write .cm-s-inner .CodeMirror-cursor {
+  border-left: 2px solid #79c0ff;
 }
 
-.cm-s-inner .CodeMirror-linenumber {
-  opacity: 0 !important;
+#write .cm-s-inner .CodeMirror-linenumber {
+  opacity: 0;
 }
 
-/* code color */
+/* ---------------------------------------------------------
+   UNIVERSAL SYNTAX HIGHLIGHTING (DARK THEME)
+   ---------------------------------------------------------
+   These rules work automatically for ALL programming languages.
+   CodeMirror tokenizes code and applies these classes regardless
+   of the language (Python, JavaScript, Java, C++, SQL, etc.)
+   Colors are optimized for dark backgrounds.
+   --------------------------------------------------------- */
+
 .cm-s-inner {
-  color: #dcdcdc;
-}
-.cm-s-inner .cm-keyword,
-.cm-builtin {
-  color: #67a2cc !important;
-}
-.cm-s-inner .cm-def,
-.cm-s-inner .cm-variable-2 {
-  color: #ecec93 !important;
-}
-.cm-s-inner .cm-operator {
-  color: #f5b73d;
-}
-.cm-s-inner .cm-variable,
-.cm-s-inner .cm-variable-3,
-.cm-s-inner .cm-property,
-.cm-s-inner .cm-meta {
-  color: #dcdcdc;
-}
-.cm-s-inner .cm-atom,
-.cm-s-inner .cm-number,
-.cm-s-inner .cm-attribute,
-.cm-s-inner .cm-tag {
-  color: #e06c75;
-}
-.cm-s-inner .cm-string,
-.cm-s-inner .cm-string-2,
-.cm-s-inner .cm-type {
-  color: #bde051;
-}
-.cm-s-inner .cm-comment {
-  color: #998066;
+  color: #e6edf3;
 }
 
+/* KEYWORDS: def, class, if, for, while, import, function, const, let, var, return, etc. */
+.cm-s-inner .cm-keyword,
+.cm-s-inner .cm-builtin {
+  color: #ff7b72;
+  font-weight: 600;
+}
+
+/* FUNCTION & CLASS DEFINITIONS: function names, class names when defined */
+.cm-s-inner .cm-def {
+  color: #d2a8ff;
+  font-weight: 600;
+}
+
+/* VARIABLES: All variable names and identifiers */
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-variable-2,
+.cm-s-inner .cm-variable-3 {
+  color: #ffa657;
+}
+
+/* NUMBERS & BOOLEANS: 123, 45.67, True, False, null, undefined */
+.cm-s-inner .cm-number,
+.cm-s-inner .cm-atom {
+  color: #79c0ff;
+  font-weight: 500;
+}
+
+/* STRINGS: "text", 'text', `template`, f"formatted" */
+.cm-s-inner .cm-string,
+.cm-s-inner .cm-string-2 {
+  color: #a5d6ff;
+}
+
+/* COMMENTS: # Python comments, // JS comments, /* block comments */
+*/ .cm-s-inner .cm-comment {
+  color: #8b949e;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* OPERATORS: +, -, *, /, =, ==, ===, +=, ->, =>, etc. */
+.cm-s-inner .cm-operator {
+  color: #ff7b72;
+}
+
+/* PROPERTIES & ATTRIBUTES: object.property, @attribute */
+.cm-s-inner .cm-property,
+.cm-s-inner .cm-attribute {
+  color: #79c0ff;
+}
+
+/* TYPES & TAGS: int, str, boolean, <div>, <span> */
+.cm-s-inner .cm-type,
+.cm-s-inner .cm-tag {
+  color: #7ee787;
+  font-weight: 500;
+}
+
+/* META/DECORATORS: @decorator, @property, annotations */
+.cm-s-inner .cm-meta {
+  color: #d2a8ff;
+}
+
+/* QUALIFIERS: public, private, static, final, const */
 .cm-s-inner .cm-qualifier {
-  color: #b58900 !important;
+  color: #ffa657;
+  font-weight: 500;
 }
+
+/* BRACKETS & PUNCTUATION: Better visibility for (), [], {} */
 .cm-s-inner .cm-bracket {
-  color: #cb4b16 !important;
+  color: #c9d1d9;
+  font-weight: 600;
 }
+
+/* ERRORS: Syntax errors and invalid characters */
 .cm-s-inner .cm-error,
 .cm-s-inner .cm-invalidchar {
-  color: #dc322f !important;
-  border-bottom: 1px dotted #dc322f !important;
+  color: #f85149;
+  text-decoration: wavy underline;
+  text-decoration-color: #f85149;
 }
-.cm-s-inner .cm-special {
-  color: #6c71c4 !important;
-}
+
+/* HEADERS: Markdown headers within code blocks */
 .cm-s-inner .cm-header {
-  color: #586e75 !important;
-}
-.cm-s-inner .cm-quote {
-  color: #93a1a1 !important;
+  color: #79c0ff;
+  font-weight: 600;
 }
 
-/* code tooltip */
+/* SPECIAL CHARACTERS: Escape sequences, regex patterns */
+.cm-s-inner .cm-special {
+  color: #d2a8ff;
+}
+
+/* -----------------------------------------------------------------
+   Code Block Toolbar & Interactions
+   ----------------------------------------------------------------- */
+
 .md-fences .code-tooltip {
-  right: 0 !important;
-  bottom: -1.875rem !important;
-  background-color: var(--code-block-bg-color);
-  border-radius: var(--border-radius-lg);
-  z-index: 50;
-  padding: 0;
-  border: 1px solid var(--border-color);
-  box-shadow: none;
+  background-color: rgba(32, 32, 32, 0.98);
+  border-radius: 6px;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
+/* Style toolbar buttons and language input */
 .md-fences .code-tooltip input,
 .md-fences .code-tooltip span {
-  padding: 3px;
+  padding: 6px 10px;
   border-radius: 5px;
-  margin: 0;
+  margin: 0 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.md-fences.md-focus .cm-s-inner {
-  /* Remove bottom right border radius when tooltip is shown */
-  border-bottom-right-radius: 0;
+.md-fences .code-tooltip input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* code tooltip autocomplete list */
+.md-fences .code-tooltip input:hover,
+.md-fences .code-tooltip input:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.md-fences .code-tooltip span {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+}
+
+.md-fences .code-tooltip span:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.md-fences .code-tooltip span:active {
+  transform: translateY(0);
+}
+
+/* -----------------------------------------------------------------
+   Code Autocomplete Dropdown
+   ----------------------------------------------------------------- */
+
 .autoComplt-list {
   width: 20ch !important;
-  border-radius: var(--border-radius) !important;
-  background-color: var(--accented-background-color) !important;
+  border-radius: 6px !important;
+  background-color: #2b2b2b !important;
   border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
 .autoComplt-hint {
   background-color: transparent !important;
   margin: 0 !important;
-  padding: 0.125rem 0.375rem !important;
+  padding: 0.25rem 0.75rem !important;
   color: var(--text-color) !important;
   line-height: var(--line-height) !important;
-  height: 1.4rem !important;
+  height: auto !important;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
 .autoComplt-hint-selected {
-  background-color: var(--link-color) !important;
-  color: var(--bg-color) !important;
+  background-color: #3d3d3d !important;
+  color: #79c0ff !important;
 }
 
-/*
-   * ---------------------
-   * Inline Elements
-   * ---------------------
-*/
+
+/* =================================================================
+   5. INLINE ELEMENTS
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Inline Code
+   ----------------------------------------------------------------- */
+
 code {
-  font-family: var(--monospace-font);
-  font-size: var(--monospace-font-size);
-  line-height: var(--monospace-line-height);
-  color: var(--code-color);
-  background-color: var(--code-bg-color);
-  padding: 0.15em 0.4em;
-  border-radius: 0.25rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 85%;
+  line-height: normal;
+  color: #eb5757;
+  background-color: rgba(135, 131, 120, 0.15);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  border: none;
+  font-weight: 400;
+}
+
+.md-alert,
+.admonition {
+  background-color: rgba(45, 45, 45, 0.6);
+  border-left: 3px solid #9ca6a8;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 3px;
+}
+
+.md-alert-info,
+.admonition.info {
+  background-color: rgba(46, 68, 88, 0.5);
+  border-left-color: #0b6cc9;
+}
+
+.md-alert-warning,
+.admonition.warning {
+  background-color: rgba(89, 65, 28, 0.5);
+  border-left-color: #eb8c00;
+}
+
+.md-alert-success,
+.admonition.success {
+  background-color: rgba(28, 56, 41, 0.5);
+  border-left-color: #0f7b6c;
 }
 
 sup.md-footnote {
@@ -494,8 +1024,98 @@ sup.md-footnote {
   color: var(--text-color) !important;
 }
 
-a {
+#write a {
+  text-decoration: none;
   color: var(--link-color);
+  border-bottom: 1px solid transparent;
+  padding: 0 0.125em;
+  margin: 0 -0.125em;
+  border-radius: 2px;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#write a:hover {
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: var(--accent-color);
+}
+
+#write a:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#write a:active {
+  transform: translateY(1px) var(--gpu-acceleration);
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+
+.cm-s-inner .CodeMirror-selected {
+  background: transparent !important;
+}
+
+.cm-s-inner .CodeMirror-selectedtext {
+  background: var(--code-selection-bg) !important;
+  color: var(--code-selection-color) !important;
+}
+
+mark {
+  background-color: var(--highlight-bg);
+  color: #37352f;
+  padding: 0.125em 0;
+  border-radius: 0;
+}
+
+mark.yellow,
+mark {
+  background-color: #FFEEA0;
+  color: #37352f;
+}
+
+mark.red {
+  background-color: #5A2C2C;
+  color: #FFB8B1;
+}
+
+mark.blue {
+  background-color: #2B4257;
+  color: #9CC7E8;
+}
+
+mark.green {
+  background-color: #2B4A3F;
+  color: #93E1C8;
+}
+
+mark.orange {
+  background-color: #594A3A;
+  color: #FFCC99;
+}
+
+mark.purple {
+  background-color: #443F57;
+  color: #D4C5F9;
+}
+
+mark.pink {
+  background-color: #533B47;
+  color: #FFB8D2;
+}
+
+mark.brown {
+  background-color: #434040;
+  color: #D4C4B0;
+}
+
+mark.gray {
+  background-color: #3A3A3A;
+  color: #C1C1C1;
 }
 
 #write div.md-toc-tooltip {
@@ -511,10 +1131,12 @@ a {
 .sidebar-footer {
   border-top: 1px solid var(--side-bar-border-color);
 }
+
 .pin-outline #typora-sidebar {
   box-shadow: none;
   border-right: 1px solid var(--side-bar-border-color);
 }
+
 .sidebar-tabs {
   border-bottom: 1px solid var(--side-bar-border-color) !important;
 }
@@ -523,6 +1145,7 @@ a {
   padding: 16px;
   font-size: 14px !important;
 }
+
 .outline-content li {
   position: relative;
   z-index: 30;
@@ -541,12 +1164,14 @@ a {
   border-left: 1px solid var(--border-color);
 }
 
-.outline-content > li:first-of-type::before {
+.outline-content>li:first-of-type::before {
   top: 0;
 }
+
 .outline-content li a {
   font-size: 14px !important;
 }
+
 .outline-content li ul {
   margin-left: 20px;
   margin-top: 0 !important;
@@ -561,7 +1186,8 @@ a {
   top: -10px;
   border-left: 1px solid var(--border-color);
 }
-.outline-content ul > li:last-of-type::before {
+
+.outline-content ul>li:last-of-type::before {
   content: "";
   width: 1px;
   height: 10px;
@@ -579,7 +1205,7 @@ a {
   border: 1px solid transparent;
 }
 
-.outline-item > .outline-label {
+.outline-item>.outline-label {
   text-decoration: none;
 }
 
@@ -601,7 +1227,7 @@ a {
   border-bottom: 1px solid var(--border-color);
 }
 
-.outline-content > li:first-of-type > .outline-item::before {
+.outline-content>li:first-of-type>.outline-item::before {
   top: calc(50% - 1px) !important;
   border-top: 1px solid var(--border-color);
   border-bottom: none;
@@ -611,7 +1237,7 @@ a {
   -webkit-border-bottom-left-radius: 0;
 }
 
-.outline-content > li:first-of-type > .outline-item::after {
+.outline-content>li:first-of-type>.outline-item::after {
   content: "";
   width: 1px;
   height: 100%;
@@ -622,8 +1248,8 @@ a {
   border-left: 1px solid var(--bg-color);
 }
 
-.outline-content > li:last-of-type > .outline-item::before,
-.outline-content > li ul > li:last-of-type > .outline-item::before {
+.outline-content>li:last-of-type>.outline-item::before,
+.outline-content>li ul>li:last-of-type>.outline-item::before {
   z-index: 90;
   background: transparent;
   border-left: 1px solid var(--border-color);
@@ -635,11 +1261,12 @@ a {
   -webkit-border-top-left-radius: 0;
 }
 
-.outline-content > li:only-of-type > .outline-item::before,
-.outline-content > li:last-of-type::before {
+.outline-content>li:only-of-type>.outline-item::before,
+.outline-content>li:last-of-type::before {
   display: none;
 }
-.outline-content > li:only-of-type {
+
+.outline-content>li:only-of-type {
   margin-left: -6px;
 }
 
@@ -659,13 +1286,13 @@ a {
 }
 
 .outline-item:hover,
-.outline-item:hover > .outline-expander:before,
-.outline-item:hover > .outline-expander {
+.outline-item:hover>.outline-expander:before,
+.outline-item:hover>.outline-expander {
   background: var(--active-file-bg-color) !important;
   color: var(--text-color) !important;
 }
 
-li > .outline-item-active {
+li>.outline-item-active {
   background: var(--active-file-bg-color);
 }
 
@@ -684,7 +1311,8 @@ li > .outline-item-active {
 .ty-on-outline-filter .outline-content .outline-item::after {
   display: none;
 }
-.ty-on-outline-filter .outline-content > li > ul,
+
+.ty-on-outline-filter .outline-content>li>ul,
 .ty-on-outline-filter .outline-content .outline-item {
   margin-left: 0;
 }
@@ -699,12 +1327,14 @@ li > .outline-item-active {
 #file-library-search-result {
   padding: 12px;
 }
+
 #file-library-list .file-list-item,
 #file-library-search-result .ty-search-item {
   margin-bottom: 8px;
   border: 1px solid transparent;
   border-bottom-color: var(--border-color);
 }
+
 #file-library-list .file-list-item {
   padding-left: 12px;
   padding-right: 12px;
@@ -715,47 +1345,58 @@ li > .outline-item-active {
   border-radius: 5px;
   border: 1px solid var(--text-color);
 }
+
 #file-library-list .file-list-item.active {
   padding: 6px 12px;
 }
+
 #file-library-search-result .ty-search-item.active {
   padding: 6px 12px 6px 0;
 }
+
 #file-library-list .file-list-item:first-of-type.active,
 #file-library-search-result .ty-search-item:first-of-type.active {
   margin-top: 0;
 }
+
 #file-library-list .file-list-item:hover,
 #file-library-search-result .ty-search-item:hover {
   border-radius: 5px;
   background: var(--active-file-bg-color);
   border-color: var(--border-color);
 }
+
 #file-library-search-result .ty-search-item.active {
   color: var(--text-color);
 }
+
 #file-library-search-result .ty-search-item.active .ty-search-item-line {
   white-space: normal;
   word-break: break-word;
 }
+
 .file-list-item-time {
   margin-right: 0;
   padding-right: 0;
 }
+
 .file-list-item-count {
   margin-right: 0;
   padding: 0 6px;
   border-radius: 3px;
 }
+
 #file-library-search-result .ty-search-item.active .file-list-item-count {
   padding-right: 0;
 }
+
 #sidebar-loading-template {
   padding: 8px;
   border-radius: 5px;
   margin-bottom: 5px;
   display: none;
 }
+
 .ty-file-search-match-text {
   background-color: var(--color-2-0-c);
 }
@@ -772,6 +1413,7 @@ li > .outline-item-active {
   box-sizing: border-box;
   font-size: var(--file-tree-font-size);
 }
+
 .sidebar-tab-btn {
   font-size: 1.1429em !important;
   line-height: 1.4286em !important;
@@ -779,76 +1421,96 @@ li > .outline-item-active {
   margin-top: 0.8571em !important;
   color: var(--title-color);
 }
+
 .ty-sidebar-search-panel .searchpanel-search-option-btn {
   top: 0.5714em;
 }
+
 .file-tree-node {
   position: relative;
   padding-left: 0;
   margin-left: 0;
 }
+
 .file-library-file-node:hover .file-node-background {
   background: var(--active-file-bg-color);
 }
+
 .file-library-file-node:hover .file-node-content {
   cursor: pointer;
 }
+
 .file-library-file-node:hover .file-node-icon:after {
   width: 0.5714em !important;
 }
 
-.file-node-expanded > .file-node-children {
+.file-node-expanded>.file-node-children {
   margin-left: 2.1071em;
 }
-.file-tree-node > .file-node-background {
+
+.file-tree-node>.file-node-background {
   border-radius: 0.3571em;
   margin-left: -0.8571em;
   border: none !important;
 }
-#file-library-tree .file-node-root > .file-node-content {
+
+#file-library-tree .file-node-root>.file-node-content {
   margin-left: -0.2143em !important;
 }
-#file-library-tree .file-tree-node > .file-node-content {
+
+#file-library-tree .file-tree-node>.file-node-content {
   margin-left: -1.0714em;
 }
-#file-library-tree .file-node-collapsed > .file-node-content,
-#file-library-tree .file-node-expanded > .file-node-content {
+
+#file-library-tree .file-node-collapsed>.file-node-content,
+#file-library-tree .file-node-expanded>.file-node-content {
   margin-left: -0.6429em;
 }
-.file-library-node:not(.file-node-root):focus > .file-node-content {
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
   outline: none;
 }
+
 .os-windows #file-library-tree .file-node-content {
   padding-right: 2.6429em;
   margin-bottom: 0.2143em;
 }
-.file-library-node:not(.file-node-root):focus > .file-node-background {
+
+.file-library-node:not(.file-node-root):focus>.file-node-background {
   border: 1px dashed var(--text-color) !important;
 }
-.file-library-node.active:not(.file-node-root):focus > .file-node-background {
+
+.file-library-node.active:not(.file-node-root):focus>.file-node-background {
   border: 1px dashed var(--text-color) !important;
 }
+
 .fa-folder:before,
 .fa-folder:after,
 .fa-caret-right,
 .fa-caret-down {
   color: var(--text-grey);
 }
+
 .file-node-content .file-node-title {
   padding-right: 0.6429em;
 }
+
 .file-library-file-node.active .file-node-title {
   font-weight: 700;
 }
-#file-library-tree .file-node-root > .file-node-children {
+
+#file-library-tree .file-node-root>.file-node-children {
   margin-left: 1.8929em;
 }
+
 #file-library-tree .file-tree-node {
   position: relative;
 }
-.file-node-expanded > .file-node-content .fa-caret-down {
+
+.file-node-expanded>.file-node-content .fa-caret-down {
   margin-right: 0.0714em;
 }
+
 #file-library-tree .file-tree-node .file-node-icon {
   padding-left: 0.2143em;
 }
@@ -858,6 +1520,7 @@ li > .outline-item-active {
   z-index: 30;
   padding-left: 0.2857em;
 }
+
 #file-library-tree .file-node-content::before {
   content: "";
   position: absolute;
@@ -869,11 +1532,13 @@ li > .outline-item-active {
   height: calc(100% + 0.3571em);
   border-left: 1px solid var(--border-color);
 }
-#file-library-tree .file-node-content > .file-node-icon::before {
+
+#file-library-tree .file-node-content>.file-node-icon::before {
   position: relative;
   z-index: 35;
 }
-#file-library-tree .file-node-content > .file-node-icon::after {
+
+#file-library-tree .file-node-content>.file-node-icon::after {
   content: "";
   position: absolute;
   z-index: 20;
@@ -885,51 +1550,40 @@ li > .outline-item-active {
   border-top: 1px solid var(--border-color);
   background: transparent;
 }
-#file-library-tree .active > .file-node-content > .file-node-icon::after {
+
+#file-library-tree .active>.file-node-content>.file-node-icon::after {
   width: 0.5714em;
 }
-#file-library-tree
-  .file-node-expanded
-  > .file-node-content
-  > .file-node-icon::after {
+
+#file-library-tree .file-node-expanded>.file-node-content>.file-node-icon::after {
   left: -1.4286em;
   top: 1.0714em;
   width: 0.5714em;
 }
-#file-library-tree
-  .file-node-collapsed
-  > .file-node-content
-  > .file-node-icon::after {
+
+#file-library-tree .file-node-collapsed>.file-node-content>.file-node-icon::after {
   left: -1.4286em;
   top: 1em;
   width: 0.8571em;
 }
-.os-windows
-  #file-library-tree
-  .file-node-collapsed
-  > .file-node-content
-  > .file-node-icon::after {
+
+.os-windows #file-library-tree .file-node-collapsed>.file-node-content>.file-node-icon::after {
   top: 1.0714em;
 }
-#file-library-tree
-  .file-node-children
-  > div:last-of-type
-  > .file-node-content
-  > .file-node-icon::after {
+
+#file-library-tree .file-node-children>div:last-of-type>.file-node-content>.file-node-icon::after {
   border-top: none;
   border-bottom: 1px solid var(--border-color);
   border-bottom-left-radius: 0.2143em;
   top: -0.0714em;
 }
 
-#file-library-tree
-  .file-node-children
-  > div:last-of-type
-  > .file-node-content::before {
+#file-library-tree .file-node-children>div:last-of-type>.file-node-content::before {
   height: 0.7143em;
   top: -0.6429em;
 }
-.file-node-root > .file-node-content > .file-node-icon::after {
+
+.file-node-root>.file-node-content>.file-node-icon::after {
   display: none;
 }
 
@@ -939,13 +1593,16 @@ li > .outline-item-active {
   align-items: center;
   height: 1.5em;
 }
+
 .file-node-background {
   height: 1.5em;
   border-radius: 0.25em;
 }
+
 .file-library-node {
   margin: 0.25em 0;
 }
+
 .file-library-file-node:hover .file-node-background,
 .file-library-file-node.active .file-node-background {
   background: var(--active-file-bg-color);
@@ -954,23 +1611,503 @@ li > .outline-item-active {
   display: flex;
   align-items: center;
 }
+
 .file-library-file-node:hover .file-node-content,
 .file-library-file-node.active .file-node-content {
   cursor: pointer;
 }
 
-/* Print-specific styles */
+
+/* =================================================================
+   8. UTILITIES & HELPERS
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Print Styles - Optimized for Paper
+   ----------------------------------------------------------------- */
+
 @media print {
+  /* Color accuracy for print */
   .typora-export * {
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+
+  /* Root adjustments for print */
   :root {
-    --font-size: 14px;
+    --font-size: 11pt;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #000000;
   }
 
+  /* Body and page setup */
   body {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
+    background: white;
+    color: black;
+  }
+
+  #write {
+    padding: 1cm 1.5cm;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Remove shadows and effects for print */
+  #write img,
+  #write table,
+  #write blockquote,
+  #write .md-fences {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  /* Disable animations, transitions, and expensive effects for faster PDF rendering */
+  * {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .typora-export .mermaid svg,
+  .typora-export .mermaid svg * {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .typora-export .md-diagram-panel {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .typora-export .md-diagram-panel svg {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .typora-export .md-diagram-panel svg text,
+  .typora-export .md-diagram-panel svg tspan {
+    fill: #111111 !important;
+  }
+
+  .typora-export .md-diagram-panel svg foreignObject {
+    overflow: visible !important;
+  }
+
+  /* Disable GPU acceleration hints */
+  #write img,
+  #write .md-task-list-item > input {
+    will-change: auto !important;
+    transform: none !important;
+  }
+
+  #write a {
+    will-change: auto !important;
+  }
+
+  /* Simplify shadows for faster rendering */
+  #write img {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* Remove decorative pseudo-elements */
+  #write hr::before,
+  #write blockquote::before {
+    display: none !important;
+  }
+
+  /* Page breaks */
+  /* Start new page for H1 and section breaks (except first H1) */
+  #write h1 {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  #write h1:first-of-type,
+  #write > h1:first-child {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
+  #write hr {
+    page-break-after: always;
+    break-after: page;
+    margin-bottom: 0;
+  }
+
+  /* Prevent headings from being separated from content */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep content blocks together */
+  #write table,
+  #write .md-fences,
+  #write blockquote,
+  #write img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Avoid breaking after labels */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Link handling */
+  #write a {
+    text-decoration: underline;
+    color: #000;
+    border: none;
+    background: none;
+  }
+
+  #write a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #666;
+  }
+
+  /* Hide interactive elements */
+  .code-tooltip,
+  .md-fences .code-tooltip,
+  sup.md-footnote:hover {
+    display: none !important;
+  }
+
+  /* Optimize images */
+  #write img {
+    max-width: 100%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: block;
+    margin: 1em auto;
+  }
+
+  /* Code blocks for print */
+  #write .md-fences {
+    background: #f8f8f8 !important;
+    border: 1px solid #ddd !important;
+    padding: 0.3cm !important;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+
+  #write .cm-s-inner {
+    padding: 0.3cm !important;
+    background: #f8f8f8 !important;
+  }
+
+  /* Preserve syntax highlighting in PDF */
+  #write .cm-s-inner .cm-keyword,
+  #write .cm-s-inner .cm-builtin {
+    color: #d73a49 !important;
+    font-weight: 600;
+  }
+
+  #write .cm-s-inner .cm-def {
+    color: #6f42c1 !important;
+    font-weight: 600;
+  }
+
+  #write .cm-s-inner .cm-variable,
+  #write .cm-s-inner .cm-variable-2,
+  #write .cm-s-inner .cm-variable-3 {
+    color: #24292e !important;
+  }
+
+  #write .cm-s-inner .cm-number,
+  #write .cm-s-inner .cm-atom {
+    color: #005cc5 !important;
+    font-weight: 500;
+  }
+
+  #write .cm-s-inner .cm-string,
+  #write .cm-s-inner .cm-string-2 {
+    color: #22863a !important;
+  }
+
+  #write .cm-s-inner .cm-comment {
+    color: #6a737d !important;
+    font-style: italic;
+  }
+
+  #write .cm-s-inner .cm-operator {
+    color: #d73a49 !important;
+  }
+
+  #write .cm-s-inner .cm-property,
+  #write .cm-s-inner .cm-attribute {
+    color: #005cc5 !important;
+  }
+
+  #write .cm-s-inner .cm-type,
+  #write .cm-s-inner .cm-tag {
+    color: #22863a !important;
+    font-weight: 500;
+  }
+
+  #write .cm-s-inner .cm-meta {
+    color: #6f42c1 !important;
+  }
+
+  #write .cm-s-inner .cm-qualifier {
+    color: #6f42c1 !important;
+    font-weight: 500;
+  }
+
+  #write .cm-s-inner .cm-bracket {
+    color: #24292e !important;
+    font-weight: 600;
+  }
+
+  #write .cm-s-inner .cm-error {
+    color: #d73a49 !important;
+    background-color: rgba(215, 58, 73, 0.1) !important;
+  }
+
+  #write .cm-s-inner .cm-header {
+    color: #005cc5 !important;
+    font-weight: 600;
+  }
+
+  #write .cm-s-inner .cm-special {
+    color: #6f42c1 !important;
+  }
+
+  /* Table optimization */
+  #write table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    font-size: 10pt;
+  }
+
+  #write td,
+  #write th {
+    border: 1px solid #ddd !important;
+    padding: 0.3cm !important;
+  }
+
+  /* Blockquotes for print */
+  #write blockquote {
+    background: #f5f5f5 !important;
+    border-left: 4px solid #666 !important;
+    padding: 0.5cm !important;
+    page-break-inside: avoid;
+  }
+
+  #write blockquote::before {
+    display: none;
+  }
+
+  /* Hide UI elements */
+  .sidebar,
+  .file-tree,
+  #typora-sidebar,
+  .outline,
+  .md-search-panel {
+    display: none !important;
   }
 }
+
+/* -----------------------------------------------------------------
+   Workflow Boxes (HTML Blocks)
+   ----------------------------------------------------------------- */
+
+#write .md-htmlblock-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important
+}
+
+#write div[style*="border:1px solid #ccc"][style*="padding: 15px"],
+#write div[style*="background-color: #f9f9f9"],
+#write div[style*="background-color:#f9f9f9"],
+#write div[style*="background-color: rgb(249, 249, 249)"],
+#write div[style*="background-color:rgb(249, 249, 249)"] {
+  background: #202225 !important;
+  border-color: #4e4e4e !important;
+  color: #eaeaea !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .35) inset !important;
+}
+
+#write div[style*="border:1px solid #aaa"] {
+  background: #2b2b2c !important;
+  border-color: #6a6a6a !important;
+  color: #f3f3f3 !important
+}
+
+#write [style*="background-color: #e0e0ff"],
+#write [style*="background-color:#e0e0ff"],
+#write [style*="background-color: rgb(224, 224, 255)"] {
+  background: #2f3a7a !important;
+  border-color: #8892d6 !important;
+  color: #eef1ff !important
+}
+
+#write [style*="background-color: #e0ffe0"],
+#write [style*="background-color:#e0ffe0"],
+#write [style*="background-color: rgb(224, 255, 224)"] {
+  background: #1f4a1f !important;
+  border-color: #5fc966 !important;
+  color: #e6ffe6 !important
+}
+
+#write div[style*="font-size: 20px"] {
+  background: transparent !important;
+  border: 0 !important;
+  color: #cfcfcf !important
+}
+
+#write .md-htmlblock-container *,
+#write div[style*="padding: 15px"] * {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  color: inherit !important
+}
+
+/* -----------------------------------------------------------------
+   Custom Scrollbars
+   ----------------------------------------------------------------- */
+
+/* NOTE: Custom scrollbars are not supported in Typora editor.
+   These styles only work in exported HTML when viewed in
+   Chrome/Edge/Safari browsers. Typora uses OS-native scrollbars. */
+
+#write ul > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+#write ol > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+/* Nested list markers with hierarchy */
+#write ul ul > li::marker {
+  color: rgba(156, 166, 168, 0.7);
+}
+
+#write ul ul ul > li::marker {
+  color: rgba(156, 166, 168, 0.5);
+}
+
+#write ol ol > li::marker {
+  color: rgba(156, 166, 168, 0.7);
+}
+
+#write ol ol ol > li::marker {
+  color: rgba(156, 166, 168, 0.5);
+}
+
+/* -----------------------------------------------------------------
+   Strikethrough
+   ----------------------------------------------------------------- */
+
+s,
+del,
+.del {
+  color: rgba(212, 212, 212, 0.5);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* -----------------------------------------------------------------
+   Footnotes
+   ----------------------------------------------------------------- */
+
+/* Footnote reference (superscript number) */
+#write sup.md-footnote {
+  background-color: rgba(156, 156, 156, 0.2);
+  color: var(--accent-color);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  margin: 0 0.15em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+#write sup.md-footnote:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(156, 166, 168, 0.3);
+  border-color: var(--accent-color);
+}
+
+/* Footnote content block */
+#write .md-footnote {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid var(--accent-color);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(212, 212, 212, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+#write .md-footnote::before {
+  content: "Note:";
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+#write .md-footnote:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-left-width: 5px;
+  padding-left: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+/* Footnote section separator */
+#write .footnotes-sep {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent-color), transparent);
+}
+
+/* Footnotes list */
+#write .footnotes {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(156, 166, 168, 0.2);
+}
+
+#write .footnotes ol {
+  padding-left: 1.5rem;
+}
+
+#write .footnotes li {
+  margin: 0.75rem 0;
+  color: rgba(212, 212, 212, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
