@@ -738,7 +738,8 @@ pre {
   filter: brightness(1.00);
 }
 
-#write .cm-s-inner {
+#write .cm-s-inner,
+.cm-s-typora-default {
   background: transparent;
   border-radius: 0;
   padding: 20px 24px;
@@ -748,21 +749,42 @@ pre {
   border: none;
 }
 
+/* Enable gutters and line numbers in Typora source (code) mode only */
+.cm-s-typora-default .CodeMirror-gutters {
+  width: auto;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cm-s-typora-default .CodeMirror-linenumber {
+  opacity: 1;
+  color: #6ad69a;
+  padding-right: 12px;
+}
+
+.cm-s-typora-default .CodeMirror-line {
+  padding-left: 6px;
+}
+
 #write .md-fences pre,
-#write .md-fences code {
+#write .md-fences code,
+.cm-s-typora-default pre,
+.cm-s-typora-default code {
   font-family: var(--monospace-font);
   font-size: 0.95rem;
   line-height: 1.65;
   background: transparent;
 }
 
-#write .md-fences pre {
+#write .md-fences pre,
+.cm-s-typora-default pre {
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-#write .md-fences code {
+#write .md-fences code,
+.cm-s-typora-default code {
   display: block;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -775,7 +797,8 @@ pre {
   pointer-events: none;
 }
 
-#write .cm-s-inner .CodeMirror-cursor {
+#write .cm-s-inner .CodeMirror-cursor,
+.cm-s-typora-default .CodeMirror-cursor {
   border-left: 2px solid #79c0ff;
 }
 
@@ -792,101 +815,125 @@ pre {
    Colors are optimized for dark backgrounds.
    --------------------------------------------------------- */
 
-.cm-s-inner {
+.cm-s-inner,
+.cm-s-typora-default {
   color: #e6edf3;
 }
 
 /* KEYWORDS: def, class, if, for, while, import, function, const, let, var, return, etc. */
 .cm-s-inner .cm-keyword,
-.cm-s-inner .cm-builtin {
+.cm-s-typora-default .cm-keyword,
+.cm-s-inner .cm-builtin,
+.cm-s-typora-default .cm-builtin {
   color: #ff7b72;
   font-weight: 600;
 }
 
 /* FUNCTION & CLASS DEFINITIONS: function names, class names when defined */
-.cm-s-inner .cm-def {
+.cm-s-inner .cm-def,
+.cm-s-typora-default .cm-def {
   color: #d2a8ff;
   font-weight: 600;
 }
 
 /* VARIABLES: All variable names and identifiers */
 .cm-s-inner .cm-variable,
+.cm-s-typora-default .cm-variable,
 .cm-s-inner .cm-variable-2,
-.cm-s-inner .cm-variable-3 {
+.cm-s-typora-default .cm-variable-2,
+.cm-s-inner .cm-variable-3,
+.cm-s-typora-default .cm-variable-3 {
   color: #ffa657;
 }
 
 /* NUMBERS & BOOLEANS: 123, 45.67, True, False, null, undefined */
 .cm-s-inner .cm-number,
-.cm-s-inner .cm-atom {
+.cm-s-typora-default .cm-number,
+.cm-s-inner .cm-atom,
+.cm-s-typora-default .cm-atom {
   color: #79c0ff;
   font-weight: 500;
 }
 
 /* STRINGS: "text", 'text', `template`, f"formatted" */
 .cm-s-inner .cm-string,
-.cm-s-inner .cm-string-2 {
+.cm-s-typora-default .cm-string,
+.cm-s-inner .cm-string-2,
+.cm-s-typora-default .cm-string-2 {
   color: #a5d6ff;
 }
 
 /* COMMENTS: # Python comments, // JS comments, block comments */
-.cm-s-inner .cm-comment {
+.cm-s-inner .cm-comment,
+.cm-s-typora-default .cm-comment {
   color: #8b949e;
   font-style: italic;
   opacity: 0.9;
 }
 
 /* OPERATORS: +, -, *, /, =, ==, ===, +=, ->, =>, etc. */
-.cm-s-inner .cm-operator {
+.cm-s-inner .cm-operator,
+.cm-s-typora-default .cm-operator {
   color: #ff7b72;
 }
 
 /* PROPERTIES & ATTRIBUTES: object.property, @attribute */
 .cm-s-inner .cm-property,
-.cm-s-inner .cm-attribute {
+.cm-s-typora-default .cm-property,
+.cm-s-inner .cm-attribute,
+.cm-s-typora-default .cm-attribute {
   color: #79c0ff;
 }
 
 /* TYPES & TAGS: int, str, boolean, <div>, <span> */
 .cm-s-inner .cm-type,
-.cm-s-inner .cm-tag {
+.cm-s-typora-default .cm-type,
+.cm-s-inner .cm-tag,
+.cm-s-typora-default .cm-tag {
   color: #7ee787;
   font-weight: 500;
 }
 
 /* META/DECORATORS: @decorator, @property, annotations */
-.cm-s-inner .cm-meta {
+.cm-s-inner .cm-meta,
+.cm-s-typora-default .cm-meta {
   color: #d2a8ff;
 }
 
 /* QUALIFIERS: public, private, static, final, const */
-.cm-s-inner .cm-qualifier {
+.cm-s-inner .cm-qualifier,
+.cm-s-typora-default .cm-qualifier {
   color: #ffa657;
   font-weight: 500;
 }
 
 /* BRACKETS & PUNCTUATION: Better visibility for (), [], {} */
-.cm-s-inner .cm-bracket {
+.cm-s-inner .cm-bracket,
+.cm-s-typora-default .cm-bracket {
   color: #c9d1d9;
   font-weight: 600;
 }
 
 /* ERRORS: Syntax errors and invalid characters */
 .cm-s-inner .cm-error,
-.cm-s-inner .cm-invalidchar {
+.cm-s-typora-default .cm-error,
+.cm-s-inner .cm-invalidchar,
+.cm-s-typora-default .cm-invalidchar {
   color: #f85149;
   text-decoration: wavy underline;
   text-decoration-color: #f85149;
 }
 
 /* HEADERS: Markdown headers within code blocks */
-.cm-s-inner .cm-header {
+.cm-s-inner .cm-header,
+.cm-s-typora-default .cm-header {
   color: #79c0ff;
   font-weight: 600;
 }
 
 /* SPECIAL CHARACTERS: Escape sequences, regex patterns */
-.cm-s-inner .cm-special {
+.cm-s-inner .cm-special,
+.cm-s-typora-default .cm-special {
   color: #d2a8ff;
 }
 
@@ -1062,11 +1109,13 @@ sup.md-footnote {
 }
 
 
-.cm-s-inner .CodeMirror-selected {
+.cm-s-inner .CodeMirror-selected,
+.cm-s-typora-default .CodeMirror-selected {
   background: transparent !important;
 }
 
-.cm-s-inner .CodeMirror-selectedtext {
+.cm-s-inner .CodeMirror-selectedtext,
+.cm-s-typora-default .CodeMirror-selectedtext {
   background: var(--code-selection-bg) !important;
   color: var(--code-selection-color) !important;
 }
