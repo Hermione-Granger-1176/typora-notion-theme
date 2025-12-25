@@ -82,12 +82,18 @@
   --text-color: #d4d4d4;
   --accent-color: #9ca6a8;
   --accented-background-color: #c1cacc;
+  --title-color: #d4d4d4;
+  --text-grey: #9c9c9c;
+  /* Legacy variable used by Typora search highlighting */
+  --color-2-0-c: #9ca6a8;
 
   /* Border & dividers */
   --border-color: #3d3d3d;
 
   /* Interactive colors */
-  --link-color: #9c9c9c;
+  --link-color: #7fb3ff;
+  --link-hover-color: #b3d4ff;
+  --link-hover-bg: rgba(127, 179, 255, 0.12);
   --selection-bg: #FFEEA0;
   --selection-color: #000000;
   --highlight-bg: #FFEEA0;
@@ -823,8 +829,8 @@ pre {
   color: #a5d6ff;
 }
 
-/* COMMENTS: # Python comments, // JS comments, /* block comments */
-*/ .cm-s-inner .cm-comment {
+/* COMMENTS: # Python comments, // JS comments, block comments */
+.cm-s-inner .cm-comment {
   color: #8b949e;
   font-style: italic;
   opacity: 0.9;
@@ -1035,15 +1041,15 @@ sup.md-footnote {
 }
 
 #write a:hover {
-  color: var(--accent-color);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-bottom-color: var(--accent-color);
+  color: var(--link-hover-color);
+  background-color: var(--link-hover-bg);
+  border-bottom-color: var(--link-hover-color);
 }
 
 #write a:focus {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid var(--link-hover-color);
   outline-offset: 2px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--link-hover-bg);
 }
 
 #write a:active {
@@ -1116,6 +1122,15 @@ mark.brown {
 mark.gray {
   background-color: #3A3A3A;
   color: #C1C1C1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 #write div.md-toc-tooltip {
@@ -2110,4 +2125,3 @@ del,
   font-size: 0.9rem;
   line-height: 1.6;
 }
-
