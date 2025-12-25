@@ -17,55 +17,14 @@
  * TABLE OF CONTENTS
  * =================================================================
  *
- * 1.  CSS VARIABLES ................................... Line 80
- *     - Color System (base, interactive, hierarchy)
- *     - Typography (fonts, sizes, spacing)
- *     - Spacing & Layout
- *     - Component Styles (code, todos)
- *     - Performance & Animation
- *
- * 2.  BASE & RESET .................................... Line 180
- *     - HTML & Body defaults
- *     - Paragraph spacing
- *     - Content container (#write)
- *     - Media elements (images)
- *
- * 3.  BLOCK ELEMENTS .................................. Line 260
- *     - YAML Frontmatter
- *     - Headings (H1-H6 color hierarchy)
- *     - Tables (rounded corners, zebra striping)
- *     - Lists (UL, OL, Task Lists with animations)
- *     - Blockquotes (with quote marks)
- *     - Horizontal Rules (gradient)
- *     - Math Blocks
- *
- * 4.  CODE & SYNTAX ................................... Line 660
- *     - Search UI
- *     - Code fences (no scrollbars)
- *     - Syntax highlighting (all languages)
- *     - Code tooltips & autocomplete
- *
- * 5.  INLINE ELEMENTS ................................. Line 980
- *     - Inline code
- *     - Links (enhanced states)
- *     - Callouts/Info boxes
- *     - Text selection & highlights
- *
- * 6.  SIDEBAR & NAVIGATION ............................ Line 1070
- *     - Sidebar styling
- *     - File tree
- *     - Outline/TOC
- *
- * 7.  TYPORA-SPECIFIC ................................. Line 1370
- *     - File library
- *     - File tree hierarchy
- *
- * 8.  UTILITIES & HELPERS ............................. Line 1630
- *     - Print Styles (PDF optimized)
- *     - Workflow boxes
- *     - List markers
- *     - Strikethrough
- *     - Footnotes (enhanced)
+ * 1.  CSS VARIABLES & CONFIGURATION
+ * 2.  BASE & RESET
+ * 3.  BLOCK ELEMENTS (headings, tables, lists, quotes, rules, math)
+ * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
+ * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
+ * 6.  SIDEBAR & NAVIGATION (outline, file tree)
+ * 7.  TYPORA-SPECIFIC (library, tree hierarchy)
+ * 8.  UTILITIES & HELPERS (print, workflows, markers, strike, footnotes)
  *
  * =================================================================
  */
@@ -749,23 +708,6 @@ pre {
   border: none;
 }
 
-/* Enable gutters and line numbers in Typora source (code) mode only */
-.cm-s-typora-default .CodeMirror-gutters {
-  width: auto;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.cm-s-typora-default .CodeMirror-linenumber {
-  opacity: 1;
-  color: #6ad69a;
-  padding-right: 12px;
-}
-
-.cm-s-typora-default .CodeMirror-line {
-  padding-left: 6px;
-}
-
 #write .md-fences pre,
 #write .md-fences code,
 .cm-s-typora-default pre,
@@ -791,19 +733,37 @@ pre {
   word-break: break-word;
 }
 
+/* Fenced code (WYSIWYG): hide gutters/line numbers */
 #write .cm-s-inner .CodeMirror-gutters {
   width: 0;
   opacity: 0;
   pointer-events: none;
 }
 
+#write .cm-s-inner .CodeMirror-linenumber {
+  opacity: 0;
+}
+
+/* Typora source (Code) mode: show gutters/line numbers */
+.cm-s-typora-default .CodeMirror-gutters {
+  width: auto;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cm-s-typora-default .CodeMirror-linenumber {
+  opacity: 1;
+  color: #6ad69a;
+  padding-right: 12px;
+}
+
+.cm-s-typora-default .CodeMirror-line {
+  padding-left: 6px;
+}
+
 #write .cm-s-inner .CodeMirror-cursor,
 .cm-s-typora-default .CodeMirror-cursor {
   border-left: 2px solid #79c0ff;
-}
-
-#write .cm-s-inner .CodeMirror-linenumber {
-  opacity: 0;
 }
 
 /* ---------------------------------------------------------
@@ -1702,7 +1662,8 @@ li>.outline-item-active {
     --font-size: 11pt;
     --bg-color: #ffffff;
     --text-color: #000000;
-    --link-color: #000000;
+    /* Keep theme link color for print */
+    --link-color: #7fb3ff;
   }
 
   /* Body and page setup */
@@ -1831,15 +1792,9 @@ li>.outline-item-active {
   /* Link handling */
   #write a {
     text-decoration: underline;
-    color: #000;
+    color: var(--link-color);
     border: none;
     background: none;
-  }
-
-  #write a[href^="http"]:after {
-    content: " (" attr(href) ")";
-    font-size: 0.85em;
-    color: #666;
   }
 
   /* Hide interactive elements */

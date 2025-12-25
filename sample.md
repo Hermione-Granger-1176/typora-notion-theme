@@ -12,7 +12,7 @@ description: This block is YAML front matter
 
 **Inline styles:**
 
-**strong**, _Emphasis_, `code`, <u>underline</u>, ~~strikethrough~~,$ \LaTeX $, H$\_2$O, ==highlight==, [Link](#)
+**strong**, _Emphasis_, `code`, <u>underline</u>, ~~strikethrough~~,$ \LaTeX $, H$\_2$O, ==highlight==, [Link](#), www.google.co.in
 
 ---
 
@@ -160,4 +160,4 @@ This is an examle of a footnote reference[^1].
 
 ---
 
-Enjoy using the **Notin Style Theme** for Typora!
+Enjoy using the **Notion Style Theme** for Typora!
