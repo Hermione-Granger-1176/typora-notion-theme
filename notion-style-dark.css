@@ -109,6 +109,8 @@
 
   /* Code blocks */
   --code-block-bg-color: #202020;
+  --code-tooltip-height: 34px;
+  --code-tooltip-gap: calc(var(--code-tooltip-height) + 5px);
   --code-tooltip-border-color: #373737;
   --code-border-color: rgba(255, 255, 255, 0.12);
   --code-border-hover-color: rgba(255, 255, 255, 0.2);
@@ -678,7 +680,7 @@ pre {
 
 .md-fences {
   position: relative;
-  margin: 1.25rem 0;
+  margin: 1.25rem 0 3.2rem 0;
   background: var(--code-block-bg-color);
   border: 1px solid var(--code-border-color);
   border-radius: 6px;
@@ -689,12 +691,6 @@ pre {
   /* Performance: contain repaints (not paint to avoid clipping) */
   contain: layout style;
   will-change: border-color, box-shadow;
-}
-
-.md-fences:hover {
-  border-color: var(--code-border-hover-color);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
-  filter: brightness(1.00);
 }
 
 #write .cm-s-inner,
@@ -902,14 +898,51 @@ pre {
    ----------------------------------------------------------------- */
 
 .md-fences .code-tooltip {
-  background-color: rgba(32, 32, 32, 0.98);
-  border-radius: 6px;
-  padding: 6px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  height: var(--code-tooltip-height);
+  display: flex;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
   opacity: 1;
   transition: opacity 0.2s ease;
+  position: absolute;
+  bottom: calc(-1 * var(--code-tooltip-gap));
+  right: -5px;
+  top: auto;
+}
+
+/* 4.x Diagram fences & tooltips */
+/* Keep a clear gap above rendered diagrams and align the language badge within it. */
+#write .md-diagram-panel {
+  margin-top: calc(var(--code-tooltip-gap) + 5px);
+  margin-bottom: 3.7rem;
+}
+
+/* Position the code-tooltip directly below diagram-producing fences (no :has support in Typora). */
+#write .md-fences:is(
+    [lang="mermaid"],
+    [lang="flowchart"],
+    [lang="sequence"],
+    [lang="gantt"],
+    [lang="classDiagram"],
+    [lang="stateDiagram"],
+    [lang="erDiagram"],
+    [lang="journey"],
+    [lang="pie"],
+    [lang="gitGraph"],
+    [lang="mindmap"],
+    [lang="timeline"],
+    [lang="js-sequence-diagram"],
+    [lang="flow"]
+  ) .code-tooltip {
+  right: -5px;
+  bottom: auto;
+  top: 100%;
+  margin-top: 5px;
 }
 
 /* Style toolbar buttons and language input */
