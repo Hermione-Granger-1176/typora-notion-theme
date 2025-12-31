@@ -1,55 +1,45 @@
 /*
- * =================================================================
  * NOTION-STYLE TYPORA THEME - DARK MODE
- * =================================================================
- *
- * A professional, Notion-inspired dark theme for Typora
- *
  * Copyright (C) 2025 Aditya Kumar Darak
  * Based on original work by cayxc
- * Modified and enhanced in 2025
- *
  * Licensed under the Apache License, Version 2.0
- * You may obtain a copy of the License at:
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * =================================================================
- * TABLE OF CONTENTS
- * =================================================================
- *
- * 1.  CSS VARIABLES & CONFIGURATION
- * 2.  BASE & RESET
- * 3.  BLOCK ELEMENTS (headings, tables, lists, markers, quotes, rules, math)
- * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
- * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
- * 6.  SIDEBAR & NAVIGATION (outline, TOC, sidebar chrome)
- * 7.  TYPORA CHROME (library, file tree, search)
- * 8.  UTILITIES & HELPERS (print, workflows, strike, footnotes)
- *
- * =================================================================
+ * http://www.apache.org/licenses/LICENSE-2.0
  */
 
+/* =========================================================================
+   Table of Contents
+   =========================================================================
+   1. Theme Tokens
+   2. Base & Layout
+   3. Block Elements
+   4. Code & Syntax
+   5. Inline Elements
+   6. Sidebar & Navigation
+   7. Typora Chrome
+   8. Utilities & Export
+   ========================================================================= */
 
-/* =================================================================
-   1. CSS VARIABLES & CONFIGURATION
-   ================================================================= */
+/* =========================================================================
+   1. Theme Tokens
+   ========================================================================= */
 
 :root {
-  /* === COLOR SYSTEM === */
-  /* Base colors */
+
+  /* Colors */
   --bg-color: rgba(25, 25, 25, 1);
   --text-color: rgba(212, 212, 212, 1);
   --accent-color: rgba(156, 166, 168, 1);
   --accented-background-color: rgba(193, 202, 204, 1);
   --title-color: rgba(212, 212, 212, 1);
   --text-grey: rgba(156, 156, 156, 1);
-  /* Legacy variable used by Typora search highlighting */
+
+  /* Legacy Typora search highlight token. */
   --color-2-0-c: rgba(156, 166, 168, 1);
 
-  /* Border & dividers */
+  /* Borders */
   --border-color: rgba(61, 61, 61, 1);
 
-  /* Interactive colors */
+  /* Links and highlights */
   --link-color: rgba(127, 179, 255, 1);
   --link-hover-color: rgba(179, 212, 255, 1);
   --link-hover-bg: rgba(127, 179, 255, 0.12);
@@ -58,51 +48,49 @@
   --highlight-bg: rgba(255, 238, 160, 1);
   --search-highlight-bg: rgba(233, 188, 54, 1);
 
-  /* Heading hierarchy colors */
-  --h1-color: rgba(247, 246, 243, 1);      /* Brightest - most prominent */
-  --h2-color: rgba(232, 231, 228, 1);      /* Slightly dimmer */
-  --h3-color: rgba(212, 212, 212, 1);      /* Standard text brightness */
-  --h4-color: rgba(192, 192, 192, 1);      /* Muted */
-  --h5-color: rgba(176, 176, 176, 1);      /* More muted */
-  --h6-color: rgba(160, 160, 160, 1);      /* Most subtle */
+  /* Headings */
+  --h1-color: rgba(247, 246, 243, 1);
+  --h2-color: rgba(232, 231, 228, 1);
+  --h3-color: rgba(212, 212, 212, 1);
+  --h4-color: rgba(192, 192, 192, 1);
+  --h5-color: rgba(176, 176, 176, 1);
+  --h6-color: rgba(160, 160, 160, 1);
 
-  /* Sidebar colors */
+  /* Sidebar */
   --side-bar-bg-color: rgba(32, 32, 32, 1);
   --side-bar-border-color: rgba(43, 43, 43, 1);
   --active-file-bg-color: rgba(44, 44, 44, 1);
 
-  /* === TYPOGRAPHY === */
-  /* Font families */
+  /* Typography */
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
     "Noto Sans SC", "Microsoft JhengHei", "Noto Sans TC", "Meiryo", "Yu Gothic",
     "Noto Sans JP", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --monospace-font: "Sarasa Mono SC", "Source Han Mono", "Space Mono",
     "Inconsolata", monospace;
 
-  /* Font sizes */
+  /* Type scale */
   --font-size: 16px;
-  --h1-fontsize: 30px;  /* 30px */
-  --h2-fontsize: 24px;    /* 24px */
-  --h3-fontsize: 20px;   /* 20px */
-  --h4-fontsize: 18px;  /* 18px */
-  --h5-fontsize: 16px;      /* 16px */
-  --h6-fontsize: 16px;      /* 16px */
+  --h1-fontsize: 30px;
+  --h2-fontsize: 24px;
+  --h3-fontsize: 20px;
+  --h4-fontsize: 18px;
+  --h5-fontsize: 16px;
+  --h6-fontsize: 16px;
   --monospace-font-size: 85%;
 
-  /* Line heights & spacing */
+  /* Line rhythm */
   --line-height: 1.6;
   --monospace-line-height: normal;
   --paragraph-spacing: 19.2px;
 
-  /* === SPACING & LAYOUT === */
+  /* Layout */
   --document-padding-x: 10ch;
   --vertical-padding: 40px;
   --main-content-max-width: 90%;
-  --border-radius: 2px;        /* 2px */
-  --border-radius-lg: 4px;      /* 4px */
+  --border-radius: 2px;
+  --border-radius-lg: 4px;
 
-  /* === COMPONENT STYLES === */
-  /* Code - inline */
+  /* Inline code */
   --code-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --code-bg-color: rgba(135, 131, 120, 0.15);
   --code-color: rgba(235, 87, 87, 1);
@@ -127,14 +115,13 @@
   /* File tree */
   --file-tree-font-size: 12px;
 
-  /* === EFFECTS & THEMING === */
+  /* Diagrams */
   --mermaid-theme: dark;
 
-  /* === PERFORMANCE === */
-  /* GPU acceleration for animations */
+  /* Performance */
   --gpu-acceleration: translateZ(0);
 
-  /* === ANIMATION & TIMING === */
+  /* Animation */
   --transition-fast: 0.15s;
   --transition-normal: 0.2s;
   --transition-slow: 0.3s;
@@ -143,11 +130,11 @@
   --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
 }
 
+/* =========================================================================
+   2. Base & Layout
+   ========================================================================= */
 
-/* =================================================================
-   2. BASE & RESET
-   ================================================================= */
-
+/* Document base */
 html {
   font-size: var(--font-size);
   background-color: var(--bg-color);
@@ -158,23 +145,18 @@ body {
   color: var(--text-color);
   font-family: var(--body-font);
   line-height: var(--line-height);
-  /* Performance: reduce repaints */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* -----------------------------------------------------------------
-   Paragraph Spacing
-   ----------------------------------------------------------------- */
-
-/* Paragraph spacing - Notion style */
+/* Paragraph rhythm */
 p {
   margin: var(--paragraph-spacing) 0;
   line-height: var(--line-height);
 }
 
-/* First paragraph after heading - reduce top margin */
 h1 + p,
 h2 + p,
 h3 + p,
@@ -184,23 +166,17 @@ h6 + p {
   margin-top: 8px;
 }
 
-/* -----------------------------------------------------------------
-   Content Container
-   ----------------------------------------------------------------- */
-
+/* Main document container */
 #write {
   padding-left: var(--document-padding-x);
   padding-right: var(--document-padding-x);
   max-width: var(--main-content-max-width);
   box-sizing: border-box;
-  /* Performance: contain layout changes */
+
   contain: layout style;
 }
 
-/* -----------------------------------------------------------------
-   Media Elements
-   ----------------------------------------------------------------- */
-
+/* Media */
 #write img {
   border-radius: 8px;
   max-width: 100%;
@@ -219,15 +195,11 @@ h6 + p {
   text-align: center;
 }
 
+/* =========================================================================
+   3. Block Elements
+   ========================================================================= */
 
-/* =================================================================
-   3. BLOCK ELEMENTS
-   ================================================================= */
-
-/* -----------------------------------------------------------------
-   YAML Frontmatter
-   ----------------------------------------------------------------- */
-
+/* Frontmatter (YAML) */
 pre.md-meta-block {
   background: rgba(32, 32, 32, 1);
   color: rgba(255, 255, 255, 0.8);
@@ -241,7 +213,6 @@ pre.md-meta-block {
   line-height: 1.5;
 }
 
-/* YAML syntax highlighting */
 pre.md-meta-block .md-meta-i {
   color: rgba(121, 192, 255, 1);
   font-weight: 500;
@@ -251,10 +222,7 @@ pre.md-meta-block .md-meta-value {
   color: rgba(126, 231, 135, 1);
 }
 
-/* -----------------------------------------------------------------
-   Headings - Color Hierarchy (H1-H6)
-   ----------------------------------------------------------------- */
-
+/* Headings */
 h1 {
   margin-top: 48px;
   margin-bottom: 24px;
@@ -318,10 +286,7 @@ h6 {
   color: var(--h6-color);
 }
 
-/* -----------------------------------------------------------------
-   Tables
-   ----------------------------------------------------------------- */
-
+/* Tables */
 #write table {
   margin: 24px 0;
   width: auto;
@@ -347,13 +312,11 @@ th {
   font-size: 15.2px;
 }
 
-/* Remove right border from last cell in each row */
 td:last-child,
 th:last-child {
   border-right: none;
 }
 
-/* Remove bottom border from last row */
 tbody tr:last-child td {
   border-bottom: none;
 }
@@ -394,10 +357,7 @@ th[align="right"] {
   text-align: right;
 }
 
-/* -----------------------------------------------------------------
-   Lists (UL, OL, Task Lists)
-   ----------------------------------------------------------------- */
-
+/* Lists */
 #write ul,
 #write ol {
   padding-left: 0;
@@ -420,7 +380,6 @@ ol ol ol {
   list-style-type: lower-roman;
 }
 
-/* List markers */
 #write ul > li::marker {
   color: var(--accent-color);
   font-weight: 600;
@@ -446,6 +405,7 @@ li p {
   margin: 0;
 }
 
+/* Task list checkboxes */
 #write .md-task-list-item > input {
   appearance: none;
   -webkit-appearance: none;
@@ -539,6 +499,7 @@ li p {
   color: inherit;
 }
 
+/* Blockquotes */
 #write blockquote {
   margin: 24px 0;
   padding: 16px 20px 16px 48px;
@@ -571,10 +532,7 @@ li p {
   margin-bottom: 0;
 }
 
-/* -----------------------------------------------------------------
-   Math Blocks
-   ----------------------------------------------------------------- */
-
+/* Math blocks */
 .md-math-block:hover .md-math-container,
 .md-math-block:hover .md-rawblock-tooltip,
 .md-htmlblock:hover .md-htmlblock-container,
@@ -596,10 +554,7 @@ li p {
   background: rgba(0, 0, 0, 0);
 }
 
-/* -----------------------------------------------------------------
-   Horizontal Rules
-   ----------------------------------------------------------------- */
-
+/* Horizontal rules */
 #write hr {
   border: none;
   height: 1px;
@@ -607,15 +562,11 @@ li p {
   margin: 48px 0;
 }
 
+/* =========================================================================
+   4. Code & Syntax
+   ========================================================================= */
 
-/* =================================================================
-   4. CODE & SYNTAX HIGHLIGHTING
-   ================================================================= */
-
-/* -----------------------------------------------------------------
-   Search
-   ----------------------------------------------------------------- */
-
+/* Search highlight animation */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -648,26 +599,12 @@ li p {
   animation: pulse 0.3s ease-in-out !important;
 }
 
-/*
-   * =========================================================
-   * CODE FENCES & SYNTAX HIGHLIGHTING
-   * =========================================================
-   * This section styles code blocks for all programming languages.
-   * Typora uses CodeMirror for syntax highlighting, which
-   * automatically detects and highlights Python, JavaScript,
-   * Java, SQL, HTML, CSS, and 100+ other languages.
-   * =========================================================
-*/
-
 pre {
   --monospace: "Cascadia Code Variable", SFMono-Regular, Menlo, Consolas,
     "PT Mono", "Liberation Mono";
 }
 
-/* -----------------------------------------------------------------
-   Code Fence Styling
-   ----------------------------------------------------------------- */
-
+/* Code fences */
 .md-fences {
   position: relative;
   margin: 20px 0 51.2px 0;
@@ -678,7 +615,7 @@ pre {
   padding: 0;
   font-size: var(--code-block-font-size);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  /* Performance: contain repaints (not paint to avoid clipping) */
+
   contain: layout style;
   will-change: border-color, box-shadow;
 }
@@ -717,7 +654,7 @@ pre {
   word-break: break-word;
 }
 
-/* Fenced code (WYSIWYG): hide gutters/line numbers */
+/* WYSIWYG mode hides gutters and line numbers. */
 #write .cm-s-inner .CodeMirror-gutters {
   width: 0;
   opacity: 0;
@@ -728,7 +665,7 @@ pre {
   opacity: 0;
 }
 
-/* Typora source (Code) mode: show gutters/line numbers */
+/* Source mode shows gutters and line numbers. */
 .cm-s-typora-default .CodeMirror-gutters {
   width: auto;
   opacity: 1;
@@ -750,110 +687,84 @@ pre {
   border-left: 2px solid rgba(121, 192, 255, 1);
 }
 
-/* ---------------------------------------------------------
-   UNIVERSAL SYNTAX HIGHLIGHTING (DARK THEME)
-   ---------------------------------------------------------
-   These rules work automatically for ALL programming languages.
-   CodeMirror tokenizes code and applies these classes regardless
-   of the language (Python, JavaScript, Java, C++, SQL, etc.)
-   Colors are optimized for dark backgrounds.
-   --------------------------------------------------------- */
-
 .cm-s-inner,
 .cm-s-typora-default {
   color: rgba(230, 237, 243, 1);
 }
 
-/* KEYWORDS: def, class, if, for, while, import, function, const, let, var, return, etc. */
+/* CodeMirror token colors. */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-keyword, .cm-builtin) {
   color: rgba(255, 123, 114, 1);
   font-weight: 600;
 }
 
-/* FUNCTION & CLASS DEFINITIONS: function names, class names when defined */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-def {
   color: rgba(210, 168, 255, 1);
   font-weight: 600;
 }
 
-/* VARIABLES: All variable names and identifiers */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: rgba(255, 166, 87, 1);
 }
 
-/* NUMBERS & BOOLEANS: 123, 45.67, True, False, null, undefined */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-number, .cm-atom) {
   color: rgba(121, 192, 255, 1);
   font-weight: 500;
 }
 
-/* STRINGS: "text", 'text', `template`, f"formatted" */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-string, .cm-string-2) {
   color: rgba(165, 214, 255, 1);
 }
 
-/* COMMENTS: # Python comments, // JS comments, block comments */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-comment {
   color: rgba(139, 148, 158, 1);
   font-style: italic;
   opacity: 0.9;
 }
 
-/* OPERATORS: +, -, *, /, =, ==, ===, +=, ->, =>, etc. */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-operator {
   color: rgba(255, 123, 114, 1);
 }
 
-/* PROPERTIES & ATTRIBUTES: object.property, @attribute */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-property, .cm-attribute) {
   color: rgba(121, 192, 255, 1);
 }
 
-/* TYPES & TAGS: int, str, boolean, <div>, <span> */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-type, .cm-tag) {
   color: rgba(126, 231, 135, 1);
   font-weight: 500;
 }
 
-/* META/DECORATORS: @decorator, @property, annotations */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-meta {
   color: rgba(210, 168, 255, 1);
 }
 
-/* QUALIFIERS: public, private, static, final, const */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-qualifier {
   color: rgba(255, 166, 87, 1);
   font-weight: 500;
 }
 
-/* BRACKETS & PUNCTUATION: Better visibility for (), [], {} */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-bracket {
   color: rgba(201, 209, 217, 1);
   font-weight: 600;
 }
 
-/* ERRORS: Syntax errors and invalid characters */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-error, .cm-invalidchar) {
   color: rgba(248, 81, 73, 1);
   text-decoration: wavy underline;
   text-decoration-color: rgba(248, 81, 73, 1);
 }
 
-/* HEADERS: Markdown headers within code blocks */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-header {
   color: rgba(121, 192, 255, 1);
   font-weight: 600;
 }
 
-/* SPECIAL CHARACTERS: Escape sequences, regex patterns */
 :is(.cm-s-inner, .cm-s-typora-default) .cm-special {
   color: rgba(210, 168, 255, 1);
 }
 
-/* -----------------------------------------------------------------
-   Code Block Toolbar & Interactions
-   ----------------------------------------------------------------- */
-
+/* Code block toolbar. */
 .md-fences .code-tooltip {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 0;
@@ -872,14 +783,12 @@ pre {
   top: auto;
 }
 
-/* 4.x Diagram fences & tooltips */
-/* Keep a clear gap above rendered diagrams and align the language badge within it. */
 #write .md-diagram-panel {
   margin-top: calc(var(--code-tooltip-gap) + 5px);
   margin-bottom: 59.2px;
 }
 
-/* Position the code-tooltip directly below diagram-producing fences (no :has support in Typora). */
+/* Typora lacks :has; position tooltip below diagram fences. */
 #write .md-fences:is(
     [lang="mermaid"],
     [lang="flowchart"],
@@ -902,7 +811,6 @@ pre {
   margin-top: 5px;
 }
 
-/* Style toolbar buttons and language input */
 .md-fences .code-tooltip :is(input, span) {
   padding: 6px 10px;
   border-radius: 5px;
@@ -944,10 +852,7 @@ pre {
   transform: translateY(0);
 }
 
-/* -----------------------------------------------------------------
-   Code Autocomplete Dropdown
-   ----------------------------------------------------------------- */
-
+/* Autocomplete dropdown. */
 .autoComplt-list {
   width: 20ch !important;
   border-radius: 6px !important;
@@ -973,15 +878,11 @@ pre {
   color: rgba(121, 192, 255, 1) !important;
 }
 
+/* =========================================================================
+   5. Inline Elements
+   ========================================================================= */
 
-/* =================================================================
-   5. INLINE ELEMENTS
-   ================================================================= */
-
-/* -----------------------------------------------------------------
-   Inline Code
-   ----------------------------------------------------------------- */
-
+/* Inline code. */
 code {
   font-family: var(--code-font);
   font-size: var(--monospace-font-size);
@@ -994,41 +895,18 @@ code {
   font-weight: 400;
 }
 
-/* -----------------------------------------------------------------
-   Callouts & Info Boxes
-   ----------------------------------------------------------------- */
-
+/* Callouts. */
 .md-alert,
 .admonition {
-  background-color: rgba(45, 45, 45, 0.6);
-  border-left: 3px solid rgba(156, 166, 168, 1);
-  padding: 16px;
-  margin: 16px 0;
-  border-radius: 3px;
+  background-color: rgba(45, 45, 45, 0.4);
+  border-left: 3px solid var(--accent-color);
+  padding: 4px 20px;
+  margin: 24px 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.md-alert-info,
-.admonition.info {
-  background-color: rgba(46, 68, 88, 0.5);
-  border-left-color: rgba(11, 108, 201, 1);
-}
-
-.md-alert-warning,
-.admonition.warning {
-  background-color: rgba(89, 65, 28, 0.5);
-  border-left-color: rgba(235, 140, 0, 1);
-}
-
-.md-alert-success,
-.admonition.success {
-  background-color: rgba(28, 56, 41, 0.5);
-  border-left-color: rgba(15, 123, 108, 1);
-}
-
-/* -----------------------------------------------------------------
-   Links
-   ----------------------------------------------------------------- */
-
+/* Links. */
 #write a {
   text-decoration: none;
   color: var(--link-color);
@@ -1055,15 +933,11 @@ code {
   transform: translateY(1px) var(--gpu-acceleration);
 }
 
-/* -----------------------------------------------------------------
-   Text Selection & Highlights
-   ----------------------------------------------------------------- */
-
+/* Selection and marks. */
 ::selection {
   background-color: var(--selection-bg);
   color: var(--selection-color);
 }
-
 
 .cm-s-inner .CodeMirror-selected,
 .cm-s-typora-default .CodeMirror-selected {
@@ -1138,13 +1012,11 @@ mark.gray {
   }
 }
 
-/* =================================================================
-  6. SIDEBAR & NAVIGATION
-  -----------------------------------------------------------------
-  Sidebar chrome, outline, and table of contents interactions
-  ================================================================= */
+/* =========================================================================
+   6. Sidebar & Navigation
+   ========================================================================= */
 
-/* TOC (Table of Contents) */
+/* Table of contents. */
 #write div.md-toc-tooltip {
   background-color: var(--bg-color);
 }
@@ -1172,6 +1044,7 @@ mark.gray {
   border-bottom: 1px solid var(--side-bar-border-color) !important;
 }
 
+/* Outline tree. */
 .outline-content {
   padding: 16px;
   font-size: 14px !important;
@@ -1336,7 +1209,6 @@ li>.outline-item-active {
   font-weight: 900 !important;
 }
 
-/*ty-on-outline-filter(catalog search style)*/
 .ty-on-outline-filter .outline-content li::before,
 .ty-on-outline-filter .outline-content .outline-item::before,
 .ty-on-outline-filter .outline-content .outline-item::after {
@@ -1348,11 +1220,11 @@ li>.outline-item-active {
   margin-left: 0;
 }
 
-/* =================================================================
-  7. TYPORA CHROME
-  -----------------------------------------------------------------
-  File library list, search, and tree interactions
-  ================================================================= */
+/* =========================================================================
+   7. Typora Chrome
+   ========================================================================= */
+
+/* File library list and search. */
 #file-library-list,
 #file-library-search-result {
   padding: 12px;
@@ -1431,11 +1303,7 @@ li>.outline-item-active {
   background-color: var(--color-2-0-c);
 }
 
-/*
-   * ------------------------
-   * file-library-tree
-   * ------------------------
-*/
+/* File tree. */
 #file-library-tree {
   padding-top: 9.1424px;
   padding-left: 13.7136px;
@@ -1636,32 +1504,26 @@ li>.outline-item-active {
   cursor: pointer;
 }
 
+/* =========================================================================
+   8. Utilities & Export
+   ========================================================================= */
 
-/* =================================================================
-   8. UTILITIES & HELPERS
-   ================================================================= */
-
-/* -----------------------------------------------------------------
-   Print Styles - Optimized for Paper
-   ----------------------------------------------------------------- */
-
+/* Print/PDF export overrides. */
 @media print {
-  /* Color accuracy for print */
+
   .typora-export * {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
-  /* Root adjustments for print */
   :root {
     --font-size: 11pt;
     --bg-color: rgba(255, 255, 255, 1);
     --text-color: rgba(0, 0, 0, 1);
-    /* Keep theme link color for print */
+
     --link-color: rgba(127, 179, 255, 1);
   }
 
-  /* Body and page setup */
   body {
     max-width: 100%;
     margin: 0;
@@ -1676,7 +1538,6 @@ li>.outline-item-active {
     margin: 0;
   }
 
-  /* Remove shadows and effects for print */
   #write img,
   #write table,
   #write blockquote,
@@ -1685,7 +1546,6 @@ li>.outline-item-active {
     border: 1px solid rgba(221, 221, 221, 1) !important;
   }
 
-  /* Disable animations, transitions, and expensive effects for faster PDF rendering */
   * {
     animation: none !important;
     transition: none !important;
@@ -1720,7 +1580,6 @@ li>.outline-item-active {
     overflow: visible !important;
   }
 
-  /* Disable GPU acceleration hints */
   #write img,
   #write .md-task-list-item > input {
     will-change: auto !important;
@@ -1731,19 +1590,15 @@ li>.outline-item-active {
     will-change: auto !important;
   }
 
-  /* Simplify shadows for faster rendering */
   #write img {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   }
 
-  /* Remove decorative pseudo-elements */
   #write hr::before,
   #write blockquote::before {
     display: none !important;
   }
 
-  /* Page breaks */
-  /* Start new page for H1 and section breaks (except first H1) */
   #write h1 {
     page-break-before: always;
     break-before: page;
@@ -1761,7 +1616,6 @@ li>.outline-item-active {
     margin-bottom: 0;
   }
 
-  /* Prevent headings from being separated from content */
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
     break-after: avoid;
@@ -1769,7 +1623,6 @@ li>.outline-item-active {
     break-inside: avoid;
   }
 
-  /* Keep content blocks together */
   #write table,
   #write .md-fences,
   #write blockquote,
@@ -1778,13 +1631,11 @@ li>.outline-item-active {
     break-inside: avoid;
   }
 
-  /* Avoid breaking after labels */
   p, li {
     orphans: 3;
     widows: 3;
   }
 
-  /* Link handling */
   #write a {
     text-decoration: underline;
     color: var(--link-color);
@@ -1792,14 +1643,12 @@ li>.outline-item-active {
     background: none;
   }
 
-  /* Hide interactive elements */
   .code-tooltip,
   .md-fences .code-tooltip,
   sup.md-footnote:hover {
     display: none !important;
   }
 
-  /* Optimize images */
   #write img {
     max-width: 100%;
     page-break-inside: avoid;
@@ -1808,7 +1657,6 @@ li>.outline-item-active {
     margin: 16px auto;
   }
 
-  /* Code blocks for print */
   #write .md-fences {
     background: rgba(248, 248, 248, 1) !important;
     border: 1px solid rgba(221, 221, 221, 1) !important;
@@ -1822,7 +1670,6 @@ li>.outline-item-active {
     background: rgba(248, 248, 248, 1) !important;
   }
 
-  /* Preserve syntax highlighting in PDF */
   #write .cm-s-inner .cm-keyword,
   #write .cm-s-inner .cm-builtin {
     color: rgba(215, 58, 73, 1) !important;
@@ -1899,7 +1746,6 @@ li>.outline-item-active {
     color: rgba(111, 66, 193, 1) !important;
   }
 
-  /* Table optimization */
   #write table {
     border-collapse: collapse !important;
     width: 100% !important;
@@ -1912,7 +1758,6 @@ li>.outline-item-active {
     padding: 0.3cm !important;
   }
 
-  /* Blockquotes for print */
   #write blockquote {
     background: rgba(245, 245, 245, 1) !important;
     border-left: 4px solid rgba(102, 102, 102, 1) !important;
@@ -1924,7 +1769,6 @@ li>.outline-item-active {
     display: none;
   }
 
-  /* Hide UI elements */
   .sidebar,
   .file-tree,
   #typora-sidebar,
@@ -1934,10 +1778,7 @@ li>.outline-item-active {
   }
 }
 
-/* -----------------------------------------------------------------
-   Workflow Boxes (HTML Blocks)
-   ----------------------------------------------------------------- */
-
+/* Normalize inline-styled workflow blocks from HTML exports. */
 #write .md-htmlblock-container {
   background: rgba(0, 0, 0, 0) !important;
   box-shadow: none !important;
@@ -1991,10 +1832,7 @@ li>.outline-item-active {
   color: inherit !important
 }
 
-/* -----------------------------------------------------------------
-   Strikethrough
-   ----------------------------------------------------------------- */
-
+/* Strikethrough. */
 s,
 del,
 .del {
@@ -2004,11 +1842,7 @@ del,
   text-underline-offset: 3px;
 }
 
-/* -----------------------------------------------------------------
-   Footnotes
-   ----------------------------------------------------------------- */
-
-/* Footnote reference (superscript number) */
+/* Footnote references. */
 #write sup.md-footnote {
   background-color: rgba(156, 156, 156, 0.2);
   color: var(--accent-color);
@@ -2029,7 +1863,6 @@ del,
   border-color: var(--accent-color);
 }
 
-/* Footnote content block */
 #write .md-footnote {
   background-color: rgba(255, 255, 255, 0.04);
   border-left: 4px solid var(--accent-color);
@@ -2062,7 +1895,6 @@ del,
   transition: all 0.2s ease;
 }
 
-/* Footnote section separator */
 #write .footnotes-sep {
   margin-top: 48px;
   margin-bottom: 24px;
@@ -2071,7 +1903,6 @@ del,
   background: linear-gradient(to right, var(--accent-color), rgba(0, 0, 0, 0));
 }
 
-/* Footnotes list */
 #write .footnotes {
   margin-top: 32px;
   padding-top: 16px;
