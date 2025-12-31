@@ -14,35 +14,24 @@ Feedback is always welcome! If you encounter any issues or have a suggestion, pl
 - **Notion-like design** for a clean and minimal look.
 - **Compact file tree** to display more files and directories.
 - **Precise replication** of Notion’s aesthetics.
-- **Code-mode parity:** Typora’s Code/Source mode now shares the same syntax colors as fenced code, with visible line numbers by default.
-- **Accessible links:** clearer blue link palette and focus outline for better discoverability.
-- **Reduced-motion friendly:** honors `prefers-reduced-motion` to tone down animations.
 - The file tree and outline styles are based on [Mdmdt](https://theme.typora.io/theme/Mdmdt/). Adjustments have been made to the size, color, and some elements to better integrate with the overall Notion-like theme.
 
-## Code mode / Source view
+# Theme Variants
 
-- Line numbers are shown in Typora’s Code (Source) mode; fenced code blocks in the editor remain numberless for a clean look.
-- Syntax colors, selection colors, and cursor styling match fenced code, so preview and Code mode stay visually consistent.
-- If you want to adjust line-number color, edit `--code-block-bg-color` (background context) and the source-mode line-number color inside each theme CSS.
+This repo provides a Notion-like theme as the default, plus an optional variant.
 
-## Customization quick wins
+## Default
 
-- **Links:** tweak `--link-color`, `--link-hover-color`, and `--link-hover-bg` in each CSS file.
-- **Line numbers (Code mode):** edit `.cm-s-typora-default .CodeMirror-linenumber` color/opacity.
-- **Motion reduction:** the `@media (prefers-reduced-motion: reduce)` block can be tailored or removed if you prefer full animations.
+- `notion-style-light.css`
+- `notion-style-dark.css`
 
-## CSS layout reference
+## Variant: Enhanced
 
-Both `notion-style-light.css` and `notion-style-dark.css` follow the same eight-part layout so you can quickly find the rule you want to adjust:
+- `notion-style-light-enhanced.css`
+- `notion-style-dark-enhanced.css`
 
-1. **CSS variables & configuration:** palette, typography, spacing, shared tokens.
-2. **Base & reset:** html/body defaults, paragraph spacing, media handling.
-3. **Block elements:** headings, tables, lists, blockquotes, math, horizontal rules.
-4. **Code & syntax:** search hits, fenced blocks, CodeMirror tokens, tooltips.
-5. **Inline elements:** inline code, links, callouts, selections, marks, reduced-motion.
-6. **Sidebar & navigation:** outline/TOC chrome and sidebar framing.
-7. **Typora chrome:** file library list/search/tree styling.
-8. **Utilities & helpers:** print/export tweaks, list markers, strikethrough, footnotes, workflow HTML blocks.
+This variant focuses on readability and Typora usability, and may look different from Notion.
+Credits: @Hermione-Granger-1176 (from PR #11)
 
 # Preview
 
@@ -58,7 +47,9 @@ Installing this theme is easy—just move the CSS file into Typora's theme direc
 
 ### Steps to Install
 
-1. Download the CSS file (`notion-style-light.css` or `notion-style-dark.css`) from this GitHub repository.
+1. Download one of the CSS files from this repository:
+   - Default: `notion-style-light.css` / `notion-style-dark.css`
+   - Enhanced: `notion-style-light-enhanced.css` / `notion-style-dark-enhanced.css`
 
 2. Open Typora and go to **`Settings` → `Appearance` → `Open Theme Folder`**.
 
