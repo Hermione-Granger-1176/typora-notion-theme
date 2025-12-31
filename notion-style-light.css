@@ -495,7 +495,7 @@ li p {
   color: inherit;
 }
 
-/* Blockquotes */
+/* Blockquotes and Callouts */
 #write blockquote {
   margin: 24px 0;
   padding: 16px 20px 16px 48px;
@@ -526,6 +526,51 @@ li p {
 
 #write blockquote p:last-child {
   margin-bottom: 0;
+}
+
+.md-alert,
+.admonition {
+  background-color: rgba(241, 241, 239, 0.5);
+  border-left: 3px solid var(--accent-color);
+  padding: 16px 20px 16px 48px;
+  margin: 24px 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(15, 15, 15, 0.1);
+  position: relative;
+}
+
+.md-alert::before,
+.admonition::before {
+  content: 'i';
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--accent-color);
+  opacity: 0.4;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.md-alert-note::before { content: 'i'; }
+.md-alert-tip::before { content: '*'; font-style: normal; }
+.md-alert-important::before { content: '!'; }
+.md-alert-warning::before { content: '‼'; font-style: normal; }
+.md-alert-caution::before { content: '×'; font-style: normal; }
+
+.md-alert-text-container,
+.md-alert-title {
+  display: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.md-alert p,
+.admonition p {
+  margin: 0;
 }
 
 /* Math blocks */
@@ -888,17 +933,6 @@ code {
   border-radius: var(--code-border-radius);
   border: none;
   font-weight: 400;
-}
-
-/* Callouts. */
-.md-alert,
-.admonition {
-  background-color: rgba(241, 241, 239, 0.5);
-  border-left: 3px solid var(--accent-color);
-  padding: 4px 20px;
-  margin: 24px 0;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(15, 15, 15, 0.1);
 }
 
 /* Links. */
