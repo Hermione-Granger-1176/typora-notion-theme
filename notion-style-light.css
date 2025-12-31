@@ -1170,15 +1170,27 @@ mark.gray {
   }
 }
 
-#write div.md-toc-tooltip {
-  background-color: var(--bg-color);
-}
-
 /* =================================================================
   6. SIDEBAR & NAVIGATION
   -----------------------------------------------------------------
   Sidebar chrome, outline, and table of contents interactions
   ================================================================= */
+
+/* TOC (Table of Contents) */
+#write div.md-toc-tooltip {
+  background-color: var(--bg-color);
+}
+
+.md-toc {
+  margin-top: 2.5rem;
+}
+
+.md-toc .md-toc-h2 { margin-left: 1rem; }
+.md-toc .md-toc-h3 { margin-left: 2rem; }
+.md-toc .md-toc-h4 { margin-left: 3rem; }
+.md-toc .md-toc-h5 { margin-left: 4rem; }
+.md-toc .md-toc-h6 { margin-left: 5rem; }
+
 .sidebar-footer {
   border-top: 1px solid var(--border-color);
 }
