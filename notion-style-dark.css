@@ -22,8 +22,8 @@
  * 3.  BLOCK ELEMENTS (headings, tables, lists, quotes, rules, math)
  * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
  * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
- * 6.  SIDEBAR & NAVIGATION (outline, file tree)
- * 7.  TYPORA-SPECIFIC (library, tree hierarchy)
+ * 6.  SIDEBAR & NAVIGATION (outline, TOC, sidebar chrome)
+ * 7.  TYPORA CHROME (library, file tree, search)
  * 8.  UTILITIES & HELPERS (print, workflows, markers, strike, footnotes)
  *
  * =================================================================
@@ -1179,12 +1179,11 @@ mark.gray {
   background-color: var(--bg-color);
 }
 
-/*
-   * ------------------------
-   * sidebar
-   * toc-content
-   * ------------------------
-*/
+/* =================================================================
+  6. SIDEBAR & NAVIGATION
+  -----------------------------------------------------------------
+  Sidebar chrome, outline, and table of contents interactions
+  ================================================================= */
 .sidebar-footer {
   border-top: 1px solid var(--side-bar-border-color);
 }
@@ -1374,12 +1373,11 @@ li>.outline-item-active {
   margin-left: 0;
 }
 
-/*
-   * --------------------------
-   * file-library-list
-   * file-library-search-result
-   * --------------------------
-*/
+/* =================================================================
+  7. TYPORA CHROME
+  -----------------------------------------------------------------
+  File library list, search, and tree interactions
+  ================================================================= */
 #file-library-list,
 #file-library-search-result {
   padding: 12px;

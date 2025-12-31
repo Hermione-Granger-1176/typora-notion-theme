@@ -31,6 +31,19 @@ Feedback is always welcome! If you encounter any issues or have a suggestion, pl
 - **Line numbers (Code mode):** edit `.cm-s-typora-default .CodeMirror-linenumber` color/opacity.
 - **Motion reduction:** the `@media (prefers-reduced-motion: reduce)` block can be tailored or removed if you prefer full animations.
 
+## CSS layout reference
+
+Both `notion-style-light.css` and `notion-style-dark.css` follow the same eight-part layout so you can quickly find the rule you want to adjust:
+
+1. **CSS variables & configuration:** palette, typography, spacing, shared tokens.
+2. **Base & reset:** html/body defaults, paragraph spacing, media handling.
+3. **Block elements:** headings, tables, lists, blockquotes, math, horizontal rules.
+4. **Code & syntax:** search hits, fenced blocks, CodeMirror tokens, tooltips.
+5. **Inline elements:** inline code, links, callouts, selections, marks, reduced-motion.
+6. **Sidebar & navigation:** outline/TOC chrome and sidebar framing.
+7. **Typora chrome:** file library list/search/tree styling.
+8. **Utilities & helpers:** print/export tweaks, list markers, strikethrough, footnotes, workflow HTML blocks.
+
 # Preview
 
 ![image1](img/preview1.png)

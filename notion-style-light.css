@@ -22,8 +22,8 @@
  * 3.  BLOCK ELEMENTS (headings, tables, lists, quotes, rules, math)
  * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
  * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
- * 6.  SIDEBAR & NAVIGATION (outline, file tree)
- * 7.  TYPORA-SPECIFIC (library, tree hierarchy)
+ * 6.  SIDEBAR & NAVIGATION (outline, TOC, sidebar chrome)
+ * 7.  TYPORA CHROME (library, file tree, search)
  * 8.  UTILITIES & HELPERS (print, workflows, markers, strike, footnotes)
  *
  * =================================================================
@@ -222,11 +222,11 @@ h6 + p {
   text-align: center;
 }
 
-/*
-   * ---------------------
-   * Block Elements
-   * ---------------------
-*/
+/* =================================================================
+  3. BLOCK ELEMENTS
+  -----------------------------------------------------------------
+  Headings, tables, lists, blockquotes, math blocks, horizontal rules
+  ================================================================= */
 pre.md-meta-block {
   background: rgb(247, 246, 243);
   color: rgba(55, 53, 47, 0.8);
@@ -665,13 +665,6 @@ li p {
    Code Blocks Configuration
    ----------------------------------------------------------------- */
 
-/*
- * This section styles code blocks for all programming languages.
- * Typora uses CodeMirror for syntax highlighting, which
- * automatically detects and highlights Python, JavaScript,
- * Java, SQL, HTML, CSS, and 100+ other languages.
- */
-
 pre {
   --monospace: "Cascadia Code Variable", SFMono-Regular, Menlo, Consolas,
     "PT Mono", "Liberation Mono";
@@ -1016,11 +1009,11 @@ pre {
   color: var(--bg-color) !important;
 }
 
-/*
-   * =========================================================
-   * INLINE ELEMENTS
-   * =========================================================
-*/
+/* =================================================================
+  5. INLINE ELEMENTS
+  -----------------------------------------------------------------
+  Inline code, links, callouts, selections, text markers
+  ================================================================= */
 
 code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -1181,12 +1174,11 @@ mark.gray {
   background-color: var(--bg-color);
 }
 
-/*
-   * ------------------------
-   * sidebar
-   * toc-content
-   * ------------------------
-*/
+/* =================================================================
+  6. SIDEBAR & NAVIGATION
+  -----------------------------------------------------------------
+  Sidebar chrome, outline, and table of contents interactions
+  ================================================================= */
 .sidebar-footer {
   border-top: 1px solid var(--border-color);
 }
@@ -1375,12 +1367,11 @@ li>.outline-item-active {
   margin-left: 0;
 }
 
-/*
-   * --------------------------
-   * file-library-list
-   * file-library-search-result
-   * --------------------------
-*/
+/* =================================================================
+  7. TYPORA CHROME
+  -----------------------------------------------------------------
+  File library list, search, and tree interactions
+  ================================================================= */
 #file-library-list,
 #file-library-search-result {
   padding: 12px;
