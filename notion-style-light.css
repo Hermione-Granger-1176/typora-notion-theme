@@ -19,12 +19,12 @@
  *
  * 1.  CSS VARIABLES & CONFIGURATION
  * 2.  BASE & RESET
- * 3.  BLOCK ELEMENTS (headings, tables, lists, quotes, rules, math)
+ * 3.  BLOCK ELEMENTS (headings, tables, lists, markers, quotes, rules, math)
  * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
  * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
  * 6.  SIDEBAR & NAVIGATION (outline, TOC, sidebar chrome)
  * 7.  TYPORA CHROME (library, file tree, search)
- * 8.  UTILITIES & HELPERS (print, workflows, markers, strike, footnotes)
+ * 8.  UTILITIES & HELPERS (print, workflows, strike, footnotes)
  *
  * =================================================================
  */
@@ -227,6 +227,11 @@ h6 + p {
   -----------------------------------------------------------------
   Headings, tables, lists, blockquotes, math blocks, horizontal rules
   ================================================================= */
+
+/* -----------------------------------------------------------------
+   YAML Frontmatter
+   ----------------------------------------------------------------- */
+
 pre.md-meta-block {
   background: rgb(247, 246, 243);
   color: rgba(55, 53, 47, 0.8);
@@ -419,6 +424,34 @@ ol ol {
 ol ol ol {
   counter-reset: sub-sub-counter;
   list-style-type: lower-roman;
+}
+
+/* List markers */
+#write ul > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+#write ol > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+#write ul ul > li::marker {
+  color: rgba(193, 202, 204, 0.7);
+}
+
+#write ul ul ul > li::marker {
+  color: rgba(193, 202, 204, 0.5);
+}
+
+#write ol ol > li::marker {
+  color: rgba(193, 202, 204, 0.7);
+}
+
+#write ol ol ol > li::marker {
+  color: rgba(193, 202, 204, 0.5);
 }
 
 li p {
@@ -1014,6 +1047,10 @@ pre {
   -----------------------------------------------------------------
   Inline code, links, callouts, selections, text markers
   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Inline Code
+   ----------------------------------------------------------------- */
 
 code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -1976,43 +2013,61 @@ li>.outline-item-active {
   }
 }
 
-/* =========================================================
-   TYPORA-SPECIFIC ENHANCEMENTS
-   ========================================================= */
-
-/* NOTE: Custom scrollbars are not supported in Typora editor.
-   Typora uses OS-native scrollbars which cannot be styled via CSS. */
-
 /* -----------------------------------------------------------------
-   List Markers
+   Workflow Boxes (HTML Blocks)
    ----------------------------------------------------------------- */
 
-#write ul > li::marker {
-  color: var(--accent-color);
-  font-weight: 600;
+#write .md-htmlblock-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important
 }
 
-#write ol > li::marker {
-  color: var(--accent-color);
-  font-weight: 600;
-  font-size: 0.95em;
+#write div[style*="border:1px solid #ccc"][style*="padding: 15px"],
+#write div[style*="background-color: #f9f9f9"],
+#write div[style*="background-color:#f9f9f9"],
+#write div[style*="background-color: rgb(249, 249, 249)"],
+#write div[style*="background-color:rgb(249, 249, 249)"] {
+  background: #f9f9f9 !important;
+  border-color: #d0d0d0 !important;
+  color: #37352f !important;
+  box-shadow: 0 0 0 1px rgba(15, 15, 15, .08) inset !important;
 }
 
-/* Nested list markers with hierarchy */
-#write ul ul > li::marker {
-  color: rgba(193, 202, 204, 0.7);
+#write div[style*="border:1px solid #aaa"] {
+  background: #f5f5f5 !important;
+  border-color: #c0c0c0 !important;
+  color: #37352f !important
 }
 
-#write ul ul ul > li::marker {
-  color: rgba(193, 202, 204, 0.5);
+#write [style*="background-color: #e0e0ff"],
+#write [style*="background-color:#e0e0ff"],
+#write [style*="background-color: rgb(224, 224, 255)"] {
+  background: #e0e0ff !important;
+  border-color: #a0a0ff !important;
+  color: #2f3a7a !important
 }
 
-#write ol ol > li::marker {
-  color: rgba(193, 202, 204, 0.7);
+#write [style*="background-color: #e0ffe0"],
+#write [style*="background-color:#e0ffe0"],
+#write [style*="background-color: rgb(224, 255, 224)"] {
+  background: #e0ffe0 !important;
+  border-color: #5fc966 !important;
+  color: #1f4a1f !important
 }
 
-#write ol ol ol > li::marker {
-  color: rgba(193, 202, 204, 0.5);
+#write div[style*="font-size: 20px"] {
+  background: transparent !important;
+  border: 0 !important;
+  color: #6e6e6e !important
+}
+
+#write .md-htmlblock-container *,
+#write div[style*="padding: 15px"] * {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  color: inherit !important
 }
 
 /* -----------------------------------------------------------------
@@ -2111,61 +2166,4 @@ del,
   color: rgba(55, 53, 47, 0.8);
   font-size: 0.9rem;
   line-height: 1.6;
-}
-
-/* -----------------------------------------------------------------
-   Workflow Boxes (HTML Blocks)
-   ----------------------------------------------------------------- */
-
-#write .md-htmlblock-container {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important
-}
-
-#write div[style*="border:1px solid #ccc"][style*="padding: 15px"],
-#write div[style*="background-color: #f9f9f9"],
-#write div[style*="background-color:#f9f9f9"],
-#write div[style*="background-color: rgb(249, 249, 249)"],
-#write div[style*="background-color:rgb(249, 249, 249)"] {
-  background: #f9f9f9 !important;
-  border-color: #d0d0d0 !important;
-  color: #37352f !important;
-  box-shadow: 0 0 0 1px rgba(15, 15, 15, .08) inset !important;
-}
-
-#write div[style*="border:1px solid #aaa"] {
-  background: #f5f5f5 !important;
-  border-color: #c0c0c0 !important;
-  color: #37352f !important
-}
-
-#write [style*="background-color: #e0e0ff"],
-#write [style*="background-color:#e0e0ff"],
-#write [style*="background-color: rgb(224, 224, 255)"] {
-  background: #e0e0ff !important;
-  border-color: #a0a0ff !important;
-  color: #2f3a7a !important
-}
-
-#write [style*="background-color: #e0ffe0"],
-#write [style*="background-color:#e0ffe0"],
-#write [style*="background-color: rgb(224, 255, 224)"] {
-  background: #e0ffe0 !important;
-  border-color: #5fc966 !important;
-  color: #1f4a1f !important
-}
-
-#write div[style*="font-size: 20px"] {
-  background: transparent !important;
-  border: 0 !important;
-  color: #6e6e6e !important
-}
-
-#write .md-htmlblock-container *,
-#write div[style*="padding: 15px"] * {
-  opacity: 1 !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-  color: inherit !important
 }

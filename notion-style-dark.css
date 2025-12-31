@@ -19,12 +19,12 @@
  *
  * 1.  CSS VARIABLES & CONFIGURATION
  * 2.  BASE & RESET
- * 3.  BLOCK ELEMENTS (headings, tables, lists, quotes, rules, math)
+ * 3.  BLOCK ELEMENTS (headings, tables, lists, markers, quotes, rules, math)
  * 4.  CODE & SYNTAX (search, fences, source mode, highlighting, tooltips)
  * 5.  INLINE ELEMENTS (code, links, alerts, selection, marks)
  * 6.  SIDEBAR & NAVIGATION (outline, TOC, sidebar chrome)
  * 7.  TYPORA CHROME (library, file tree, search)
- * 8.  UTILITIES & HELPERS (print, workflows, markers, strike, footnotes)
+ * 8.  UTILITIES & HELPERS (print, workflows, strike, footnotes)
  *
  * =================================================================
  */
@@ -427,6 +427,34 @@ ol ol {
 ol ol ol {
   counter-reset: sub-sub-counter;
   list-style-type: lower-roman;
+}
+
+/* List markers */
+#write ul > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+#write ol > li::marker {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+#write ul ul > li::marker {
+  color: rgba(156, 166, 168, 0.7);
+}
+
+#write ul ul ul > li::marker {
+  color: rgba(156, 166, 168, 0.5);
+}
+
+#write ol ol > li::marker {
+  color: rgba(156, 166, 168, 0.7);
+}
+
+#write ol ol ol > li::marker {
+  color: rgba(156, 166, 168, 0.5);
 }
 
 li p {
@@ -1038,6 +1066,10 @@ code {
   font-weight: 400;
 }
 
+/* -----------------------------------------------------------------
+   Callouts & Info Boxes
+   ----------------------------------------------------------------- */
+
 .md-alert,
 .admonition {
   background-color: rgba(45, 45, 45, 0.6);
@@ -1065,10 +1097,9 @@ code {
   border-left-color: #0f7b6c;
 }
 
-sup.md-footnote {
-  background-color: var(--border-color);
-  color: var(--text-color) !important;
-}
+/* -----------------------------------------------------------------
+   Links
+   ----------------------------------------------------------------- */
 
 #write a {
   text-decoration: none;
@@ -1095,6 +1126,10 @@ sup.md-footnote {
 #write a:active {
   transform: translateY(1px) var(--gpu-acceleration);
 }
+
+/* -----------------------------------------------------------------
+   Text Selection & Highlights
+   ----------------------------------------------------------------- */
 
 ::selection {
   background-color: var(--selection-bg);
@@ -2037,42 +2072,6 @@ li>.outline-item-active {
   filter: none !important;
   mix-blend-mode: normal !important;
   color: inherit !important
-}
-
-/* -----------------------------------------------------------------
-   Custom Scrollbars
-   ----------------------------------------------------------------- */
-
-/* NOTE: Custom scrollbars are not supported in Typora editor.
-   These styles only work in exported HTML when viewed in
-   Chrome/Edge/Safari browsers. Typora uses OS-native scrollbars. */
-
-#write ul > li::marker {
-  color: var(--accent-color);
-  font-weight: 600;
-}
-
-#write ol > li::marker {
-  color: var(--accent-color);
-  font-weight: 600;
-  font-size: 0.95em;
-}
-
-/* Nested list markers with hierarchy */
-#write ul ul > li::marker {
-  color: rgba(156, 166, 168, 0.7);
-}
-
-#write ul ul ul > li::marker {
-  color: rgba(156, 166, 168, 0.5);
-}
-
-#write ol ol > li::marker {
-  color: rgba(156, 166, 168, 0.7);
-}
-
-#write ol ol ol > li::marker {
-  color: rgba(156, 166, 168, 0.5);
 }
 
 /* -----------------------------------------------------------------
