@@ -102,12 +102,15 @@
 
   /* === COMPONENT STYLES === */
   /* Code - inline */
-  --code-bg-color: #ededeb;
+  --code-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --code-bg-color: rgba(135, 131, 120, 0.15);
   --code-color: #eb5757;
-  --code-border-radius: 5px;
+  --code-border-radius: 3px;
 
   /* Code blocks */
   --code-block-bg-color: #f7f6f3;
+  --code-block-font-size: 0.95rem;
+  --code-block-line-height: 1.65;
   --code-tooltip-height: 34px;
   --code-tooltip-gap: calc(var(--code-tooltip-height) + 5px);
   --code-tooltip-border-color: #dfdfde;
@@ -240,8 +243,8 @@ pre.md-meta-block {
   width: 100%;
   border: 1px solid rgba(55, 53, 47, 0.16);
   box-shadow: none;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 85%;
+  font-family: var(--code-font);
+  font-size: var(--monospace-font-size);
   line-height: 1.5;
 }
 
@@ -368,20 +371,18 @@ th {
   text-align: left;
   color: rgba(55, 53, 47, 0.9);
   font-size: 0.9rem;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-tbody tr:hover {
-  background-color: rgba(55, 53, 47, 0.06);
-  transition: background-color 0.15s ease;
 }
 
 tbody tr:nth-child(even) {
   background-color: rgba(55, 53, 47, 0.02);
 }
 
-tbody tr:nth-child(even):hover {
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
   background-color: rgba(55, 53, 47, 0.06);
 }
 
@@ -438,18 +439,12 @@ ol ol ol {
   font-size: 0.95em;
 }
 
-#write ul ul > li::marker {
-  color: rgba(193, 202, 204, 0.7);
-}
-
-#write ul ul ul > li::marker {
-  color: rgba(193, 202, 204, 0.5);
-}
-
+#write ul ul > li::marker,
 #write ol ol > li::marker {
   color: rgba(193, 202, 204, 0.7);
 }
 
+#write ul ul ul > li::marker,
 #write ol ol ol > li::marker {
   color: rgba(193, 202, 204, 0.5);
 }
@@ -715,7 +710,7 @@ pre {
   border-radius: 6px;
   overflow: visible;
   padding: 0;
-  font-size: 0.95rem;
+  font-size: var(--code-block-font-size);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   /* Performance: contain repaints (not paint to avoid clipping) */
   contain: layout style;
@@ -727,18 +722,16 @@ pre {
   background: transparent;
   border-radius: 0;
   padding: 20px 24px;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: var(--code-block-font-size);
+  line-height: var(--code-block-line-height);
   font-family: var(--monospace-font);
 }
 
-#write .md-fences pre,
-#write .md-fences code,
-.cm-s-typora-default pre,
-.cm-s-typora-default code {
+#write .md-fences :is(pre, code),
+.cm-s-typora-default :is(pre, code) {
   font-family: var(--monospace-font);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: var(--code-block-font-size);
+  line-height: var(--code-block-line-height);
   background: transparent;
 }
 
@@ -804,117 +797,88 @@ pre {
 }
 
 /* KEYWORDS: def, class, if, for, while, import, function, const, let, var, return, etc. */
-.cm-s-inner .cm-keyword,
-.cm-s-typora-default .cm-keyword,
-.cm-s-inner .cm-builtin,
-.cm-s-typora-default .cm-builtin {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-keyword, .cm-builtin) {
   color: #d73a49;
   font-weight: 600;
 }
 
 /* FUNCTION & CLASS DEFINITIONS: function names, class names when defined */
-.cm-s-inner .cm-def,
-.cm-s-typora-default .cm-def {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-def {
   color: #6f42c1;
   font-weight: 600;
 }
 
 /* VARIABLES: All variable names and identifiers */
-.cm-s-inner .cm-variable,
-.cm-s-typora-default .cm-variable,
-.cm-s-inner .cm-variable-2,
-.cm-s-typora-default .cm-variable-2,
-.cm-s-inner .cm-variable-3,
-.cm-s-typora-default .cm-variable-3 {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: #24292e;
 }
 
 /* NUMBERS & BOOLEANS: 123, 45.67, True, False, null, undefined */
-.cm-s-inner .cm-number,
-.cm-s-typora-default .cm-number,
-.cm-s-inner .cm-atom,
-.cm-s-typora-default .cm-atom {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-number, .cm-atom) {
   color: #005cc5;
   font-weight: 500;
 }
 
 /* STRINGS: "text", 'text', `template`, f"formatted" */
-.cm-s-inner .cm-string,
-.cm-s-typora-default .cm-string,
-.cm-s-inner .cm-string-2,
-.cm-s-typora-default .cm-string-2 {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-string, .cm-string-2) {
   color: #22863a;
 }
 
 /* COMMENTS: # Python comments, // JS comments, block comments */
-.cm-s-inner .cm-comment,
-.cm-s-typora-default .cm-comment {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-comment {
   color: #6a737d;
   font-style: italic;
   opacity: 0.9;
 }
 
 /* OPERATORS: +, -, *, /, =, ==, ===, +=, ->, =>, etc. */
-.cm-s-inner .cm-operator,
-.cm-s-typora-default .cm-operator {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-operator {
   color: #d73a49;
 }
 
 /* PROPERTIES & ATTRIBUTES: object.property, @attribute */
-.cm-s-inner .cm-property,
-.cm-s-typora-default .cm-property,
-.cm-s-inner .cm-attribute,
-.cm-s-typora-default .cm-attribute {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-property, .cm-attribute) {
   color: #005cc5;
 }
 
 /* TYPES & TAGS: int, str, boolean, <div>, <span> */
-.cm-s-inner .cm-type,
-.cm-s-typora-default .cm-type,
-.cm-s-inner .cm-tag,
-.cm-s-typora-default .cm-tag {
+:is(.cm-s-inner, .cm-s-typora-default) :is(.cm-type, .cm-tag) {
   color: #22863a;
   font-weight: 500;
 }
 
 /* META/DECORATORS: @decorator, @property, annotations */
-.cm-s-inner .cm-meta,
-.cm-s-typora-default .cm-meta {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-meta {
   color: #6f42c1;
 }
 
 /* QUALIFIERS: public, private, static, final, const */
-.cm-s-inner .cm-qualifier,
-.cm-s-typora-default .cm-qualifier {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-qualifier {
   color: #6f42c1;
   font-weight: 500;
 }
 
 /* BRACKETS & PUNCTUATION: Better visibility for (), [], {} */
-.cm-s-inner .cm-bracket,
-.cm-s-typora-default .cm-bracket {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-bracket {
   color: #37352f;
   font-weight: 600;
 }
 
 /* ERRORS: Syntax errors and invalid characters */
-.cm-s-inner .cm-error,
-.cm-s-typora-default .cm-error {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-error {
   color: #d73a49;
   background-color: rgba(215, 58, 73, 0.1);
   font-weight: 600;
 }
 
 /* HEADERS: Markdown headers within code blocks */
-.cm-s-inner .cm-header,
-.cm-s-typora-default .cm-header {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-header {
   color: #005cc5;
   font-weight: 600;
 }
 
 /* SPECIAL CHARACTERS: Escape sequences, regex patterns */
-.cm-s-inner .cm-special,
-.cm-s-typora-default .cm-special {
+:is(.cm-s-inner, .cm-s-typora-default) .cm-special {
   color: #6f42c1;
 }
 
@@ -971,8 +935,7 @@ pre {
 }
 
 /* Style toolbar buttons and language input */
-.md-fences .code-tooltip input,
-.md-fences .code-tooltip span {
+.md-fences .code-tooltip :is(input, span) {
   padding: 6px 10px;
   border-radius: 5px;
   margin: 0 3px;
@@ -1053,13 +1016,13 @@ pre {
    ----------------------------------------------------------------- */
 
 code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 85%;
-  line-height: normal;
-  color: #eb5757;
-  background-color: rgba(135, 131, 120, 0.15);
+  font-family: var(--code-font);
+  font-size: var(--monospace-font-size);
+  line-height: var(--monospace-line-height);
+  color: var(--code-color);
+  background-color: var(--code-bg-color);
   padding: 0.2em 0.4em;
-  border-radius: 3px;
+  border-radius: var(--code-border-radius);
   border: none;
   font-weight: 400;
 }
@@ -1530,14 +1493,6 @@ li>.outline-item-active {
   margin-left: 0;
 }
 
-.file-library-file-node:hover .file-node-background {
-  background: var(--active-file-bg-color);
-}
-
-.file-library-file-node:hover .file-node-content {
-  cursor: pointer;
-}
-
 .file-library-file-node:hover .file-node-icon:after {
   width: 0.5714em !important;
 }
@@ -1574,10 +1529,7 @@ li>.outline-item-active {
   margin-bottom: 0.2143em;
 }
 
-.file-library-node:not(.file-node-root):focus>.file-node-background {
-  border: 1px dashed var(--text-color) !important;
-}
-
+.file-library-node:not(.file-node-root):focus>.file-node-background,
 .file-library-node.active:not(.file-node-root):focus>.file-node-background {
   border: 1px dashed var(--text-color) !important;
 }
