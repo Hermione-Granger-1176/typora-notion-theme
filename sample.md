@@ -6,51 +6,78 @@ description: This block is YAML front matter
 
 # Notion Style Theme
 
-> This is a sample document demonstrating the **Notin Style Theme** for Typora.
+> This is a sample document demonstrating the **Notion Style Theme** for Typora.
 
 ---
 
-**Inline styles:**
+**Inline Styles:**
 
-**strong**, _Emphasis_, `code`, <u>underline</u>, ~~strikethrough~~,$ \LaTeX $, H$\_2$O, ==highlight==, [Link](#)
+**Bold**, *Italic*, ***Bold Italic***, `inline code`, <u>underline</u>, ~~strikethrough~~, ==highlight==, [Link](https://github.com), www.google.com
+
+**Math & Chemistry:** $E = mc^2$, H$_2$O, $\LaTeX$
+
+**Superscript & Subscript:** X^2^, H~2~O
 
 ---
 
 **Image:**
-![alt text](img/sample-image.jpeg)
+
+![Sample Image](img/sample-image.jpeg)
 
 ---
 
 **Headings:**
 
-# Heading1
+# Heading 1
 
-## Heading2
+## Heading 2
 
-### Heading3
+### Heading 3
 
-#### Heading4
+#### Heading 4
 
-##### Heading5
+##### Heading 5
 
-###### Heading6
+###### Heading 6
 
 ---
 
-**Quote:**
+**Blockquotes:**
 
-> Blockquote: "This is a quote."
+> This is a simple blockquote.
+
+> Blockquote with **bold** and *italic* text.
 >
-> > Nested Blockquote: "This is a quote inside a quote."
+> > Nested blockquote: "A quote inside a quote."
 
 ---
 
-**Code Block:**
+**Code Blocks:**
 
 ```python
-#  Notin Style Theme - Sample Code
-def hello():
-    print("Hello, Notin Style Theme!")
+# Python Example
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Notion Style Theme")
+```
+
+```javascript
+// JavaScript Example
+const greeting = (name) => {
+    console.log(`Hello, ${name}!`);
+};
+
+greeting("Typora");
+```
+
+```css
+/* CSS Example */
+.notion-theme {
+    background-color: #ffffff;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
 ```
 
 ---
@@ -59,23 +86,23 @@ def hello():
 
 > [!NOTE]
 >
-> This is a note block.
+> This is a note block for general information.
 
 > [!TIP]
 >
-> This is a tip block.
+> This is a tip block with helpful suggestions.
 
 > [!IMPORTANT]
 >
-> This is an important block.
+> This is an important block for critical information.
 
 > [!WARNING]
 >
-> This is a warning block.
+> This is a warning block to alert users of potential issues.
 
 > [!CAUTION]
 >
-> This is a caution block.
+> This is a caution block for dangerous actions.
 
 ---
 
@@ -84,12 +111,10 @@ def hello():
 - Item 1
   - Subitem 1.1
   - Subitem 1.2
-  - Subitem 1.3
-    - Sub-subitem 1.3.1
-    - Sub-subitem 1.3.2
-    - Sub-subitem 1.3.3
-- Item2
-- Item3
+    - Sub-subitem 1.2.1
+    - Sub-subitem 1.2.2
+- Item 2
+- Item 3
 
 ---
 
@@ -98,10 +123,8 @@ def hello():
 1. First item
    1. Subitem 1.a
    2. Subitem 1.b
-   3. Subitem 1.c
-      1. Sub-subitem 1.c.i
-      1. Sub-subitem 1.c.ii
-      1. Sub-subitem 1.c.iii
+      1. Sub-subitem 1.b.i
+      2. Sub-subitem 1.b.ii
 2. Second item
 3. Third item
 
@@ -109,18 +132,20 @@ def hello():
 
 **To-Do List:**
 
-- [ ] Task 1
-- [x] Completed Task
-- [ ] Task 2
+- [ ] Pending task
+- [x] Completed task
+- [ ] Another pending task
 
 ---
 
 **Table:**
 
-| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Row 1    | Data 1   | Data 2   |
-| Row 2    | Data 3   | Data 4   |
+| Feature       | Status      | Notes            |
+| ------------- | ----------- | ---------------- |
+| Dark Mode     | Complete    | Fully supported  |
+| Light Mode    | Complete    | Fully supported  |
+| Code Blocks   | Complete    | Syntax highlight |
+| Alerts        | Complete    | 5 types          |
 
 ---
 
@@ -130,9 +155,13 @@ $$
 \mathcal{F}(f)(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} dx
 $$
 
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$
+
 ---
 
-**Mermeid:**
+**Mermaid Diagram:**
 
 ```mermaid
 graph LR;
@@ -148,16 +177,23 @@ graph LR;
 
 **Footnotes:**
 
-This is an examle of a footnote reference[^1].
+This is an example of a footnote reference[^1]. Here is another one[^2].
 
-[^1]: This is the footnote text.
+[^1]: This is the first footnote.
+[^2]: This is the second footnote with more details.
 
 ---
 
-**Toc:**
+**Horizontal Rules:**
+
+The lines above and below are horizontal rules (---).
+
+---
+
+**Table of Contents:**
 
 [toc]
 
 ---
 
-Enjoy using the **Notin Style Theme** for Typora!
+Enjoy using the **Notion Style Theme** for Typora!
