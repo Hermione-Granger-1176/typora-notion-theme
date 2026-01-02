@@ -1952,6 +1952,36 @@ del,
   border-color: var(--accent-color);
 }
 
+.typora-export #write sup.md-footnote a,
+.typora-export #write a.md-footnote,
+.typora-export #write a.footnote-ref,
+.typora-export #write a.footnote-backref {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.typora-export #write sup.md-footnote a:hover,
+.typora-export #write sup.md-footnote a:focus,
+.typora-export #write sup.md-footnote a:active,
+.typora-export #write a.md-footnote:hover,
+.typora-export #write a.md-footnote:focus,
+.typora-export #write a.md-footnote:active,
+.typora-export #write a.footnote-ref:hover,
+.typora-export #write a.footnote-ref:focus,
+.typora-export #write a.footnote-ref:active,
+.typora-export #write a.footnote-backref:hover,
+.typora-export #write a.footnote-backref:focus,
+.typora-export #write a.footnote-backref:active {
+  color: inherit;
+  background: transparent;
+  border-bottom-color: transparent;
+  transform: none;
+}
+
 #write .md-footnote {
   font-size: inherit;
   line-height: inherit;
