@@ -58,7 +58,7 @@
 
   /* TODO */
   --todo-bg-color: #2483e2;
-  --todo-tick-color: #ffffff;
+  --todo-check-color: #ffffff;
 
   /* File Tree */
   /* Changing this font size will automatically adjust the size of the entire file tree */
@@ -146,6 +146,7 @@ table {
   margin-bottom: 1rem;
   width: auto !important;
   max-width: fit-content !important;
+  border-collapse: collapse;
 }
 
 /* table cell */
@@ -156,8 +157,13 @@ th {
   width: auto;
   word-wrap: break-word;
   white-space: normal;
-  border: 0.0625px solid var(--border-color);
+  border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
+}
+
+th {
+  background-color: var(--code-block-bg-color);
+  font-weight: 600;
 }
 
 h2 + table tr:first-child th,
@@ -194,17 +200,20 @@ li p {
 
 /* TODO */
 #write .md-task-list-item > input {
-  -webkit-appearance: initial;
+  -webkit-appearance: none;
+  appearance: none;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
   position: absolute;
-  border: 0.08rem solid var(--text-color);
+  border: 1.5px solid var(--text-color);
+  border-radius: 2px;
   margin-top: 0.2rem;
   margin-left: -1.45rem;
-  height: 0.95rem;
-  width: 0.95rem;
-  transition: all 0.35s;
+  height: 1rem;
+  width: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 #write .md-task-list-item > input:focus {
@@ -214,35 +223,31 @@ li p {
 
 #write .md-task-list-item > input[checked] {
   background: var(--todo-bg-color);
-  border: 0.08rem solid var(--todo-bg-color);
+  border: 1.5px solid var(--todo-bg-color);
+  border-radius: 2px;
 }
 
 #write .md-task-list-item > input[checked]::before {
   content: "";
   display: block;
-  width: 0.3rem;
-  height: 0.55rem;
+  width: 0.35rem;
+  height: 0.6rem;
   background: transparent;
-  border: 0.125rem solid var(--todo-tick-color);
+  border: 1.5px solid var(--todo-check-color);
   border-top: none;
   border-left: none;
   position: absolute;
   box-sizing: border-box;
-  top: 45%;
+  top: 42%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(40deg);
-  -webkit-transform: translate(-50%, -50%) rotate(40deg);
-  -ms-transform: translate(-50%, -50%) rotate(40deg);
-}
-
-#write .md-task-list-item > input[checked] {
-  background: var(--todo-bg-color);
-  border: 0.0625rem solid var(--todo-bg-color);
+  transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
 }
 
 #write .md-task-list-item > input[checked] + label,
 #write .md-task-list-item.task-list-done {
-  color: vat(--link-color);
+  color: var(--link-color);
   text-decoration: line-through;
 }
 
@@ -257,10 +262,10 @@ li p {
 blockquote {
   margin: 1rem 0;
   padding-left: 2ch;
-  margin-left: 0.5ch;
+  margin-left: 0.05ch;
   position: relative;
   overflow: hidden;
-  border-left: 0.1875rem solid var(--text-color);
+  border-left: 4px solid var(--text-color);
 }
 
 /* hr */
@@ -387,7 +392,7 @@ pre {
   border-radius: var(--border-radius-lg);
   z-index: 50;
   padding: 0;
-  border: 1px solid var(--border-color);
+  border: 0.5px solid var(--border-color);
   box-shadow: none;
 }
 
