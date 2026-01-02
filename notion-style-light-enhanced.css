@@ -172,6 +172,23 @@ h6+p {
   contain: layout style;
 }
 
+/* Source Code Mode Layout */
+#typora-source .CodeMirror-lines {
+  padding-left: var(--document-padding-x) !important;
+  padding-right: var(--document-padding-x) !important;
+  max-width: var(--main-content-max-width);
+}
+
+#typora-source .CodeMirror-gutters {
+  padding-left: calc(var(--document-padding-x) - 100px);
+  background: transparent;
+  border-right: none;
+}
+
+#typora-source .CodeMirror-sizer {
+  margin-left: 0 !important;
+}
+
 /* Media */
 #write img {
   border-radius: 8px;
