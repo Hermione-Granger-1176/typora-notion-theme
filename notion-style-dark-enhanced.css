@@ -16,7 +16,8 @@
    5. Inline Elements
    6. Sidebar & Navigation
    7. Typora Chrome
-   8. Utilities & Export
+   8. Mermaid Diagrams
+   9. Utilities & Export
    ========================================================================= */
 
 /* =========================================================================
@@ -115,7 +116,8 @@
   /* File tree */
   --file-tree-font-size: 12px;
 
-  /* Diagrams */
+  /* Mermaid Diagrams - curved arrows like mermaid.live */
+  --mermaid-flowchart-curve: basis;
   --mermaid-theme: dark;
 
   /* Performance */
@@ -1592,7 +1594,339 @@ li>.outline-item-active {
 }
 
 /* =========================================================================
-   8. Utilities & Export
+   8. Mermaid Diagrams
+   =========================================================================
+   Mermaid.live-style diagrams with curved arrows (basis curve),
+   dark theme colors, and clean styling.
+   Reference: https://mermaid.js.org/config/theming.html
+
+   NOTE: These styles serve as defaults. User configurations via YAML
+   frontmatter or %%{init}%% directives will override these styles,
+   as Mermaid applies those as inline styles with higher specificity.
+   ========================================================================= */
+
+/* Diagram container */
+.md-diagram-panel-preview {
+  padding: 16px;
+}
+
+/* ---- Flowchart Nodes ---- */
+
+/* Default node styling - mermaid.live dark theme colors */
+.mermaid .node rect,
+.mermaid .node polygon {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+  stroke-width: 1px;
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid .node.default > rect,
+.mermaid .node.default > polygon {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+/* Node labels */
+.mermaid .nodeLabel,
+.mermaid .label {
+  color: rgba(204, 204, 204, 1);
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
+
+.mermaid .node .label div {
+  color: rgba(204, 204, 204, 1);
+}
+
+/* ---- Edges/Arrows ---- */
+
+/* Edge paths - stroke styling */
+.mermaid .edgePath .path,
+.mermaid .flowchart-link {
+  stroke: rgba(204, 204, 204, 1);
+  stroke-width: 2px;
+}
+
+/* Arrowhead markers */
+.mermaid .marker,
+.mermaid .arrowheadPath {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid marker path {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* Edge labels */
+.mermaid .edgeLabel {
+  background-color: rgba(43, 43, 43, 1);
+  color: rgba(204, 204, 204, 1);
+}
+
+.mermaid .edgeLabel rect {
+  fill: rgba(43, 43, 43, 1);
+  opacity: 0.8;
+}
+
+/* ---- Subgraphs/Clusters ---- */
+
+.mermaid .cluster rect {
+  fill: rgba(43, 43, 43, 1);
+  stroke: rgba(129, 177, 219, 1);
+  stroke-width: 1px;
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid .cluster text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* ---- Sequence Diagrams ---- */
+
+.mermaid .actor {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid text.actor > tspan {
+  fill: rgba(204, 204, 204, 1);
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
+
+.mermaid .actor-line {
+  stroke: rgba(136, 136, 136, 1);
+  stroke-width: 0.5px;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke: rgba(204, 204, 204, 1);
+  stroke-width: 1.5px;
+}
+
+.mermaid .messageText {
+  fill: rgba(204, 204, 204, 1);
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
+
+.mermaid .loopText,
+.mermaid .loopText > tspan {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .loopLine {
+  stroke: rgba(129, 177, 219, 1);
+}
+
+.mermaid .note {
+  fill: rgba(255, 245, 173, 1);
+  stroke: rgba(170, 170, 51, 1);
+}
+
+.mermaid .noteText {
+  fill: rgba(51, 51, 51, 1);
+}
+
+/* Activation boxes */
+.mermaid .activation0,
+.mermaid .activation1,
+.mermaid .activation2 {
+  fill: rgba(43, 43, 43, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+/* ---- Class Diagrams ---- */
+
+.mermaid .classGroup rect {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid .classGroup text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .classGroup line {
+  stroke: rgba(129, 177, 219, 1);
+}
+
+.mermaid .relation {
+  stroke: rgba(204, 204, 204, 1);
+  stroke-width: 1px;
+}
+
+/* ---- State Diagrams ---- */
+
+.mermaid .stateGroup rect,
+.mermaid .statediagram-state rect {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+  stroke-width: 1px;
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid .stateGroup text,
+.mermaid .statediagram-state text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .statediagram-cluster rect {
+  fill: rgba(43, 43, 43, 1);
+  stroke: rgba(129, 177, 219, 1);
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid g.stateGroup circle.start {
+  fill: rgba(129, 177, 219, 1);
+}
+
+.mermaid g.stateGroup .end {
+  fill: rgba(129, 177, 219, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+/* ---- ER Diagrams ---- */
+
+.mermaid .entityBox {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+  rx: 10px;
+  ry: 10px;
+}
+
+.mermaid .entityLabel {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .relationshipLine {
+  stroke: rgba(204, 204, 204, 1);
+}
+
+.mermaid .relationshipLabel {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* ---- Gantt Charts ---- */
+
+.mermaid .section0,
+.mermaid .section2 {
+  fill: rgba(129, 177, 219, 0.3);
+}
+
+.mermaid .section1,
+.mermaid .section3 {
+  fill: rgba(31, 32, 32, 1);
+}
+
+.mermaid .sectionTitle {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .task {
+  fill: rgba(74, 109, 140, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+.mermaid .taskText {
+  fill: rgba(255, 255, 255, 1);
+}
+
+.mermaid .taskTextOutsideRight,
+.mermaid .taskTextOutsideLeft {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .activeTask {
+  fill: rgba(90, 138, 181, 1);
+}
+
+.mermaid .doneTask {
+  fill: rgba(58, 58, 58, 1);
+  stroke: rgba(102, 102, 102, 1);
+}
+
+.mermaid .critTask {
+  fill: rgba(204, 102, 102, 1);
+  stroke: rgba(187, 68, 68, 1);
+}
+
+.mermaid .todayMarker {
+  stroke: rgba(255, 102, 102, 1);
+  stroke-width: 2px;
+}
+
+/* ---- Pie Charts ---- */
+
+.mermaid .pieTitleText {
+  fill: rgba(204, 204, 204, 1);
+  font-size: 25px;
+}
+
+.mermaid .slice {
+  stroke: rgba(31, 32, 32, 1);
+  stroke-width: 2px;
+}
+
+.mermaid .legend text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* ---- Git Graphs ---- */
+
+.mermaid .commit-id,
+.mermaid .commit-msg {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* ---- Mindmaps ---- */
+
+.mermaid .mindmap-node rect {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+.mermaid .mindmap-node text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+.mermaid .mindmap-edge {
+  stroke: rgba(129, 177, 219, 1);
+}
+
+/* ---- Journey Diagrams ---- */
+
+.mermaid .journey-section rect {
+  fill: rgba(31, 32, 32, 1);
+  stroke: rgba(129, 177, 219, 1);
+}
+
+.mermaid .journey-section text,
+.mermaid .journey-task text {
+  fill: rgba(204, 204, 204, 1);
+}
+
+/* ---- Common Typography ---- */
+
+.mermaid text {
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
+
+/* Ensure SVG scales properly */
+.md-diagram-panel svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================================
+   9. Utilities & Export
    ========================================================================= */
 
 /* Print/PDF export overrides. */
