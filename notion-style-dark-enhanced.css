@@ -26,43 +26,58 @@
 
 :root {
 
-  /* Colors */
-  --bg-color: rgba(25, 25, 25, 1);
-  --text-color: rgba(212, 212, 212, 1);
-  --accent-color: rgba(156, 166, 168, 1);
-  --accented-background-color: rgba(193, 202, 204, 1);
-  --title-color: rgba(212, 212, 212, 1);
-  --text-grey: rgba(156, 156, 156, 1);
+  /* ---- Core palette ---- */
+  --bg-color: rgb(25, 25, 25);
+  --text-color: rgb(212, 212, 212);
+  --side-bar-bg-color: rgb(32, 32, 32);
 
-  /* Legacy Typora search highlight token. */
-  --color-2-0-c: rgba(156, 166, 168, 1);
+  /* Foreground / surface */
+  --fg-color: rgb(212, 212, 212);
+  --fg-secondary: rgb(156, 156, 156);
+  --accent-color: rgb(156, 166, 168);
+  --accented-background-color: rgb(193, 202, 204);
+  --title-color: rgb(212, 212, 212);
+  --text-grey: rgb(156, 156, 156);
 
-  /* Borders */
-  --border-color: rgba(61, 61, 61, 1);
+  /* Typora internal */
+  --color-2-0-c: rgb(156, 166, 168);
+  --primary-color: rgb(36, 131, 226);
+  --primary-btn-border-color: rgb(28, 105, 183);
+  --primary-btn-text-color: rgb(255, 255, 255);
+  --active-toggle-btn-color: rgb(36, 131, 226);
 
-  /* Links and highlights */
-  --link-color: rgba(127, 179, 255, 1);
-  --link-hover-color: rgba(179, 212, 255, 1);
+  /* ---- UI surface overlays (RGB triplet for alpha compositing) ---- */
+  --ui-rgb: 255, 255, 255;
+  --shadow-rgb: 0, 0, 0;
+
+  /* ---- Borders ---- */
+  --border-color: rgb(61, 61, 61);
+  --side-bar-border-color: rgb(43, 43, 43);
+
+  /* ---- Links ---- */
+  --link-color: rgb(127, 179, 255);
+  --link-hover-color: rgb(179, 212, 255);
   --link-hover-bg: rgba(127, 179, 255, 0.12);
-  --selection-bg: rgba(255, 238, 160, 1);
-  --selection-color: rgba(0, 0, 0, 1);
-  --highlight-bg: rgba(255, 238, 160, 1);
-  --search-highlight-bg: rgba(233, 188, 54, 1);
 
-  /* Headings */
-  --h1-color: rgba(247, 246, 243, 1);
-  --h2-color: rgba(232, 231, 228, 1);
-  --h3-color: rgba(212, 212, 212, 1);
-  --h4-color: rgba(192, 192, 192, 1);
-  --h5-color: rgba(176, 176, 176, 1);
-  --h6-color: rgba(160, 160, 160, 1);
+  /* ---- Selection & search ---- */
+  --selection-bg: rgb(255, 238, 160);
+  --selection-color: rgb(0, 0, 0);
+  --highlight-bg: rgb(255, 238, 160);
+  --search-highlight-bg: rgb(233, 188, 54);
+  --search-select-color: rgb(55, 53, 47);
 
-  /* Sidebar */
-  --side-bar-bg-color: rgba(32, 32, 32, 1);
-  --side-bar-border-color: rgba(43, 43, 43, 1);
-  --active-file-bg-color: rgba(44, 44, 44, 1);
+  /* ---- Headings ---- */
+  --h1-color: rgb(247, 246, 243);
+  --h2-color: rgb(232, 231, 228);
+  --h3-color: rgb(212, 212, 212);
+  --h4-color: rgb(192, 192, 192);
+  --h5-color: rgb(176, 176, 176);
+  --h6-color: rgb(160, 160, 160);
 
-  /* Typography */
+  /* ---- Sidebar ---- */
+  --active-file-bg-color: rgb(44, 44, 44);
+
+  /* ---- Typography ---- */
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
     "Noto Sans SC", "Microsoft JhengHei", "Noto Sans TC", "Meiryo", "Yu Gothic",
     "Noto Sans JP", "Malgun Gothic", "Noto Sans KR", sans-serif;
@@ -84,46 +99,182 @@
   --monospace-line-height: normal;
   --paragraph-spacing: 19.2px;
 
-  /* Layout */
+  /* ---- Layout ---- */
   --document-padding-x: 10ch;
   --vertical-padding: 40px;
   --main-content-max-width: 90%;
   --border-radius: 2px;
   --border-radius-lg: 4px;
 
-  /* Inline code */
+  /* ---- Inline code ---- */
   --code-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --code-bg-color: rgba(135, 131, 120, 0.15);
-  --code-color: rgba(235, 87, 87, 1);
+  --code-color: rgb(235, 87, 87);
   --code-border-radius: 3px;
 
-  /* Code blocks */
-  --code-block-bg-color: rgba(32, 32, 32, 1);
+  /* ---- Code blocks ---- */
+  --code-block-bg-color: rgb(32, 32, 32);
   --code-block-font-size: 15.2px;
   --code-block-line-height: 1.65;
   --code-tooltip-height: 34px;
   --code-tooltip-gap: calc(var(--code-tooltip-height) + 5px);
-  --code-tooltip-border-color: rgba(55, 55, 55, 1);
+  --code-tooltip-border-color: rgb(55, 55, 55);
   --code-border-color: rgba(255, 255, 255, 0.12);
   --code-border-hover-color: rgba(255, 255, 255, 0.2);
-  --code-selection-bg: rgba(255, 238, 160, 1);
-  --code-selection-color: rgba(0, 0, 0, 1);
+  --code-selection-bg: rgb(255, 238, 160);
+  --code-selection-color: rgb(0, 0, 0);
 
-  /* Todo checkboxes */
-  --todo-bg-color: rgba(36, 131, 226, 1);
-  --todo-check-color: rgba(255, 255, 255, 1);
+  /* ---- Code tooltip ---- */
+  --tooltip-input-hover-bg: rgba(255, 255, 255, 0.05);
+  --tooltip-input-hover-border: rgba(255, 255, 255, 0.2);
+  --tooltip-span-bg: rgba(255, 255, 255, 0.08);
+  --tooltip-span-border: rgba(255, 255, 255, 0.15);
+  --tooltip-span-hover-bg: rgba(255, 255, 255, 0.15);
+  --tooltip-span-hover-border: rgba(255, 255, 255, 0.25);
 
-  /* File tree */
+  /* ---- Todo checkboxes ---- */
+  --todo-bg-color: rgb(36, 131, 226);
+  --todo-check-color: rgb(255, 255, 255);
+  --checkbox-border: rgba(212, 212, 212, 0.4);
+  --checkbox-hover-bg: rgba(36, 131, 226, 0.1);
+  --checkbox-done-color: rgba(156, 156, 156, 0.7);
+  --checkbox-done-strike: rgba(156, 156, 156, 0.5);
+
+  /* ---- File tree ---- */
   --file-tree-font-size: 12px;
 
-  /* Mermaid Diagrams - curved arrows like mermaid.live */
+  /* ---- Frontmatter ---- */
+  --frontmatter-key-color: rgb(121, 192, 255);
+  --frontmatter-value-color: rgb(126, 231, 135);
+  --frontmatter-border: rgba(255, 255, 255, 0.13);
+
+  /* ---- Image caption ---- */
+  --caption-color: rgba(212, 212, 212, 0.7);
+
+  /* ---- Tables ---- */
+  --table-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* ---- Blockquote ---- */
+  --blockquote-bg: rgba(45, 45, 45, 0.4);
+  --blockquote-color: rgba(212, 212, 212, 0.9);
+  --blockquote-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* ---- Code editor ---- */
+  --code-line-number-color: rgb(106, 214, 154);
+  --code-cursor-color: rgb(121, 192, 255);
+  --code-base-color: rgb(230, 237, 243);
+
+  /* ---- Syntax highlighting ---- */
+  --cm-keyword: rgb(255, 123, 114);
+  --cm-def: rgb(210, 168, 255);
+  --cm-variable: rgb(255, 166, 87);
+  --cm-number: rgb(121, 192, 255);
+  --cm-string: rgb(165, 214, 255);
+  --cm-comment: rgb(139, 148, 158);
+  --cm-operator: rgb(255, 123, 114);
+  --cm-property: rgb(121, 192, 255);
+  --cm-type: rgb(126, 231, 135);
+  --cm-meta: rgb(210, 168, 255);
+  --cm-qualifier: rgb(255, 166, 87);
+  --cm-bracket: rgb(201, 209, 217);
+  --cm-error: rgb(248, 81, 73);
+  --cm-error-bg: transparent;
+  --cm-error-decoration: wavy underline;
+  --cm-header: rgb(121, 192, 255);
+  --cm-special: rgb(210, 168, 255);
+
+  /* ---- Autocomplete ---- */
+  --autocomplete-bg: rgb(43, 43, 43);
+  --autocomplete-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --autocomplete-selected-bg: rgb(61, 61, 61);
+  --autocomplete-selected-color: rgb(121, 192, 255);
+
+  /* ---- Marks / highlights ---- */
+  --mark-text: rgb(55, 53, 47);
+  --mark-red-bg: rgb(90, 44, 44);
+  --mark-red-color: rgb(255, 184, 177);
+  --mark-blue-bg: rgb(43, 66, 87);
+  --mark-blue-color: rgb(156, 199, 232);
+  --mark-green-bg: rgb(43, 74, 63);
+  --mark-green-color: rgb(147, 225, 200);
+  --mark-orange-bg: rgb(89, 74, 58);
+  --mark-orange-color: rgb(255, 204, 153);
+  --mark-purple-bg: rgb(68, 63, 87);
+  --mark-purple-color: rgb(212, 197, 249);
+  --mark-pink-bg: rgb(83, 59, 71);
+  --mark-pink-color: rgb(255, 184, 210);
+  --mark-brown-bg: rgb(67, 64, 64);
+  --mark-brown-color: rgb(212, 196, 176);
+  --mark-gray-bg: rgb(58, 58, 58);
+  --mark-gray-color: rgb(193, 193, 193);
+
+  /* ---- List markers ---- */
+  --list-marker-l2: rgba(156, 166, 168, 0.7);
+  --list-marker-l3: rgba(156, 166, 168, 0.5);
+
+  /* ---- Strikethrough ---- */
+  --strikethrough-color: rgba(212, 212, 212, 0.5);
+
+  /* ---- Footnotes ---- */
+  --footnote-bg: rgba(212, 212, 212, 0.9);
+  --footnote-color: rgba(32, 32, 32, 0.95);
+  --footnote-hover-shadow: 0 1px 4px rgba(156, 166, 168, 0.3);
+  --footnote-list-color: rgba(212, 212, 212, 0.9);
+
+  /* ---- HTML export blocks ---- */
+  --html-block-bg: rgb(32, 34, 37);
+  --html-block-border: rgb(78, 78, 78);
+  --html-block-color: rgb(234, 234, 234);
+  --html-block-shadow: rgba(0, 0, 0, 0.35);
+  --html-block-alt-bg: rgb(43, 43, 44);
+  --html-block-alt-border: rgb(106, 106, 106);
+  --html-block-alt-color: rgb(243, 243, 243);
+  --html-block-blue-bg: rgb(47, 58, 122);
+  --html-block-blue-border: rgb(136, 146, 214);
+  --html-block-blue-color: rgb(238, 241, 255);
+  --html-block-green-bg: rgb(31, 74, 31);
+  --html-block-green-border: rgb(95, 201, 102);
+  --html-block-green-color: rgb(230, 255, 230);
+  --html-block-title-color: rgb(207, 207, 207);
+
+  /* ---- Print ---- */
+  --print-link-color: rgb(127, 179, 255);
+
+  /* ---- Mermaid diagrams ---- */
   --mermaid-flowchart-curve: basis;
   --mermaid-theme: dark;
+  --mermaid-node-fill: rgb(31, 32, 32);
+  --mermaid-node-stroke: rgb(129, 177, 219);
+  --mermaid-text-color: rgb(204, 204, 204);
+  --mermaid-edge-color: rgb(204, 204, 204);
+  --mermaid-edge-label-bg: rgb(43, 43, 43);
+  --mermaid-edge-label-opacity: 0.8;
+  --mermaid-cluster-fill: rgb(43, 43, 43);
+  --mermaid-cluster-stroke: rgb(129, 177, 219);
+  --mermaid-actor-line: rgb(136, 136, 136);
+  --mermaid-note-fill: rgb(255, 245, 173);
+  --mermaid-note-stroke: rgb(170, 170, 51);
+  --mermaid-note-text: rgb(51, 51, 51);
+  --mermaid-activation-fill: rgb(43, 43, 43);
+  --mermaid-activation-stroke: rgb(129, 177, 219);
+  --mermaid-state-marker: rgb(129, 177, 219);
+  --mermaid-section-even: rgba(129, 177, 219, 0.3);
+  --mermaid-section-odd: rgb(31, 32, 32);
+  --mermaid-task-fill: rgb(74, 109, 140);
+  --mermaid-task-stroke: rgb(129, 177, 219);
+  --mermaid-task-text: rgb(255, 255, 255);
+  --mermaid-active-task: rgb(90, 138, 181);
+  --mermaid-done-fill: rgb(58, 58, 58);
+  --mermaid-done-stroke: rgb(102, 102, 102);
+  --mermaid-crit-fill: rgb(204, 102, 102);
+  --mermaid-crit-stroke: rgb(187, 68, 68);
+  --mermaid-today-marker: rgb(255, 102, 102);
+  --mermaid-slice-stroke: rgb(31, 32, 32);
 
-  /* Performance */
+  /* ---- Performance ---- */
   --gpu-acceleration: translateZ(0);
 
-  /* Animation */
+  /* ---- Animation ---- */
   --transition-fast: 0.15s;
   --transition-normal: 0.2s;
   --transition-slow: 0.3s;
@@ -136,7 +287,6 @@
    2. Base & Layout
    ========================================================================= */
 
-/* Document base */
 html {
   font-size: var(--font-size);
   background-color: var(--bg-color);
@@ -144,44 +294,33 @@ html {
 
 html,
 body {
-  color: var(--text-color);
+  color: var(--fg-color);
   font-family: var(--body-font);
   line-height: var(--line-height);
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Paragraph rhythm */
 p {
   margin: var(--paragraph-spacing) 0;
   line-height: var(--line-height);
 }
 
-h1+p,
-h2+p,
-h3+p,
-h4+p,
-h5+p,
-h6+p {
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
   margin-top: 8px;
 }
 
-/* Main document container */
 #write {
-  padding-left: var(--document-padding-x);
-  padding-right: var(--document-padding-x);
+  padding-inline: var(--document-padding-x);
   max-width: var(--main-content-max-width);
   box-sizing: border-box;
-
   contain: layout style;
 }
 
-/* Source Code Mode Layout */
+/* Source Code Mode */
 #typora-source .CodeMirror-lines {
-  padding-left: var(--document-padding-x) !important;
-  padding-right: var(--document-padding-x) !important;
+  padding-inline: var(--document-padding-x) !important;
   max-width: var(--main-content-max-width);
 }
 
@@ -201,13 +340,11 @@ h6+p {
   max-width: 100%;
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
-/* Image captions */
 #write .md-image>.md-meta {
-  color: rgba(212, 212, 212, 0.7);
+  color: var(--caption-color);
   font-size: 14px;
   font-style: italic;
   margin-top: 8px;
@@ -218,14 +355,14 @@ h6+p {
    3. Block Elements
    ========================================================================= */
 
-/* Frontmatter (YAML) */
+/* Frontmatter */
 pre.md-meta-block {
-  background: rgba(32, 32, 32, 1);
-  color: rgba(255, 255, 255, 0.8);
+  background: var(--code-block-bg-color);
+  color: rgba(var(--ui-rgb), 0.8);
   padding: 12px;
   border-radius: 3px;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid var(--frontmatter-border);
   box-shadow: none;
   font-family: var(--code-font);
   font-size: var(--monospace-font-size);
@@ -233,18 +370,17 @@ pre.md-meta-block {
 }
 
 pre.md-meta-block .md-meta-i {
-  color: rgba(121, 192, 255, 1);
+  color: var(--frontmatter-key-color);
   font-weight: 500;
 }
 
 pre.md-meta-block .md-meta-value {
-  color: rgba(126, 231, 135, 1);
+  color: var(--frontmatter-value-color);
 }
 
 /* Headings */
 h1 {
-  margin-top: 48px;
-  margin-bottom: 24px;
+  margin: 48px 0 24px;
   padding-top: 8px;
   font-size: var(--h1-fontsize);
   font-weight: 700;
@@ -258,8 +394,7 @@ h1:first-child {
 }
 
 h2 {
-  margin-top: 40px;
-  margin-bottom: 19.2px;
+  margin: 40px 0 19.2px;
   font-size: var(--h2-fontsize);
   font-weight: 600;
   line-height: 1.35;
@@ -268,8 +403,7 @@ h2 {
 }
 
 h3 {
-  margin-top: 32px;
-  margin-bottom: 16px;
+  margin: 32px 0 16px;
   font-size: var(--h3-fontsize);
   font-weight: 600;
   line-height: 1.4;
@@ -278,8 +412,7 @@ h3 {
 }
 
 h4 {
-  margin-top: 28px;
-  margin-bottom: 12.8px;
+  margin: 28px 0 12.8px;
   font-size: var(--h4-fontsize);
   font-weight: 600;
   line-height: 1.45;
@@ -287,8 +420,7 @@ h4 {
 }
 
 h5 {
-  margin-top: 24px;
-  margin-bottom: 9.6px;
+  margin: 24px 0 9.6px;
   font-size: var(--h5-fontsize);
   font-weight: 600;
   line-height: 1.5;
@@ -296,8 +428,7 @@ h5 {
 }
 
 h6 {
-  margin-top: 24px;
-  margin-bottom: 9.6px;
+  margin: 24px 0 9.6px;
   font-size: var(--h6-fontsize);
   font-weight: 500;
   line-height: 1.5;
@@ -315,11 +446,10 @@ h6 {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--table-shadow);
 }
 
-td,
-th {
+td, th {
   min-width: 120px;
   max-width: 560px;
   width: auto;
@@ -331,8 +461,7 @@ th {
   font-size: 15.2px;
 }
 
-td:last-child,
-th:last-child {
+td:last-child, th:last-child {
   border-right: none;
 }
 
@@ -341,16 +470,16 @@ tbody tr:last-child td {
 }
 
 th {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(var(--ui-rgb), 0.08);
   font-weight: 600;
   text-align: left;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(var(--ui-rgb), 0.9);
   font-size: 14.4px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
 }
 
 tbody tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(var(--ui-rgb), 0.02);
 }
 
 tbody tr {
@@ -358,7 +487,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(var(--ui-rgb), 0.06);
 }
 
 h2+table tr:first-child th,
@@ -366,38 +495,22 @@ h2+table tr:first-child td {
   border-top-width: 0;
 }
 
-td[align="center"],
-th[align="center"] {
-  text-align: center;
-}
-
-td[align="right"],
-th[align="right"] {
-  text-align: right;
-}
+td[align="center"], th[align="center"] { text-align: center; }
+td[align="right"], th[align="right"] { text-align: right; }
 
 /* Lists */
-#write ul,
-#write ol {
+#write ul, #write ol {
   padding-left: 0;
   margin-left: 0;
 }
 
-#write ul li,
-#write ol li {
+#write ul li, #write ol li {
   padding-left: 0;
   margin-left: 32px;
 }
 
-ol ol {
-  counter-reset: sub-counter;
-  list-style-type: lower-alpha;
-}
-
-ol ol ol {
-  counter-reset: sub-sub-counter;
-  list-style-type: lower-roman;
-}
+ol ol { counter-reset: sub-counter; list-style-type: lower-alpha; }
+ol ol ol { counter-reset: sub-sub-counter; list-style-type: lower-roman; }
 
 #write ul>li::marker {
   color: var(--accent-color);
@@ -412,17 +525,15 @@ ol ol ol {
 
 #write ul ul>li::marker,
 #write ol ol>li::marker {
-  color: rgba(156, 166, 168, 0.7);
+  color: var(--list-marker-l2);
 }
 
 #write ul ul ul>li::marker,
 #write ol ol ol>li::marker {
-  color: rgba(156, 166, 168, 0.5);
+  color: var(--list-marker-l3);
 }
 
-li p {
-  margin: 0;
-}
+li p { margin: 0; }
 
 /* Task list checkboxes */
 #write .md-task-list-item>input {
@@ -431,19 +542,19 @@ li p {
   display: inline-block;
   vertical-align: middle;
   position: absolute;
-  border: 2px solid rgba(212, 212, 212, 0.4);
+  border: 2px solid var(--checkbox-border);
   margin: 3.2px 0 0 -23.2px;
   height: 16px;
   width: 16px;
   border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s var(--easing-standard);
 }
 
 #write .md-task-list-item>input:hover {
   border-color: var(--todo-bg-color);
-  background-color: rgba(36, 131, 226, 0.1);
+  background-color: var(--checkbox-hover-bg);
   transform: scale(1.05) var(--gpu-acceleration);
 }
 
@@ -460,17 +571,9 @@ li p {
 }
 
 @keyframes checkboxPop {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 #write .md-task-list-item>input[checked]::before {
@@ -478,7 +581,7 @@ li p {
   display: block;
   width: 5.6px;
   height: 9.6px;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 2px solid var(--todo-check-color);
   border-top: none;
   border-left: none;
@@ -491,33 +594,22 @@ li p {
 }
 
 @keyframes checkmarkDraw {
-  0% {
-    height: 0;
-    width: 0;
-  }
-
-  50% {
-    height: 9.6px;
-    width: 0;
-  }
-
-  100% {
-    height: 9.6px;
-    width: 5.6px;
-  }
+  0%   { height: 0; width: 0; }
+  50%  { height: 9.6px; width: 0; }
+  100% { height: 9.6px; width: 5.6px; }
 }
 
 #write .md-task-list-item>input[checked]+label,
 #write .md-task-list-item.task-list-done {
-  color: rgba(156, 156, 156, 0.7);
+  color: var(--checkbox-done-color);
   text-decoration: line-through;
-  text-decoration-color: rgba(156, 156, 156, 0.5);
+  text-decoration-color: var(--checkbox-done-strike);
   transition: all 0.2s ease;
 }
 
 .md-image>.md-meta {
   border-radius: var(--border-radius);
-  padding: 2px 0px 0px 4px;
+  padding: 2px 0 0 4px;
   font-size: 14.4px;
   color: inherit;
 }
@@ -528,11 +620,11 @@ li p {
   padding: 16px 20px 16px 48px;
   position: relative;
   border-left: 3px solid var(--accent-color);
-  background-color: rgba(45, 45, 45, 0.4);
+  background-color: var(--blockquote-bg);
   border-radius: 5px;
   font-style: italic;
-  color: rgba(212, 212, 212, 0.9);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: var(--blockquote-color);
+  box-shadow: var(--blockquote-shadow);
 }
 
 #write blockquote::before {
@@ -547,22 +639,17 @@ li p {
   font-family: Georgia, serif;
 }
 
-#write blockquote p:first-child {
-  margin-top: 0;
-}
-
-#write blockquote p:last-child {
-  margin-bottom: 0;
-}
+#write blockquote p:first-child { margin-top: 0; }
+#write blockquote p:last-child { margin-bottom: 0; }
 
 .md-alert,
 .admonition {
-  background-color: rgba(45, 45, 45, 0.4);
+  background-color: var(--blockquote-bg);
   border-left: 3px solid var(--accent-color);
   padding: 16px 20px 16px 48px;
   margin: 24px 0;
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--blockquote-shadow);
   position: relative;
 }
 
@@ -580,28 +667,11 @@ li p {
   font-style: italic;
 }
 
-.md-alert-note::before {
-  content: 'i';
-}
-
-.md-alert-tip::before {
-  content: '*';
-  font-style: normal;
-}
-
-.md-alert-important::before {
-  content: '!';
-}
-
-.md-alert-warning::before {
-  content: '‼';
-  font-style: normal;
-}
-
-.md-alert-caution::before {
-  content: '×';
-  font-style: normal;
-}
+.md-alert-note::before { content: 'i'; }
+.md-alert-tip::before { content: '*'; font-style: normal; }
+.md-alert-important::before { content: '!'; }
+.md-alert-warning::before { content: '\203C'; font-style: normal; }
+.md-alert-caution::before { content: '\D7'; font-style: normal; }
 
 .md-alert-text-container,
 .md-alert-title {
@@ -612,10 +682,7 @@ li p {
   line-height: 0;
 }
 
-.md-alert p,
-.admonition p {
-  margin: 0;
-}
+.md-alert p, .admonition p { margin: 0; }
 
 /* Math blocks */
 .md-math-block:hover .md-math-container,
@@ -636,7 +703,7 @@ li p {
 }
 
 .md-rawblock .md-rawblock-tooltip-edit-btn:hover {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 
 /* Horizontal rules */
@@ -651,19 +718,11 @@ li p {
    4. Code & Syntax
    ========================================================================= */
 
-/* Search highlight animation */
+/* Search highlight */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 .md-search-hit,
@@ -674,12 +733,12 @@ li p {
 }
 
 .md-search-hit {
-  color: var(--text-color) !important;
+  color: var(--fg-color) !important;
 }
 
 .md-search-select {
   background: var(--search-highlight-bg) !important;
-  color: rgba(55, 53, 47, 1) !important;
+  color: var(--search-select-color) !important;
   transform-origin: center center !important;
   animation: pulse 0.3s ease-in-out !important;
 }
@@ -700,14 +759,13 @@ pre {
   padding: 0;
   font-size: var(--code-block-font-size);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-
   contain: layout style;
   will-change: border-color, box-shadow;
 }
 
 #write .cm-s-inner,
 .cm-s-typora-default {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border-radius: 0;
   padding: 20px 24px;
   font-size: var(--code-block-font-size);
@@ -721,7 +779,7 @@ pre {
   font-family: var(--monospace-font);
   font-size: var(--code-block-font-size);
   line-height: var(--code-block-line-height);
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 
 #write .md-fences pre,
@@ -739,18 +797,16 @@ pre {
   word-break: break-word;
 }
 
-/* WYSIWYG mode hides gutters and line numbers. */
+/* WYSIWYG mode hides gutters */
 #write .cm-s-inner .CodeMirror-gutters {
   width: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-#write .cm-s-inner .CodeMirror-linenumber {
-  opacity: 0;
-}
+#write .cm-s-inner .CodeMirror-linenumber { opacity: 0; }
 
-/* Source mode shows gutters and line numbers. */
+/* Source mode shows gutters */
 .cm-s-typora-default .CodeMirror-gutters {
   width: auto;
   opacity: 1;
@@ -759,99 +815,98 @@ pre {
 
 .cm-s-typora-default .CodeMirror-linenumber {
   opacity: 1;
-  color: rgba(106, 214, 154, 1);
+  color: var(--code-line-number-color);
   padding-right: 12px;
 }
 
-.cm-s-typora-default .CodeMirror-line {
-  padding-left: 6px;
-}
+.cm-s-typora-default .CodeMirror-line { padding-left: 6px; }
 
 #write .cm-s-inner .CodeMirror-cursor,
 .cm-s-typora-default .CodeMirror-cursor {
-  border-left: 2px solid rgba(121, 192, 255, 1);
+  border-left: 2px solid var(--code-cursor-color);
 }
 
 .cm-s-inner,
 .cm-s-typora-default {
-  color: rgba(230, 237, 243, 1);
+  color: var(--code-base-color);
 }
 
-/* CodeMirror token colors. */
+/* CodeMirror tokens */
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-keyword, .cm-builtin) {
-  color: rgba(255, 123, 114, 1);
+  color: var(--cm-keyword);
   font-weight: 600;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-def {
-  color: rgba(210, 168, 255, 1);
+  color: var(--cm-def);
   font-weight: 600;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  color: rgba(255, 166, 87, 1);
+  color: var(--cm-variable);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-number, .cm-atom) {
-  color: rgba(121, 192, 255, 1);
+  color: var(--cm-number);
   font-weight: 500;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-string, .cm-string-2) {
-  color: rgba(165, 214, 255, 1);
+  color: var(--cm-string);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-comment {
-  color: rgba(139, 148, 158, 1);
+  color: var(--cm-comment);
   font-style: italic;
   opacity: 0.9;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-operator {
-  color: rgba(255, 123, 114, 1);
+  color: var(--cm-operator);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-property, .cm-attribute) {
-  color: rgba(121, 192, 255, 1);
+  color: var(--cm-property);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-type, .cm-tag) {
-  color: rgba(126, 231, 135, 1);
+  color: var(--cm-type);
   font-weight: 500;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-meta {
-  color: rgba(210, 168, 255, 1);
+  color: var(--cm-meta);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-qualifier {
-  color: rgba(255, 166, 87, 1);
+  color: var(--cm-qualifier);
   font-weight: 500;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-bracket {
-  color: rgba(201, 209, 217, 1);
+  color: var(--cm-bracket);
   font-weight: 600;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) :is(.cm-error, .cm-invalidchar) {
-  color: rgba(248, 81, 73, 1);
-  text-decoration: wavy underline;
-  text-decoration-color: rgba(248, 81, 73, 1);
+  color: var(--cm-error);
+  background-color: var(--cm-error-bg);
+  text-decoration: var(--cm-error-decoration);
+  text-decoration-color: var(--cm-error);
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-header {
-  color: rgba(121, 192, 255, 1);
+  color: var(--cm-header);
   font-weight: 600;
 }
 
 :is(.cm-s-inner, .cm-s-typora-default) .cm-special {
-  color: rgba(210, 168, 255, 1);
+  color: var(--cm-special);
 }
 
-/* Code block toolbar. */
+/* Code block toolbar */
 .md-fences .code-tooltip {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border-radius: 0;
   padding: 0;
   height: var(--code-tooltip-height);
@@ -873,21 +928,14 @@ pre {
   margin-bottom: 59.2px;
 }
 
-/* Typora lacks :has; position tooltip below diagram fences. */
-#write .md-fences:is([lang="mermaid"],
-  [lang="flowchart"],
-  [lang="sequence"],
-  [lang="gantt"],
-  [lang="classDiagram"],
-  [lang="stateDiagram"],
-  [lang="erDiagram"],
-  [lang="journey"],
-  [lang="pie"],
-  [lang="gitGraph"],
-  [lang="mindmap"],
-  [lang="timeline"],
-  [lang="js-sequence-diagram"],
-  [lang="flow"]) .code-tooltip {
+/* Diagram fence tooltip positioning */
+#write .md-fences:is(
+  [lang="mermaid"], [lang="flowchart"], [lang="sequence"],
+  [lang="gantt"], [lang="classDiagram"], [lang="stateDiagram"],
+  [lang="erDiagram"], [lang="journey"], [lang="pie"],
+  [lang="gitGraph"], [lang="mindmap"], [lang="timeline"],
+  [lang="js-sequence-diagram"], [lang="flow"]
+) .code-tooltip {
   right: -5px;
   bottom: auto;
   top: 100%;
@@ -904,30 +952,30 @@ pre {
 }
 
 .md-fences .code-tooltip input {
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(0, 0, 0, 0);
-  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgba(var(--ui-rgb), 0.6);
 }
 
 .md-fences .code-tooltip input:hover,
 .md-fences .code-tooltip input:focus {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.9);
+  background-color: var(--tooltip-input-hover-bg);
+  border-color: var(--tooltip-input-hover-border);
+  color: rgba(var(--ui-rgb), 0.9);
 }
 
 .md-fences .code-tooltip span {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(var(--ui-rgb), 0.7);
+  background-color: var(--tooltip-span-bg);
+  border: 1px solid var(--tooltip-span-border);
   font-weight: 500;
 }
 
 .md-fences .code-tooltip span:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 1);
-  border-color: rgba(255, 255, 255, 0.25);
+  background-color: var(--tooltip-span-hover-bg);
+  color: rgba(var(--ui-rgb), 1);
+  border-color: var(--tooltip-span-hover-border);
   transform: translateY(-1px);
 }
 
@@ -935,21 +983,21 @@ pre {
   transform: translateY(0);
 }
 
-/* Autocomplete dropdown. */
+/* Autocomplete */
 .autoComplt-list {
   width: 20ch !important;
   border-radius: 6px !important;
-  background-color: rgba(43, 43, 43, 1) !important;
+  background-color: var(--autocomplete-bg) !important;
   border: 1px solid var(--border-color) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--autocomplete-shadow);
   overflow: hidden;
 }
 
 .autoComplt-hint {
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: transparent !important;
   margin: 0 !important;
   padding: 4px 12px !important;
-  color: var(--text-color) !important;
+  color: var(--fg-color) !important;
   line-height: var(--line-height) !important;
   height: auto !important;
   cursor: pointer;
@@ -957,15 +1005,14 @@ pre {
 }
 
 .autoComplt-hint-selected {
-  background-color: rgba(61, 61, 61, 1) !important;
-  color: rgba(121, 192, 255, 1) !important;
+  background-color: var(--autocomplete-selected-bg) !important;
+  color: var(--autocomplete-selected-color) !important;
 }
 
 /* =========================================================================
    5. Inline Elements
    ========================================================================= */
 
-/* Inline code. */
 code {
   font-family: var(--code-font);
   font-size: var(--monospace-font-size);
@@ -978,11 +1025,11 @@ code {
   font-weight: 400;
 }
 
-/* Links. */
+/* Links */
 #write a {
   text-decoration: none;
   color: var(--link-color);
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid transparent;
   padding: 0 2px;
   margin: 0 -2px;
   border-radius: 2px;
@@ -1005,7 +1052,7 @@ code {
   transform: translateY(1px) var(--gpu-acceleration);
 }
 
-/* Selection and marks. */
+/* Selection */
 ::selection {
   background-color: var(--selection-bg);
   color: var(--selection-color);
@@ -1013,7 +1060,7 @@ code {
 
 .cm-s-inner .CodeMirror-selected,
 .cm-s-typora-default .CodeMirror-selected {
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
 }
 
 .cm-s-inner .CodeMirror-selectedtext,
@@ -1022,64 +1069,26 @@ code {
   color: var(--code-selection-color) !important;
 }
 
+/* Marks */
 mark {
   background-color: var(--highlight-bg);
-  color: rgba(55, 53, 47, 1);
+  color: var(--mark-text);
   padding: 2px 0;
   border-radius: 0;
 }
 
-mark.yellow,
-mark {
-  background-color: rgba(255, 238, 160, 1);
-  color: rgba(55, 53, 47, 1);
-}
-
-mark.red {
-  background-color: rgba(90, 44, 44, 1);
-  color: rgba(255, 184, 177, 1);
-}
-
-mark.blue {
-  background-color: rgba(43, 66, 87, 1);
-  color: rgba(156, 199, 232, 1);
-}
-
-mark.green {
-  background-color: rgba(43, 74, 63, 1);
-  color: rgba(147, 225, 200, 1);
-}
-
-mark.orange {
-  background-color: rgba(89, 74, 58, 1);
-  color: rgba(255, 204, 153, 1);
-}
-
-mark.purple {
-  background-color: rgba(68, 63, 87, 1);
-  color: rgba(212, 197, 249, 1);
-}
-
-mark.pink {
-  background-color: rgba(83, 59, 71, 1);
-  color: rgba(255, 184, 210, 1);
-}
-
-mark.brown {
-  background-color: rgba(67, 64, 64, 1);
-  color: rgba(212, 196, 176, 1);
-}
-
-mark.gray {
-  background-color: rgba(58, 58, 58, 1);
-  color: rgba(193, 193, 193, 1);
-}
+mark.yellow { background-color: var(--highlight-bg);   color: var(--mark-text); }
+mark.red    { background-color: var(--mark-red-bg);    color: var(--mark-red-color); }
+mark.blue   { background-color: var(--mark-blue-bg);   color: var(--mark-blue-color); }
+mark.green  { background-color: var(--mark-green-bg);  color: var(--mark-green-color); }
+mark.orange { background-color: var(--mark-orange-bg); color: var(--mark-orange-color); }
+mark.purple { background-color: var(--mark-purple-bg); color: var(--mark-purple-color); }
+mark.pink   { background-color: var(--mark-pink-bg);   color: var(--mark-pink-color); }
+mark.brown  { background-color: var(--mark-brown-bg);  color: var(--mark-brown-color); }
+mark.gray   { background-color: var(--mark-gray-bg);   color: var(--mark-gray-color); }
 
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -1091,37 +1100,24 @@ mark.gray {
    6. Sidebar & Navigation
    ========================================================================= */
 
-/* Table of contents. */
-#write div.md-toc-tooltip {
-  background-color: var(--bg-color);
+#write div.md-toc-tooltip { background-color: var(--bg-color); }
+
+.md-toc { margin-top: 40px; }
+.md-toc .md-toc-h2 { margin-left: 16px; }
+.md-toc .md-toc-h3 { margin-left: 32px; }
+.md-toc .md-toc-h4 { margin-left: 48px; }
+.md-toc .md-toc-h5 { margin-left: 64px; }
+.md-toc .md-toc-h6 { margin-left: 80px; }
+
+.sidebar-footer { border-top: 1px solid var(--side-bar-border-color); }
+
+#toggle-sourceview-btn {
+  color: var(--fg-secondary);
 }
 
-.md-toc {
-  margin-top: 40px;
-}
-
-.md-toc .md-toc-h2 {
-  margin-left: 16px;
-}
-
-.md-toc .md-toc-h3 {
-  margin-left: 32px;
-}
-
-.md-toc .md-toc-h4 {
-  margin-left: 48px;
-}
-
-.md-toc .md-toc-h5 {
-  margin-left: 64px;
-}
-
-.md-toc .md-toc-h6 {
-  margin-left: 80px;
-}
-
-.sidebar-footer {
-  border-top: 1px solid var(--side-bar-border-color);
+.typora-sourceview-on #toggle-sourceview-btn {
+  color: var(--fg-color);
+  background-color: var(--active-file-bg-color);
 }
 
 .pin-outline #typora-sidebar {
@@ -1133,7 +1129,7 @@ mark.gray {
   border-bottom: 1px solid var(--side-bar-border-color) !important;
 }
 
-/* Outline tree. */
+/* Outline tree */
 .outline-content {
   padding: 16px;
   font-size: 14px !important;
@@ -1157,13 +1153,8 @@ mark.gray {
   border-left: 1px solid var(--border-color);
 }
 
-.outline-content>li:first-of-type::before {
-  top: 0;
-}
-
-.outline-content li a {
-  font-size: 14px !important;
-}
+.outline-content>li:first-of-type::before { top: 0; }
+.outline-content li a { font-size: 14px !important; }
 
 .outline-content li ul {
   margin-left: 20px;
@@ -1195,12 +1186,10 @@ mark.gray {
   position: relative;
   z-index: 50;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
 }
 
-.outline-item>.outline-label {
-  text-decoration: none;
-}
+.outline-item>.outline-label { text-decoration: none; }
 
 .outline-content li .outline-item:hover,
 .outline-content li .outline-item-active {
@@ -1215,7 +1204,7 @@ mark.gray {
   z-index: 38;
   left: -8px;
   top: -11.5px;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border-left: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -1244,7 +1233,7 @@ mark.gray {
 .outline-content>li:last-of-type>.outline-item::before,
 .outline-content>li ul>li:last-of-type>.outline-item::before {
   z-index: 90;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border-left: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   border-top: none !important;
@@ -1259,15 +1248,13 @@ mark.gray {
   display: none;
 }
 
-.outline-content>li:only-of-type {
-  margin-left: -6px;
-}
+.outline-content>li:only-of-type { margin-left: -6px; }
 
 .outline-expander {
   padding-left: 0;
   width: auto;
   height: 8px;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 
 .outline-expander:before {
@@ -1275,28 +1262,24 @@ mark.gray {
   padding: 0 4px 0 2px;
   margin-top: -2px;
   margin-left: -2px;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 
 .outline-item:hover,
 .outline-item:hover>.outline-expander:before,
 .outline-item:hover>.outline-expander {
   background: var(--active-file-bg-color) !important;
-  color: var(--text-color) !important;
+  color: var(--fg-color) !important;
 }
 
-li>.outline-item-active {
-  background: var(--active-file-bg-color);
-}
+li>.outline-item-active { background: var(--active-file-bg-color); }
 
 .outline-item:hover::before,
 .outline-item-active::before {
   width: 7px !important;
 }
 
-.outline-item-active .outline-expander {
-  font-weight: 900 !important;
-}
+.outline-item-active .outline-expander { font-weight: 900 !important; }
 
 .ty-on-outline-filter .outline-content li::before,
 .ty-on-outline-filter .outline-content .outline-item::before,
@@ -1313,37 +1296,25 @@ li>.outline-item-active {
    7. Typora Chrome
    ========================================================================= */
 
-/* File library list and search. */
-#file-library-list,
-#file-library-search-result {
-  padding: 12px;
-}
+#file-library-list, #file-library-search-result { padding: 12px; }
 
 #file-library-list .file-list-item,
 #file-library-search-result .ty-search-item {
   margin-bottom: 8px;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
   border-bottom-color: var(--border-color);
 }
 
-#file-library-list .file-list-item {
-  padding-left: 12px;
-  padding-right: 12px;
-}
+#file-library-list .file-list-item { padding-left: 12px; padding-right: 12px; }
 
 #file-library-list .file-list-item.active,
 #file-library-search-result .ty-search-item.active {
   border-radius: 5px;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--fg-color);
 }
 
-#file-library-list .file-list-item.active {
-  padding: 6px 12px;
-}
-
-#file-library-search-result .ty-search-item.active {
-  padding: 6px 12px 6px 0;
-}
+#file-library-list .file-list-item.active { padding: 6px 12px; }
+#file-library-search-result .ty-search-item.active { padding: 6px 12px 6px 0; }
 
 #file-library-list .file-list-item:first-of-type.active,
 #file-library-search-result .ty-search-item:first-of-type.active {
@@ -1357,25 +1328,15 @@ li>.outline-item-active {
   border-color: var(--border-color);
 }
 
-#file-library-search-result .ty-search-item.active {
-  color: var(--text-color);
-}
+#file-library-search-result .ty-search-item.active { color: var(--fg-color); }
 
 #file-library-search-result .ty-search-item.active .ty-search-item-line {
   white-space: normal;
   word-break: break-word;
 }
 
-.file-list-item-time {
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.file-list-item-count {
-  margin-right: 0;
-  padding: 0 6px;
-  border-radius: 3px;
-}
+.file-list-item-time { margin-right: 0; padding-right: 0; }
+.file-list-item-count { margin-right: 0; padding: 0 6px; border-radius: 3px; }
 
 #file-library-search-result .ty-search-item.active .file-list-item-count {
   padding-right: 0;
@@ -1388,11 +1349,9 @@ li>.outline-item-active {
   display: none;
 }
 
-.ty-file-search-match-text {
-  background-color: var(--color-2-0-c);
-}
+.ty-file-search-match-text { background-color: var(--color-2-0-c); }
 
-/* File tree. */
+/* File tree */
 #file-library-tree {
   padding-top: 9.1424px;
   padding-left: 13.7136px;
@@ -1409,23 +1368,11 @@ li>.outline-item-active {
   color: var(--title-color);
 }
 
-.ty-sidebar-search-panel .searchpanel-search-option-btn {
-  top: 9.1424px;
-}
+.ty-sidebar-search-panel .searchpanel-search-option-btn { top: 9.1424px; }
 
-.file-tree-node {
-  position: relative;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-.file-library-file-node:hover .file-node-icon:after {
-  width: 9.1424px !important;
-}
-
-.file-node-expanded>.file-node-children {
-  margin-left: 33.7136px;
-}
+.file-tree-node { position: relative; padding-left: 0; margin-left: 0; }
+.file-library-file-node:hover .file-node-icon:after { width: 9.1424px !important; }
+.file-node-expanded>.file-node-children { margin-left: 33.7136px; }
 
 .file-tree-node>.file-node-background {
   border-radius: 5.7136px;
@@ -1433,22 +1380,15 @@ li>.outline-item-active {
   border: none !important;
 }
 
-#file-library-tree .file-node-root>.file-node-content {
-  margin-left: -3.4288px !important;
-}
-
-#file-library-tree .file-tree-node>.file-node-content {
-  margin-left: -17.1424px;
-}
+#file-library-tree .file-node-root>.file-node-content { margin-left: -3.4288px !important; }
+#file-library-tree .file-tree-node>.file-node-content { margin-left: -17.1424px; }
 
 #file-library-tree .file-node-collapsed>.file-node-content,
 #file-library-tree .file-node-expanded>.file-node-content {
   margin-left: -10.2864px;
 }
 
-.file-library-node:not(.file-node-root):focus>.file-node-content {
-  outline: none;
-}
+.file-library-node:not(.file-node-root):focus>.file-node-content { outline: none; }
 
 .os-windows #file-library-tree .file-node-content {
   padding-right: 42.2864px;
@@ -1457,39 +1397,19 @@ li>.outline-item-active {
 
 .file-library-node:not(.file-node-root):focus>.file-node-background,
 .file-library-node.active:not(.file-node-root):focus>.file-node-background {
-  border: 1px dashed var(--text-color) !important;
+  border: 1px dashed var(--fg-color) !important;
 }
 
-.fa-folder:before,
-.fa-folder:after,
-.fa-caret-right,
-.fa-caret-down {
+.fa-folder:before, .fa-folder:after, .fa-caret-right, .fa-caret-down {
   color: var(--text-grey);
 }
 
-.file-node-content .file-node-title {
-  padding-right: 10.2864px;
-}
-
-.file-library-file-node.active .file-node-title {
-  font-weight: 700;
-}
-
-#file-library-tree .file-node-root>.file-node-children {
-  margin-left: 30.2864px;
-}
-
-#file-library-tree .file-tree-node {
-  position: relative;
-}
-
-.file-node-expanded>.file-node-content .fa-caret-down {
-  margin-right: 1.1424px;
-}
-
-#file-library-tree .file-tree-node .file-node-icon {
-  padding-left: 3.4288px;
-}
+.file-node-content .file-node-title { padding-right: 10.2864px; }
+.file-library-file-node.active .file-node-title { font-weight: 700; }
+#file-library-tree .file-node-root>.file-node-children { margin-left: 30.2864px; }
+#file-library-tree .file-tree-node { position: relative; }
+.file-node-expanded>.file-node-content .fa-caret-down { margin-right: 1.1424px; }
+#file-library-tree .file-tree-node .file-node-icon { padding-left: 3.4288px; }
 
 #file-library-tree .file-node-open-state i {
   position: relative;
@@ -1524,12 +1444,10 @@ li>.outline-item-active {
   height: 18.2864px;
   border-left: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 
-#file-library-tree .active>.file-node-content>.file-node-icon::after {
-  width: 9.1424px;
-}
+#file-library-tree .active>.file-node-content>.file-node-icon::after { width: 9.1424px; }
 
 #file-library-tree .file-node-expanded>.file-node-content>.file-node-icon::after {
   left: -22.8576px;
@@ -1559,9 +1477,7 @@ li>.outline-item-active {
   top: -10.2864px;
 }
 
-.file-node-root>.file-node-content>.file-node-icon::after {
-  display: none;
-}
+.file-node-root>.file-node-content>.file-node-icon::after { display: none; }
 
 .file-node-content {
   padding: 4px 8px;
@@ -1570,14 +1486,8 @@ li>.outline-item-active {
   height: 24px;
 }
 
-.file-node-background {
-  height: 24px;
-  border-radius: 4px;
-}
-
-.file-library-node {
-  margin: 4px 0;
-}
+.file-node-background { height: 24px; border-radius: 4px; }
+.file-library-node { margin: 4px 0; }
 
 .file-library-file-node:hover .file-node-background,
 .file-library-file-node.active .file-node-background {
@@ -1597,26 +1507,18 @@ li>.outline-item-active {
    8. Mermaid Diagrams
    =========================================================================
    Mermaid.live-style diagrams with curved arrows (basis curve),
-   dark theme colors, and clean styling.
-   Reference: https://mermaid.js.org/config/theming.html
+   modern colors, and clean styling.
 
-   NOTE: These styles serve as defaults. User configurations via YAML
-   frontmatter or %%{init}%% directives will override these styles,
-   as Mermaid applies those as inline styles with higher specificity.
+   NOTE: User %%{init}%% directives override these styles.
    ========================================================================= */
 
-/* Diagram container */
-.md-diagram-panel-preview {
-  padding: 16px;
-}
+.md-diagram-panel-preview { padding: 16px; }
 
-/* ---- Flowchart Nodes ---- */
-
-/* Default node styling - mermaid.live dark theme colors */
+/* Flowchart nodes */
 .mermaid .node rect,
 .mermaid .node polygon {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
   stroke-width: 1px;
   rx: 10px;
   ry: 10px;
@@ -1624,312 +1526,183 @@ li>.outline-item-active {
 
 .mermaid .node.default > rect,
 .mermaid .node.default > polygon {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
 }
 
-/* Node labels */
 .mermaid .nodeLabel,
 .mermaid .label {
-  color: rgba(204, 204, 204, 1);
+  color: var(--mermaid-text-color);
   font-family: "trebuchet ms", verdana, arial, sans-serif;
 }
 
-.mermaid .node .label div {
-  color: rgba(204, 204, 204, 1);
-}
+.mermaid .node .label div { color: var(--mermaid-text-color); }
 
-/* ---- Edges/Arrows ---- */
-
-/* Edge paths - stroke styling */
+/* Edges */
 .mermaid .edgePath .path,
 .mermaid .flowchart-link {
-  stroke: rgba(204, 204, 204, 1);
+  stroke: var(--mermaid-edge-color);
   stroke-width: 2px;
 }
 
-/* Arrowhead markers */
 .mermaid .marker,
-.mermaid .arrowheadPath {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .arrowheadPath { fill: var(--mermaid-edge-color); }
+.mermaid marker path { fill: var(--mermaid-edge-color); }
 
-.mermaid marker path {
-  fill: rgba(204, 204, 204, 1);
-}
-
-/* Edge labels */
 .mermaid .edgeLabel {
-  background-color: rgba(43, 43, 43, 1);
-  color: rgba(204, 204, 204, 1);
+  background-color: var(--mermaid-edge-label-bg);
+  color: var(--mermaid-text-color);
 }
 
 .mermaid .edgeLabel rect {
-  fill: rgba(43, 43, 43, 1);
-  opacity: 0.8;
+  fill: var(--mermaid-edge-label-bg);
+  opacity: var(--mermaid-edge-label-opacity);
 }
 
-/* ---- Subgraphs/Clusters ---- */
-
+/* Subgraphs */
 .mermaid .cluster rect {
-  fill: rgba(43, 43, 43, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-cluster-fill);
+  stroke: var(--mermaid-cluster-stroke);
   stroke-width: 1px;
   rx: 10px;
   ry: 10px;
 }
 
-.mermaid .cluster text {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .cluster text { fill: var(--mermaid-text-color); }
 
-/* ---- Sequence Diagrams ---- */
-
+/* Sequence diagrams */
 .mermaid .actor {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
   rx: 10px;
   ry: 10px;
 }
 
 .mermaid text.actor > tspan {
-  fill: rgba(204, 204, 204, 1);
+  fill: var(--mermaid-text-color);
   font-family: "trebuchet ms", verdana, arial, sans-serif;
 }
 
-.mermaid .actor-line {
-  stroke: rgba(136, 136, 136, 1);
-  stroke-width: 0.5px;
-}
+.mermaid .actor-line { stroke: var(--mermaid-actor-line); stroke-width: 0.5px; }
 
 .mermaid .messageLine0,
 .mermaid .messageLine1 {
-  stroke: rgba(204, 204, 204, 1);
+  stroke: var(--mermaid-edge-color);
   stroke-width: 1.5px;
 }
 
 .mermaid .messageText {
-  fill: rgba(204, 204, 204, 1);
+  fill: var(--mermaid-text-color);
   font-family: "trebuchet ms", verdana, arial, sans-serif;
 }
 
 .mermaid .loopText,
-.mermaid .loopText > tspan {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .loopText > tspan { fill: var(--mermaid-text-color); }
+.mermaid .loopLine { stroke: var(--mermaid-node-stroke); }
 
-.mermaid .loopLine {
-  stroke: rgba(129, 177, 219, 1);
-}
+.mermaid .note { fill: var(--mermaid-note-fill); stroke: var(--mermaid-note-stroke); }
+.mermaid .noteText { fill: var(--mermaid-note-text); }
 
-.mermaid .note {
-  fill: rgba(255, 245, 173, 1);
-  stroke: rgba(170, 170, 51, 1);
-}
-
-.mermaid .noteText {
-  fill: rgba(51, 51, 51, 1);
-}
-
-/* Activation boxes */
 .mermaid .activation0,
 .mermaid .activation1,
 .mermaid .activation2 {
-  fill: rgba(43, 43, 43, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-activation-fill);
+  stroke: var(--mermaid-activation-stroke);
 }
 
-/* ---- Class Diagrams ---- */
-
+/* Class diagrams */
 .mermaid .classGroup rect {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
   rx: 10px;
   ry: 10px;
 }
 
-.mermaid .classGroup text {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .classGroup text { fill: var(--mermaid-text-color); }
+.mermaid .classGroup line { stroke: var(--mermaid-node-stroke); }
+.mermaid .relation { stroke: var(--mermaid-edge-color); stroke-width: 1px; }
 
-.mermaid .classGroup line {
-  stroke: rgba(129, 177, 219, 1);
-}
-
-.mermaid .relation {
-  stroke: rgba(204, 204, 204, 1);
-  stroke-width: 1px;
-}
-
-/* ---- State Diagrams ---- */
-
+/* State diagrams */
 .mermaid .stateGroup rect,
 .mermaid .statediagram-state rect {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
   stroke-width: 1px;
   rx: 10px;
   ry: 10px;
 }
 
 .mermaid .stateGroup text,
-.mermaid .statediagram-state text {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .statediagram-state text { fill: var(--mermaid-text-color); }
 
 .mermaid .statediagram-cluster rect {
-  fill: rgba(43, 43, 43, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-cluster-fill);
+  stroke: var(--mermaid-cluster-stroke);
   rx: 10px;
   ry: 10px;
 }
 
-.mermaid g.stateGroup circle.start {
-  fill: rgba(129, 177, 219, 1);
-}
+.mermaid g.stateGroup circle.start { fill: var(--mermaid-state-marker); }
 
 .mermaid g.stateGroup .end {
-  fill: rgba(129, 177, 219, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-state-marker);
+  stroke: var(--mermaid-state-marker);
 }
 
-/* ---- ER Diagrams ---- */
-
+/* ER diagrams */
 .mermaid .entityBox {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
+  fill: var(--mermaid-node-fill);
+  stroke: var(--mermaid-node-stroke);
   rx: 10px;
   ry: 10px;
 }
 
-.mermaid .entityLabel {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .entityLabel { fill: var(--mermaid-text-color); }
+.mermaid .relationshipLine { stroke: var(--mermaid-edge-color); }
+.mermaid .relationshipLabel { fill: var(--mermaid-text-color); }
 
-.mermaid .relationshipLine {
-  stroke: rgba(204, 204, 204, 1);
-}
-
-.mermaid .relationshipLabel {
-  fill: rgba(204, 204, 204, 1);
-}
-
-/* ---- Gantt Charts ---- */
-
-.mermaid .section0,
-.mermaid .section2 {
-  fill: rgba(129, 177, 219, 0.3);
-}
-
-.mermaid .section1,
-.mermaid .section3 {
-  fill: rgba(31, 32, 32, 1);
-}
-
-.mermaid .sectionTitle {
-  fill: rgba(204, 204, 204, 1);
-}
-
-.mermaid .task {
-  fill: rgba(74, 109, 140, 1);
-  stroke: rgba(129, 177, 219, 1);
-}
-
-.mermaid .taskText {
-  fill: rgba(255, 255, 255, 1);
-}
+/* Gantt charts */
+.mermaid .section0, .mermaid .section2 { fill: var(--mermaid-section-even); }
+.mermaid .section1, .mermaid .section3 { fill: var(--mermaid-section-odd); }
+.mermaid .sectionTitle { fill: var(--mermaid-text-color); }
+.mermaid .task { fill: var(--mermaid-task-fill); stroke: var(--mermaid-task-stroke); }
+.mermaid .taskText { fill: var(--mermaid-task-text); }
 
 .mermaid .taskTextOutsideRight,
-.mermaid .taskTextOutsideLeft {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .taskTextOutsideLeft { fill: var(--mermaid-text-color); }
 
-.mermaid .activeTask {
-  fill: rgba(90, 138, 181, 1);
-}
+.mermaid .activeTask { fill: var(--mermaid-active-task); }
+.mermaid .doneTask { fill: var(--mermaid-done-fill); stroke: var(--mermaid-done-stroke); }
+.mermaid .critTask { fill: var(--mermaid-crit-fill); stroke: var(--mermaid-crit-stroke); }
+.mermaid .todayMarker { stroke: var(--mermaid-today-marker); stroke-width: 2px; }
 
-.mermaid .doneTask {
-  fill: rgba(58, 58, 58, 1);
-  stroke: rgba(102, 102, 102, 1);
-}
+/* Pie charts */
+.mermaid .pieTitleText { fill: var(--mermaid-text-color); font-size: 25px; }
+.mermaid .slice { stroke: var(--mermaid-slice-stroke); stroke-width: 2px; }
+.mermaid .legend text { fill: var(--mermaid-text-color); }
 
-.mermaid .critTask {
-  fill: rgba(204, 102, 102, 1);
-  stroke: rgba(187, 68, 68, 1);
-}
-
-.mermaid .todayMarker {
-  stroke: rgba(255, 102, 102, 1);
-  stroke-width: 2px;
-}
-
-/* ---- Pie Charts ---- */
-
-.mermaid .pieTitleText {
-  fill: rgba(204, 204, 204, 1);
-  font-size: 25px;
-}
-
-.mermaid .slice {
-  stroke: rgba(31, 32, 32, 1);
-  stroke-width: 2px;
-}
-
-.mermaid .legend text {
-  fill: rgba(204, 204, 204, 1);
-}
-
-/* ---- Git Graphs ---- */
-
+/* Git graphs */
 .mermaid .commit-id,
-.mermaid .commit-msg {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .commit-msg { fill: var(--mermaid-text-color); }
 
-/* ---- Mindmaps ---- */
+/* Mindmaps */
+.mermaid .mindmap-node rect { fill: var(--mermaid-node-fill); stroke: var(--mermaid-node-stroke); }
+.mermaid .mindmap-node text { fill: var(--mermaid-text-color); }
+.mermaid .mindmap-edge { stroke: var(--mermaid-node-stroke); }
 
-.mermaid .mindmap-node rect {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
-}
-
-.mermaid .mindmap-node text {
-  fill: rgba(204, 204, 204, 1);
-}
-
-.mermaid .mindmap-edge {
-  stroke: rgba(129, 177, 219, 1);
-}
-
-/* ---- Journey Diagrams ---- */
-
-.mermaid .journey-section rect {
-  fill: rgba(31, 32, 32, 1);
-  stroke: rgba(129, 177, 219, 1);
-}
+/* Journey diagrams */
+.mermaid .journey-section rect { fill: var(--mermaid-node-fill); stroke: var(--mermaid-node-stroke); }
 
 .mermaid .journey-section text,
-.mermaid .journey-task text {
-  fill: rgba(204, 204, 204, 1);
-}
+.mermaid .journey-task text { fill: var(--mermaid-text-color); }
 
-/* ---- Common Typography ---- */
-
-.mermaid text {
-  font-family: "trebuchet ms", verdana, arial, sans-serif;
-}
-
-/* Ensure SVG scales properly */
-.md-diagram-panel svg {
-  max-width: 100%;
-  height: auto;
-}
+.mermaid text { font-family: "trebuchet ms", verdana, arial, sans-serif; }
+.md-diagram-panel svg { max-width: 100%; height: auto; }
 
 /* =========================================================================
    9. Utilities & Export
    ========================================================================= */
 
-/* Print/PDF export overrides. */
 @media print {
 
   .typora-export * {
@@ -1939,10 +1712,9 @@ li>.outline-item-active {
 
   :root {
     --font-size: 11pt;
-    --bg-color: rgba(255, 255, 255, 1);
-    --text-color: rgba(0, 0, 0, 1);
-
-    --link-color: rgba(127, 179, 255, 1);
+    --bg-color: rgb(255, 255, 255);
+    --text-color: rgb(0, 0, 0);
+    --link-color: var(--print-link-color);
   }
 
   body {
@@ -1959,12 +1731,9 @@ li>.outline-item-active {
     margin: 0;
   }
 
-  #write img,
-  #write table,
-  #write blockquote,
-  #write .md-fences {
+  #write img, #write table, #write blockquote, #write .md-fences {
     box-shadow: none !important;
-    border: 1px solid rgba(221, 221, 221, 1) !important;
+    border: 1px solid rgb(221, 221, 221) !important;
   }
 
   * {
@@ -1980,7 +1749,7 @@ li>.outline-item-active {
   }
 
   .typora-export .md-diagram-panel {
-    background: rgba(0, 0, 0, 0) !important;
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -1994,36 +1763,25 @@ li>.outline-item-active {
 
   .typora-export .md-diagram-panel svg text,
   .typora-export .md-diagram-panel svg tspan {
-    fill: rgba(17, 17, 17, 1) !important;
+    fill: rgb(17, 17, 17) !important;
   }
 
   .typora-export .md-diagram-panel svg foreignObject {
     overflow: visible !important;
   }
 
-  #write img,
-  #write .md-task-list-item>input {
+  #write img, #write .md-task-list-item>input {
     will-change: auto !important;
     transform: none !important;
   }
 
-  #write a {
-    will-change: auto !important;
-  }
+  #write a { will-change: auto !important; }
 
-  #write img {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
-  }
+  #write img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important; }
 
-  #write hr::before,
-  #write blockquote::before {
-    display: none !important;
-  }
+  #write hr::before, #write blockquote::before { display: none !important; }
 
-  #write h1 {
-    page-break-before: always;
-    break-before: page;
-  }
+  #write h1 { page-break-before: always; break-before: page; }
 
   #write h1:first-of-type,
   #write>h1:first-child {
@@ -2031,37 +1789,21 @@ li>.outline-item-active {
     break-before: auto;
   }
 
-  #write hr {
-    page-break-after: always;
-    break-after: page;
-    margin-bottom: 0;
-  }
+  #write hr { page-break-after: always; break-after: page; margin-bottom: 0; }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
     break-after: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  #write table,
-  #write .md-fences,
-  #write blockquote,
-  #write img {
+  #write table, #write .md-fences, #write blockquote, #write img {
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  p,
-  li {
-    orphans: 3;
-    widows: 3;
-  }
+  p, li { orphans: 3; widows: 3; }
 
   #write a {
     text-decoration: underline;
@@ -2070,9 +1812,7 @@ li>.outline-item-active {
     background: none;
   }
 
-  .code-tooltip,
-  .md-fences .code-tooltip,
-  sup.md-footnote:hover {
+  .code-tooltip, .md-fences .code-tooltip, sup.md-footnote:hover {
     display: none !important;
   }
 
@@ -2085,8 +1825,8 @@ li>.outline-item-active {
   }
 
   #write .md-fences {
-    background: rgba(248, 248, 248, 1) !important;
-    border: 1px solid rgba(221, 221, 221, 1) !important;
+    background: rgb(248, 248, 248) !important;
+    border: 1px solid rgb(221, 221, 221) !important;
     padding: 0.3cm !important;
     font-size: 9pt;
     page-break-inside: avoid;
@@ -2094,84 +1834,44 @@ li>.outline-item-active {
 
   #write .cm-s-inner {
     padding: 0.3cm !important;
-    background: rgba(248, 248, 248, 1) !important;
+    background: rgb(248, 248, 248) !important;
   }
 
   #write .cm-s-inner .cm-keyword,
-  #write .cm-s-inner .cm-builtin {
-    color: rgba(215, 58, 73, 1) !important;
-    font-weight: 600;
-  }
+  #write .cm-s-inner .cm-builtin { color: rgb(215, 58, 73) !important; font-weight: 600; }
 
-  #write .cm-s-inner .cm-def {
-    color: rgba(111, 66, 193, 1) !important;
-    font-weight: 600;
-  }
+  #write .cm-s-inner .cm-def { color: rgb(111, 66, 193) !important; font-weight: 600; }
 
   #write .cm-s-inner .cm-variable,
   #write .cm-s-inner .cm-variable-2,
-  #write .cm-s-inner .cm-variable-3 {
-    color: rgba(36, 41, 46, 1) !important;
-  }
+  #write .cm-s-inner .cm-variable-3 { color: rgb(36, 41, 46) !important; }
 
   #write .cm-s-inner .cm-number,
-  #write .cm-s-inner .cm-atom {
-    color: rgba(0, 92, 197, 1) !important;
-    font-weight: 500;
-  }
+  #write .cm-s-inner .cm-atom { color: rgb(0, 92, 197) !important; font-weight: 500; }
 
   #write .cm-s-inner .cm-string,
-  #write .cm-s-inner .cm-string-2 {
-    color: rgba(34, 134, 58, 1) !important;
-  }
+  #write .cm-s-inner .cm-string-2 { color: rgb(34, 134, 58) !important; }
 
-  #write .cm-s-inner .cm-comment {
-    color: rgba(106, 115, 125, 1) !important;
-    font-style: italic;
-  }
-
-  #write .cm-s-inner .cm-operator {
-    color: rgba(215, 58, 73, 1) !important;
-  }
+  #write .cm-s-inner .cm-comment { color: rgb(106, 115, 125) !important; font-style: italic; }
+  #write .cm-s-inner .cm-operator { color: rgb(215, 58, 73) !important; }
 
   #write .cm-s-inner .cm-property,
-  #write .cm-s-inner .cm-attribute {
-    color: rgba(0, 92, 197, 1) !important;
-  }
+  #write .cm-s-inner .cm-attribute { color: rgb(0, 92, 197) !important; }
 
   #write .cm-s-inner .cm-type,
-  #write .cm-s-inner .cm-tag {
-    color: rgba(34, 134, 58, 1) !important;
-    font-weight: 500;
-  }
+  #write .cm-s-inner .cm-tag { color: rgb(34, 134, 58) !important; font-weight: 500; }
 
-  #write .cm-s-inner .cm-meta {
-    color: rgba(111, 66, 193, 1) !important;
-  }
-
-  #write .cm-s-inner .cm-qualifier {
-    color: rgba(111, 66, 193, 1) !important;
-    font-weight: 500;
-  }
-
-  #write .cm-s-inner .cm-bracket {
-    color: rgba(36, 41, 46, 1) !important;
-    font-weight: 600;
-  }
+  #write .cm-s-inner .cm-meta { color: rgb(111, 66, 193) !important; }
+  #write .cm-s-inner .cm-qualifier { color: rgb(111, 66, 193) !important; font-weight: 500; }
+  #write .cm-s-inner .cm-bracket { color: rgb(36, 41, 46) !important; font-weight: 600; }
 
   #write .cm-s-inner .cm-error {
-    color: rgba(215, 58, 73, 1) !important;
+    color: rgb(215, 58, 73) !important;
     background-color: rgba(215, 58, 73, 0.1) !important;
   }
 
-  #write .cm-s-inner .cm-header {
-    color: rgba(0, 92, 197, 1) !important;
-    font-weight: 600;
-  }
-
-  #write .cm-s-inner .cm-special {
-    color: rgba(111, 66, 193, 1) !important;
-  }
+  #write .cm-s-inner .cm-header { color: rgb(0, 92, 197) !important; font-weight: 600; }
+  #write .cm-s-inner .cm-special { color: rgb(111, 66, 193) !important; }
 
   #write table {
     border-collapse: collapse !important;
@@ -2179,37 +1879,30 @@ li>.outline-item-active {
     font-size: 10pt;
   }
 
-  #write td,
-  #write th {
-    border: 1px solid rgba(221, 221, 221, 1) !important;
+  #write td, #write th {
+    border: 1px solid rgb(221, 221, 221) !important;
     padding: 0.3cm !important;
   }
 
   #write blockquote {
-    background: rgba(245, 245, 245, 1) !important;
-    border-left: 4px solid rgba(102, 102, 102, 1) !important;
+    background: rgb(245, 245, 245) !important;
+    border-left: 4px solid rgb(102, 102, 102) !important;
     padding: 0.5cm !important;
     page-break-inside: avoid;
   }
 
-  #write blockquote::before {
-    display: none;
-  }
+  #write blockquote::before { display: none; }
 
-  .sidebar,
-  .file-tree,
-  #typora-sidebar,
-  .outline,
-  .md-search-panel {
+  .sidebar, .file-tree, #typora-sidebar, .outline, .md-search-panel {
     display: none !important;
   }
 }
 
-/* Normalize inline-styled workflow blocks from HTML exports. */
+/* HTML export block overrides */
 #write .md-htmlblock-container {
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   box-shadow: none !important;
-  border: 0 !important
+  border: 0 !important;
 }
 
 #write div[style*="border:1px solid #ccc"][style*="padding: 15px"],
@@ -2217,38 +1910,38 @@ li>.outline-item-active {
 #write div[style*="background-color:#f9f9f9"],
 #write div[style*="background-color: rgb(249, 249, 249)"],
 #write div[style*="background-color:rgb(249, 249, 249)"] {
-  background: rgba(32, 34, 37, 1) !important;
-  border-color: rgba(78, 78, 78, 1) !important;
-  color: rgba(234, 234, 234, 1) !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .35) inset !important;
+  background: var(--html-block-bg) !important;
+  border-color: var(--html-block-border) !important;
+  color: var(--html-block-color) !important;
+  box-shadow: 0 0 0 1px var(--html-block-shadow) inset !important;
 }
 
 #write div[style*="border:1px solid #aaa"] {
-  background: rgba(43, 43, 44, 1) !important;
-  border-color: rgba(106, 106, 106, 1) !important;
-  color: rgba(243, 243, 243, 1) !important
+  background: var(--html-block-alt-bg) !important;
+  border-color: var(--html-block-alt-border) !important;
+  color: var(--html-block-alt-color) !important;
 }
 
 #write [style*="background-color: #e0e0ff"],
 #write [style*="background-color:#e0e0ff"],
 #write [style*="background-color: rgb(224, 224, 255)"] {
-  background: rgba(47, 58, 122, 1) !important;
-  border-color: rgba(136, 146, 214, 1) !important;
-  color: rgba(238, 241, 255, 1) !important
+  background: var(--html-block-blue-bg) !important;
+  border-color: var(--html-block-blue-border) !important;
+  color: var(--html-block-blue-color) !important;
 }
 
 #write [style*="background-color: #e0ffe0"],
 #write [style*="background-color:#e0ffe0"],
 #write [style*="background-color: rgb(224, 255, 224)"] {
-  background: rgba(31, 74, 31, 1) !important;
-  border-color: rgba(95, 201, 102, 1) !important;
-  color: rgba(230, 255, 230, 1) !important
+  background: var(--html-block-green-bg) !important;
+  border-color: var(--html-block-green-border) !important;
+  color: var(--html-block-green-color) !important;
 }
 
 #write div[style*="font-size: 20px"] {
-  background: rgba(0, 0, 0, 0) !important;
+  background: transparent !important;
   border: 0 !important;
-  color: rgba(207, 207, 207, 1) !important
+  color: var(--html-block-title-color) !important;
 }
 
 #write .md-htmlblock-container *,
@@ -2256,23 +1949,21 @@ li>.outline-item-active {
   opacity: 1 !important;
   filter: none !important;
   mix-blend-mode: normal !important;
-  color: inherit !important
+  color: inherit !important;
 }
 
-/* Strikethrough. */
-s,
-del,
-.del {
-  color: rgba(212, 212, 212, 0.5);
+/* Strikethrough */
+s, del, .del {
+  color: var(--strikethrough-color);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 
-/* Footnote references. */
+/* Footnotes */
 #write sup.md-footnote {
-  background-color: rgba(212, 212, 212, 0.9);
-  color: rgba(32, 32, 32, 0.95);
+  background-color: var(--footnote-bg);
+  color: var(--footnote-color);
   padding: 1px 5px;
   border-radius: 3px;
   margin: 0 1px;
@@ -2280,14 +1971,14 @@ del,
   font-size: 0.75em;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
   vertical-align: baseline;
 }
 
 #write sup.md-footnote:hover {
   background-color: var(--accent-color);
   color: var(--bg-color);
-  box-shadow: 0 1px 4px rgba(156, 166, 168, 0.3);
+  box-shadow: var(--footnote-hover-shadow);
   border-color: var(--accent-color);
 }
 
@@ -2327,32 +2018,16 @@ del,
   color: inherit;
 }
 
-#write .md-footnote::before {
-  display: none;
-}
-
-#write .md-footnote:hover {
-  color: var(--accent-color);
-}
-
-#write .footnotes-sep {
-  display: none;
-}
-
-#write .footnotes {
-  margin: 0;
-  padding: 0;
-}
-
-#write .footnotes ol {
-  padding-left: 24px;
-  margin: 0;
-}
+#write .md-footnote::before { display: none; }
+#write .md-footnote:hover { color: var(--accent-color); }
+#write .footnotes-sep { display: none; }
+#write .footnotes { margin: 0; padding: 0; }
+#write .footnotes ol { padding-left: 24px; margin: 0; }
 
 #write .footnotes li {
   margin: 0;
   padding: 0;
-  color: rgba(212, 212, 212, 0.9);
+  color: var(--footnote-list-color);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
