@@ -1889,6 +1889,7 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
 
 @media print {
 
+  /* Print foundation */
   .typora-export * {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
@@ -1915,56 +1916,26 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
     margin: 0;
   }
 
-  #write img, #write table, #write blockquote, #write .md-fences {
-    box-shadow: none !important;
+  #write img, #write table, #write .md-fences {
+    box-shadow: none;
     border: 1px solid rgb(221, 221, 221) !important;
   }
 
+  /* Runtime stabilization */
   * {
-    animation: none !important;
-    transition: none !important;
-    will-change: auto !important;
-  }
-
-  .typora-export .mermaid svg,
-  .typora-export .mermaid svg * {
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-
-  .typora-export .md-diagram-panel {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-  }
-
-  .typora-export .md-diagram-panel svg {
-    width: 100% !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  .typora-export .md-diagram-panel svg text,
-  .typora-export .md-diagram-panel svg tspan {
-    fill: rgb(17, 17, 17) !important;
-  }
-
-  .typora-export .md-diagram-panel svg foreignObject {
-    overflow: visible !important;
+    animation: none;
+    transition: none;
+    will-change: auto;
   }
 
   #write img, #write .md-task-list-item>input {
-    will-change: auto !important;
-    transform: none !important;
+    will-change: auto;
+    transform: none;
   }
 
-  #write a { will-change: auto !important; }
+  #write a { will-change: auto; }
 
-  #write img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important; }
-
-  #write hr::before, #write blockquote::before { display: none !important; }
-
+  /* Pagination and page flow */
   #write h1 { page-break-before: always; break-before: page; }
 
   #write h1:first-of-type,
@@ -1989,6 +1960,7 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
 
   p, li { orphans: 3; widows: 3; }
 
+  /* Links and abbreviations */
   #write a {
     text-decoration: underline;
     color: var(--link-color);
@@ -2008,6 +1980,7 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
     font-weight: 400;
   }
 
+  /* Details */
   #write details {
     border: 1px solid rgb(221, 221, 221);
     background: rgb(250, 250, 250);
@@ -2043,29 +2016,22 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
     transform: none;
   }
 
+  /* Code blocks */
   .code-tooltip, .md-fences .code-tooltip, sup.md-footnote:hover {
-    display: none !important;
-  }
-
-  #write img {
-    max-width: 100%;
-    page-break-inside: avoid;
-    break-inside: avoid;
-    display: block;
-    margin: 16px auto;
+    display: none;
   }
 
   #write .md-fences {
-    background: rgb(248, 248, 248) !important;
-    border: 1px solid rgb(221, 221, 221) !important;
-    padding: 0.2cm !important;
+    background: rgb(248, 248, 248);
+    border: 1px solid rgb(221, 221, 221);
+    padding: 0.2cm;
     font-size: 8.5pt;
     page-break-inside: avoid;
   }
 
   #write .cm-s-inner {
-    padding: 0.2cm !important;
-    background: rgb(248, 248, 248) !important;
+    padding: 0.2cm;
+    background: rgb(248, 248, 248);
   }
 
   #write .cm-s-inner .cm-keyword,
@@ -2104,32 +2070,71 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
   #write .cm-s-inner .cm-header { color: rgb(0, 92, 197) !important; font-weight: 600; }
   #write .cm-s-inner .cm-special { color: rgb(111, 66, 193) !important; }
 
+  /* Tables */
   #write table {
-    border-collapse: collapse !important;
-    width: 100% !important;
+    border-collapse: collapse;
+    width: 100%;
     font-size: 10pt;
   }
 
   #write td, #write th {
-    border: 1px solid rgb(221, 221, 221) !important;
-    padding: 0.3cm !important;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 0.3cm;
   }
 
+  /* Media and blockquotes */
+  #write img {
+    max-width: 100%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: block;
+    margin: 16px auto;
+  }
+
+  #write img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+
   #write blockquote {
-    background: rgb(245, 245, 245) !important;
-    border-left: 4px solid rgb(102, 102, 102) !important;
-    padding: 0.5cm !important;
     page-break-inside: avoid;
   }
 
-  #write blockquote::before { display: none; }
+  #write hr::before { display: none; }
 
+  /* Mermaid export rendering */
+  .typora-export .mermaid svg,
+  .typora-export .mermaid svg * {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .typora-export .md-diagram-panel {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .typora-export .md-diagram-panel svg {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .typora-export .md-diagram-panel svg text,
+  .typora-export .md-diagram-panel svg tspan {
+    fill: rgb(17, 17, 17) !important;
+  }
+
+  .typora-export .md-diagram-panel svg foreignObject {
+    overflow: visible !important;
+  }
+
+  /* Hide Typora chrome */
   .sidebar, .file-tree, #typora-sidebar, .outline, .md-search-panel {
     display: none !important;
   }
 }
 
-/* HTML export block overrides */
+/* HTML block normalization */
 #write .md-htmlblock-container {
   background: transparent !important;
   box-shadow: none !important;
@@ -2184,12 +2189,12 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
 }
 
 .typora-export #write .md-fences {
-  padding: 0.2cm !important;
+  padding: 0.2cm;
   font-size: 8.5pt;
 }
 
 .typora-export #write .cm-s-inner {
-  padding: 0.2cm !important;
+  padding: 0.2cm;
   font-size: 8.5pt;
   line-height: 1.5;
 }
