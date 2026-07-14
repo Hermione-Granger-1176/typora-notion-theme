@@ -890,7 +890,6 @@ ol ol ol { counter-reset: sub-sub-counter; list-style-type: lower-roman; }
 .md-alert-warning::before { content: '\203C'; font-style: normal; }
 .md-alert-caution::before { content: '\D7'; font-style: normal; }
 
-.md-alert-text,
 .md-alert-title {
   color: var(--alert-accent);
   font-weight: 600;
