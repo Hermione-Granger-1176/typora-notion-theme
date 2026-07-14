@@ -374,7 +374,7 @@ h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
 }
 
 #typora-source .CodeMirror-gutters {
-  padding-left: max(0px, calc(var(--document-padding-x) - 100px));
+  padding-left: 0;
   background: transparent;
   border-right: none;
 }
