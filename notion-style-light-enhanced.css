@@ -104,7 +104,9 @@
   --paragraph-spacing: 19.2px;
 
   /* ---- Layout ---- */
+  --document-padding-x: 10ch;
   --document-padding-x: clamp(32px, 7vw, 96px);
+  --main-content-max-width: 90%;
   --main-content-max-width: 960px;
   --border-radius: 2px;
   --border-radius-lg: 4px;
@@ -1309,10 +1311,17 @@ pre {
 .sidebar-tab-btn:focus,
 #file-library-list .file-list-item:focus,
 #file-library-search-result .ty-search-item:focus,
-.md-search-panel :is(input, button, select, [role="button"]):focus,
-.ty-sidebar-search-panel :is(input, button, select, .searchpanel-search-option-btn):focus,
+.md-search-panel input:focus,
+.md-search-panel button:focus,
+.md-search-panel select:focus,
+.md-search-panel [role="button"]:focus,
+.ty-sidebar-search-panel input:focus,
+.ty-sidebar-search-panel button:focus,
+.ty-sidebar-search-panel select:focus,
+.ty-sidebar-search-panel .searchpanel-search-option-btn:focus,
 .autoComplt-hint:focus,
-.md-fences .code-tooltip :is(input, span):focus {
+.md-fences .code-tooltip input:focus,
+.md-fences .code-tooltip span:focus {
   outline: 2px solid var(--focus-ring-color);
   outline-offset: 2px;
 }
