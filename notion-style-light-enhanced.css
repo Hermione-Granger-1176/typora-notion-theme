@@ -693,7 +693,7 @@ ol ol ol { counter-reset: sub-sub-counter; list-style-type: lower-roman; }
   transform: scale(1.05) var(--gpu-acceleration);
 }
 
-#write .md-task-list-item>input:focus-visible {
+#write .md-task-list-item>input:focus {
   outline: 2px solid var(--todo-bg-color);
   outline-offset: 2px;
   box-shadow: 0 0 0 3px rgba(36, 131, 226, 0.1);
@@ -892,7 +892,6 @@ ol ol ol { counter-reset: sub-sub-counter; list-style-type: lower-roman; }
 }
 
 .md-alert-text-container {
-  display: inline;
   height: auto;
   margin: 0;
   padding: 0;
@@ -1301,15 +1300,15 @@ pre {
 }
 
 /* Keyboard focus */
-#write details > summary:focus-visible,
-.outline-item:focus-visible,
-.sidebar-tab-btn:focus-visible,
-#file-library-list .file-list-item:focus-visible,
-#file-library-search-result .ty-search-item:focus-visible,
-.md-search-panel :is(input, button, select, [role="button"]):focus-visible,
-.ty-sidebar-search-panel :is(input, button, select, .searchpanel-search-option-btn):focus-visible,
-.autoComplt-hint:focus-visible,
-.md-fences .code-tooltip :is(input, span):focus-visible {
+#write details > summary:focus,
+.outline-item:focus,
+.sidebar-tab-btn:focus,
+#file-library-list .file-list-item:focus,
+#file-library-search-result .ty-search-item:focus,
+.md-search-panel :is(input, button, select, [role="button"]):focus,
+.ty-sidebar-search-panel :is(input, button, select, .searchpanel-search-option-btn):focus,
+.autoComplt-hint:focus,
+.md-fences .code-tooltip :is(input, span):focus {
   outline: 2px solid var(--focus-ring-color);
   outline-offset: 2px;
 }
@@ -1393,9 +1392,12 @@ code {
   border-bottom-color: var(--link-hover-color);
 }
 
-#write a:focus-visible {
+#write a:focus {
   outline: 2px solid var(--focus-ring-color);
   outline-offset: 2px;
+}
+
+#write a:focus-visible {
   background-color: var(--link-hover-bg);
 }
 
@@ -1784,15 +1786,15 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
   margin-left: -10.2864px;
 }
 
-.file-library-node:not(.file-node-root):focus-visible>.file-node-content { outline: none; }
+.file-library-node:not(.file-node-root):focus>.file-node-content { outline: none; }
 
 .os-windows #file-library-tree .file-node-content {
   padding-right: 42.2864px;
   margin-bottom: 3.4288px;
 }
 
-.file-library-node:not(.file-node-root):focus-visible>.file-node-background,
-.file-library-node.active:not(.file-node-root):focus-visible>.file-node-background {
+.file-library-node:not(.file-node-root):focus>.file-node-background,
+.file-library-node.active:not(.file-node-root):focus>.file-node-background {
   border: 1px solid var(--focus-ring-color);
 }
 
@@ -1900,6 +1902,31 @@ li>.outline-item-active { background: var(--active-file-bg-color); }
 .file-library-file-node:hover .file-node-content,
 .file-library-file-node.active .file-node-content {
   cursor: pointer;
+}
+
+@supports selector(:focus-visible) {
+  #write .md-task-list-item>input:focus:not(:focus-visible),
+  #write details > summary:focus:not(:focus-visible),
+  .outline-item:focus:not(:focus-visible),
+  .sidebar-tab-btn:focus:not(:focus-visible),
+  #file-library-list .file-list-item:focus:not(:focus-visible),
+  #file-library-search-result .ty-search-item:focus:not(:focus-visible),
+  .md-search-panel :is(input, button, select, [role="button"]):focus:not(:focus-visible),
+  .ty-sidebar-search-panel :is(input, button, select, .searchpanel-search-option-btn):focus:not(:focus-visible),
+  .autoComplt-hint:focus:not(:focus-visible),
+  .md-fences .code-tooltip :is(input, span):focus:not(:focus-visible),
+  #write a:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  #write .md-task-list-item>input:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  .file-library-node:not(.file-node-root):focus:not(:focus-visible)>.file-node-background,
+  .file-library-node.active:not(.file-node-root):focus:not(:focus-visible)>.file-node-background {
+    border: none;
+  }
 }
 
 /* =========================================================================
